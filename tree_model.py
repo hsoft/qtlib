@@ -10,37 +10,57 @@
 
 from PyQt4.QtCore import Qt, QAbstractItemModel, QModelIndex
 
-class TreeNode(object):
-    def __init__(self, parent, row):
-        self.parent = parent
-        self.row = row
-        self._children = None
+class NodeContainer(object):
+    def __init__(self):
+        self._subnodes = None
+        self._ref2node = {}
     
-    def _get_children(self):
+    def _createNode(self, ref, row):
+        # This returns a TreeNode instance from ref
+        raise NotImplementedError()
+    
+    def _getChildren(self):
+        # This returns a list of ref instances, not TreeNode instances
         raise NotImplementedError()
     
     @property
-    def children(self):
-        if self._children is None:
-            self._children = self._get_children()
-        return self._children
+    def subnodes(self):
+        if self._subnodes is None:
+            children = self._getChildren()
+            self._subnodes = []
+            for index, child in enumerate(children):
+                if child in self._ref2node:
+                    node = self._ref2node[child]
+                    node.row = index
+                else:
+                    node = self._createNode(child, index)
+                    self._ref2node[child] = node
+                self._subnodes.append(node)
+        return self._subnodes
     
 
-class TreeModel(QAbstractItemModel):
+class TreeNode(NodeContainer):
+    def __init__(self, model, parent, row):
+        NodeContainer.__init__(self)
+        self.model = model
+        self.parent = parent
+        self.row = row
+    
+    @property
+    def index(self):
+        return self.model.createIndex(self.row, 0, self)
+    
+
+class TreeModel(QAbstractItemModel, NodeContainer):
     def __init__(self):
         QAbstractItemModel.__init__(self)
-        self._nodes = None
-    
-    def _root_nodes(self):
-        raise NotImplementedError()
+        NodeContainer.__init__(self)
     
     def index(self, row, column, parent):
-        if not self.nodes:
+        if not self.subnodes:
             return QModelIndex()
-        if not parent.isValid():
-            return self.createIndex(row, column, self.nodes[row])
-        node = parent.internalPointer()
-        return self.createIndex(row, column, node.children[row])
+        node = parent.internalPointer() if parent.isValid() else self
+        return self.createIndex(row, column, node.subnodes[row])
     
     def parent(self, index):
         if not index.isValid():
@@ -52,18 +72,11 @@ class TreeModel(QAbstractItemModel):
             return self.createIndex(node.parent.row, 0, node.parent)
     
     def reset(self):
-        self._nodes = None
+        self._subnodes = None
+        self._ref2node = {}
         QAbstractItemModel.reset(self)
     
     def rowCount(self, parent):
-        if not parent.isValid():
-            return len(self.nodes)
-        node = parent.internalPointer()
-        return len(node.children)
-    
-    @property
-    def nodes(self):
-        if self._nodes is None:
-            self._nodes = self._root_nodes()
-        return self._nodes
+        node = parent.internalPointer() if parent.isValid() else self
+        return len(node.subnodes)
     
