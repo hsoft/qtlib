@@ -8,10 +8,14 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
+import traceback
+
 from PyQt4.QtCore import SIGNAL, Qt, QTimer
 from PyQt4.QtGui import QProgressDialog
 
 from hsutil import job
+
+from .error_report_dialog import ErrorReportDialog
 
 class Progress(QProgressDialog, job.ThreadedJobPerformer):
     def __init__(self, parent):
