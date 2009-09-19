@@ -15,6 +15,7 @@ class NodeContainer(object):
         self._subnodes = None
         self._ref2node = {}
     
+    #--- Protected
     def _createNode(self, ref, row):
         # This returns a TreeNode instance from ref
         raise NotImplementedError()
@@ -23,6 +24,12 @@ class NodeContainer(object):
         # This returns a list of ref instances, not TreeNode instances
         raise NotImplementedError()
     
+    #--- Public
+    def invalidate(self):
+        # Invalidates cached data and list of subnodes without resetting ref2node.
+        self._subnodes = None
+    
+    #--- Properties
     @property
     def subnodes(self):
         if self._subnodes is None:
@@ -72,7 +79,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
             return self.createIndex(node.parent.row, 0, node.parent)
     
     def reset(self):
-        self._subnodes = None
+        self.invalidate()
         self._ref2node = {}
         QAbstractItemModel.reset(self)
     
