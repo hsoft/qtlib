@@ -62,12 +62,27 @@ class TreeModel(QAbstractItemModel, NodeContainer):
     def __init__(self):
         QAbstractItemModel.__init__(self)
         NodeContainer.__init__(self)
+        self._dummyNodes = set() # dummy nodes' reference have to be kept to avoid segfault
+    
+    def _createDummyNode(self, parent, row):
+        # In some cases (drag & drop row removal, to be precise), there's a temporary discrepancy
+        # between a node's subnodes and what the model think it has. This leads to invalid indexes
+        # being queried. Rather than going through complicated row removal crap, it's simpler to
+        # just have rows with empty data replacing removed rows for the millisecond that the drag &
+        # drop lasts. Override this to return a node of the correct type.
+        return TreeNode(self, parent, row)
     
     def index(self, row, column, parent):
         if not self.subnodes:
             return QModelIndex()
         node = parent.internalPointer() if parent.isValid() else self
-        return self.createIndex(row, column, node.subnodes[row])
+        try:
+            return self.createIndex(row, column, node.subnodes[row])
+        except IndexError:
+            parentNode = parent.internalPointer() if parent.isValid() else None
+            dummy = self._createDummyNode(parentNode, row)
+            self._dummyNodes.add(dummy)
+            return self.createIndex(row, column, dummy)
     
     def parent(self, index):
         if not index.isValid():
@@ -81,6 +96,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
     def reset(self):
         self.invalidate()
         self._ref2node = {}
+        self._dummyNodes = set()
         QAbstractItemModel.reset(self)
     
     def rowCount(self, parent):
