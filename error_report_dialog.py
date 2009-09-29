@@ -7,7 +7,9 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import Qt, QUrl
+from __future__ import unicode_literals
+
+from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QDesktopServices
 
 from ui.error_report_dialog_ui import Ui_ErrorReportDialog
@@ -17,7 +19,10 @@ class ErrorReportDialog(QDialog, Ui_ErrorReportDialog):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         QDialog.__init__(self, parent, flags)
         self.setupUi(self)
-        self.errorTextEdit.setPlainText(error)
+        name = QCoreApplication.applicationName()
+        version = QCoreApplication.applicationVersion()
+        errorText = "Application Name: {0}\nVersion: {1}\n\n{2}".format(name, version, error)
+        self.errorTextEdit.setPlainText(errorText)
     
     def accept(self):
         text = self.errorTextEdit.toPlainText()
