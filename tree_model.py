@@ -64,6 +64,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         NodeContainer.__init__(self)
         self._dummyNodes = set() # dummy nodes' reference have to be kept to avoid segfault
     
+    #--- Private
     def _createDummyNode(self, parent, row):
         # In some cases (drag & drop row removal, to be precise), there's a temporary discrepancy
         # between a node's subnodes and what the model think it has. This leads to invalid indexes
@@ -72,6 +73,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         # drop lasts. Override this to return a node of the correct type.
         return TreeNode(self, parent, row)
     
+    #--- Overrides
     def index(self, row, column, parent):
         if not self.subnodes:
             return QModelIndex()
@@ -102,4 +104,16 @@ class TreeModel(QAbstractItemModel, NodeContainer):
     def rowCount(self, parent):
         node = parent.internalPointer() if parent.isValid() else self
         return len(node.subnodes)
+    
+    #--- Public
+    def findIndex(self, rowPath):
+        """Returns the QModelIndex at `rowPath`
+        
+        `rowPath` is a sequence of node rows. For example, [1, 2, 1] is the 2nd child of the
+        3rd child of the 2nd child of the root.
+        """
+        result = QModelIndex()
+        for row in rowPath:
+            result = self.index(row, 0, result)
+        return result
     
