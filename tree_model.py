@@ -117,3 +117,11 @@ class TreeModel(QAbstractItemModel, NodeContainer):
             result = self.index(row, 0, result)
         return result
     
+    @staticmethod
+    def pathForIndex(index):
+        reversedPath = []
+        while index.isValid():
+            reversedPath.append(index.row())
+            index = index.parent()
+        return list(reversed(reversedPath))
+    
