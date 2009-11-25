@@ -52,7 +52,10 @@ class Preferences(object):
         settings = QSettings()
         def get(name, default):
             if settings.contains(name):
-                return variant_to_py(settings.value(name))
+                try:
+                    return variant_to_py(settings.value(name))
+                except TypeError:
+                    return default
             else:
                 return default
         # self.registration_code = get('RegistrationCode', self.registration_code)
