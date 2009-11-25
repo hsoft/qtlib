@@ -36,7 +36,7 @@ def variant_to_py(v):
     return value    
 
 def py_to_variant(v):
-    if isinstance(v, (list, tuple)):
+    if isinstance(v, (list, tuple, set)):
         return QVariant(map(py_to_variant, v))
     return QVariant(v)
 
