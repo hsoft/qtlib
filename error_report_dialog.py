@@ -9,6 +9,9 @@
 
 from __future__ import unicode_literals
 
+import traceback
+import sys
+
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QDesktopServices
 
@@ -30,3 +33,11 @@ class ErrorReportDialog(QDialog, Ui_ErrorReportDialog):
         QDesktopServices.openUrl(url)
         QDialog.accept(self)
     
+
+def install_excepthook():
+    def my_excepthook(exctype, value, tb):
+        s = ''.join(traceback.format_exception(exctype, value, tb))
+        dialog = ErrorReportDialog(None, s)
+        dialog.exec_()
+    
+    sys.excepthook = my_excepthook
