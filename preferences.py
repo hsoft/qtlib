@@ -43,24 +43,23 @@ def py_to_variant(v):
 class Preferences(object):
     def __init__(self):
         self.reset()
+        self._settings = QSettings()
     
     def _load_values(self, settings, get):
         pass
     
+    def get_value(self, name, default=None):
+        if self._settings.contains(name):
+            try:
+                return variant_to_py(self._settings.value(name))
+            except TypeError:
+                return default
+        else:
+            return default
+    
     def load(self):
         self.reset()
-        settings = QSettings()
-        def get(name, default):
-            if settings.contains(name):
-                try:
-                    return variant_to_py(settings.value(name))
-                except TypeError:
-                    return default
-            else:
-                return default
-        # self.registration_code = get('RegistrationCode', self.registration_code)
-        # self.registration_email = get('RegistrationEmail', self.registration_email)
-        self._load_values(settings, get)
+        self._load_values(self._settings, self.get_value)
     
     def reset(self):
         pass
@@ -69,11 +68,8 @@ class Preferences(object):
         pass
     
     def save(self):
-        settings = QSettings()
-        def set_(name, value):
-            settings.setValue(name, py_to_variant(value))
-        
-        # set_('RegistrationCode', self.registration_code)
-        # set_('RegistrationEmail', self.registration_email)
-        self._save_values(settings, set_)
+        self._save_values(self._settings, self.set_value)
+    
+    def set_value(self, name, value):
+        self._settings.setValue(name, py_to_variant(value))
     
