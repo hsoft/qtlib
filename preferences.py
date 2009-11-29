@@ -69,6 +69,7 @@ class Preferences(object):
     
     def save(self):
         self._save_values(self._settings, self.set_value)
+        self._settings.sync()
     
     def set_value(self, name, value):
         self._settings.setValue(name, py_to_variant(value))
