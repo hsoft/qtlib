@@ -31,12 +31,14 @@ def variant_to_py(v):
         value, ok = v.toBool(), True
     elif t in (QVariant.List, QVariant.StringList):
         value, ok = map(variant_to_py, v.toList()), True
+    elif t == QVariant.Map:
+        value, ok = dict((unicode(key), variant_to_py(value)) for key, value in v.toMap().items()), True
     if not ok:
         raise TypeError(u"Can't convert {0} of type {1}".format(repr(v), v.type()))
     return value    
 
 def py_to_variant(v):
-    if isinstance(v, (list, tuple, set)):
+    if isinstance(v, set): # QVariant doesn't automatically consider a set as a list for preferences
         return QVariant(map(py_to_variant, v))
     return QVariant(v)
 
