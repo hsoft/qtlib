@@ -33,7 +33,6 @@ class AboutBox(QDialog, Ui_AboutBox):
         self.registerButton = self.buttonBox.addButton("Register", QDialogButtonBox.ActionRole)
     
     #--- Events
-    #XXX adjust dupeguru code to the askForCode() change.
     def buttonClicked(self, button):
         if button is self.registerButton:
             self.app.askForRegCode()
