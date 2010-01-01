@@ -52,7 +52,7 @@
      <item>
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Copyright Hardcoded Software 2009</string>
+        <string>Copyright Hardcoded Software 2010</string>
        </property>
       </widget>
      </item>
