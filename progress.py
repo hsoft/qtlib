@@ -34,7 +34,8 @@ class Progress(QProgressDialog, job.ThreadedJobPerformer):
         if not self._job_running or last_progress is None:
             self._timer.stop()
             self.close()
-            self.emit(SIGNAL('finished(QString)'), self._jobid)
+            if not self.job_cancelled:
+                self.emit(SIGNAL('finished(QString)'), self._jobid)
             if self._last_error is not None:
                 s = ''.join(traceback.format_exception(*self._last_error))
                 dialog = ErrorReportDialog(self.parent(), s)
