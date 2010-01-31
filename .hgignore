@@ -1,3 +1,4 @@
 syntax: glob
 
 *.pyc
+ui/*_ui.py

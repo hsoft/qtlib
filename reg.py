@@ -16,11 +16,11 @@ class Registration(object):
         self.app = app
     
     def ask_for_code(self):
-        dialog = RegSubmitDialog(None, self.app.is_code_valid)
+        dialog = RegSubmitDialog(None, self.app.validate_code)
         result = dialog.exec_()
         code = unicode(dialog.codeEdit.text())
         email = unicode(dialog.emailEdit.text())
-        if result == QDialog.Accepted and self.app.is_code_valid(code, email):
+        if result == QDialog.Accepted:
             self.app.set_registration(code, email)
             return True
         return False
