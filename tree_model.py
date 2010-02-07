@@ -57,6 +57,22 @@ class TreeNode(NodeContainer):
         return self.model.createIndex(self.row, 0, self)
     
 
+class RefNode(TreeNode):
+    """Node pointing to a reference node.
+    
+    Use this if your Qt model wraps around a tree model that has iterable nodes.
+    """
+    def __init__(self, model, parent, ref, row):
+        TreeNode.__init__(self, model, parent, row)
+        self.ref = ref
+    
+    def _createNode(self, ref, row):
+        return RefNode(self.model, self, ref, row)
+    
+    def _getChildren(self):
+        return list(self.ref)
+    
+
 class TreeModel(QAbstractItemModel, NodeContainer):
     def __init__(self):
         QAbstractItemModel.__init__(self)
