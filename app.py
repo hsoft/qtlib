@@ -12,12 +12,8 @@ from PyQt4.QtCore import SIGNAL, QTimer, QObject
 class Application(QObject):
     def __init__(self):
         QObject.__init__(self)
-        self.__launchTimer = QTimer()
-        self.connect(self.__launchTimer, SIGNAL('timeout()'), self.__launchTimerTimedOut)
-        self.__launchTimer.start(0)
+        QTimer.singleShot(0, self.__launchTimerTimedOut)
     
     def __launchTimerTimedOut(self):
-        self.__launchTimer.stop()
-        del self.__launchTimer
         self.emit(SIGNAL('applicationFinishedLaunching()'))
     
