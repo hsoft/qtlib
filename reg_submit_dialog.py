@@ -28,8 +28,8 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
     def _setupUi(self):
         self.setupUi(self)
         # Stuff that can't be setup in the Designer
-        appname = QCoreApplication.instance().applicationName()
-        prompt = self.promptLabel.text()
+        appname = unicode(QCoreApplication.instance().applicationName())
+        prompt = unicode(self.promptLabel.text())
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
     
