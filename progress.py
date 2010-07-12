@@ -12,7 +12,7 @@ import traceback
 from PyQt4.QtCore import SIGNAL, Qt, QTimer
 from PyQt4.QtGui import QProgressDialog
 
-from hsutil import job
+from hscommon import job
 
 from .error_report_dialog import ErrorReportDialog
 

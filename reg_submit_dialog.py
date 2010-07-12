@@ -11,7 +11,7 @@ from __future__ import unicode_literals
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QMessageBox, QDesktopServices
 
-from hsutil.reg import InvalidCodeError
+from hscommon.reg import InvalidCodeError
 
 from .ui.reg_submit_dialog_ui import Ui_RegSubmitDialog
 
