@@ -48,7 +48,10 @@ class Table(QAbstractTableModel, ColumnBearer):
     # Virtual
     def _getData(self, row, column, role):
         if role in (Qt.DisplayRole, Qt.EditRole):
-            return getattr(row, column.attrname)
+            attrname = column.attrname
+            if attrname == 'from':
+                attrname = 'from_'
+            return getattr(row, attrname)
         elif role == Qt.TextAlignmentRole:
             return column.alignment
         return None
@@ -64,7 +67,10 @@ class Table(QAbstractTableModel, ColumnBearer):
     def _setData(self, row, column, value, role):
         if role == Qt.EditRole:
             value = unicode(value.toString())
-            setattr(row, column.attrname, value)
+            attrname = column.attrname
+            if attrname == 'from':
+                attrname = 'from_'
+            setattr(row, attrname, value)
             return True
         return False
     
@@ -108,8 +114,6 @@ class Table(QAbstractTableModel, ColumnBearer):
     def sort(self, section, order):
         column = self.COLUMNS[section]
         attrname = column.attrname
-        if attrname == 'from_':
-            attrname = 'from'
         self.model.sort_by(attrname, desc=order==Qt.DescendingOrder)
     
     def submit(self):
