@@ -15,7 +15,7 @@ def variant_to_py(v):
     ok = False
     t = v.type()
     if t == QVariant.String:
-        value = unicode(v.toString())
+        value = str(v.toString())
         ok = True # anyway
         # might be bool or int, try them
         if v == 'true':
@@ -29,16 +29,16 @@ def variant_to_py(v):
     elif t == QVariant.Bool:
         value, ok = v.toBool(), True
     elif t in (QVariant.List, QVariant.StringList):
-        value, ok = map(variant_to_py, v.toList()), True
+        value, ok = list(map(variant_to_py, v.toList())), True
     elif t == QVariant.Map:
-        value, ok = dict((unicode(key), variant_to_py(value)) for key, value in v.toMap().items()), True
+        value, ok = dict((str(key), variant_to_py(value)) for key, value in list(v.toMap().items())), True
     if not ok:
-        raise TypeError(u"Can't convert {0} of type {1}".format(repr(v), v.type()))
+        raise TypeError("Can't convert {0} of type {1}".format(repr(v), v.type()))
     return value    
 
 def py_to_variant(v):
     if isinstance(v, set): # QVariant doesn't automatically consider a set as a list for preferences
-        return QVariant(map(py_to_variant, v))
+        return QVariant(list(map(py_to_variant, v)))
     return QVariant(v)
 
 class Preferences(object):

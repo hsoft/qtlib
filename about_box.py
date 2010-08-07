@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from __future__ import unicode_literals
+
 
 from PyQt4.QtCore import Qt, QCoreApplication
 from PyQt4.QtGui import QDialog, QDialogButtonBox, QPixmap

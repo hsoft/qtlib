@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from __future__ import unicode_literals
+
 
 import traceback
 import sys
@@ -14,7 +14,7 @@ import sys
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QDesktopServices
 
-from ui.error_report_dialog_ui import Ui_ErrorReportDialog
+from .ui.error_report_dialog_ui import Ui_ErrorReportDialog
 
 class ErrorReportDialog(QDialog, Ui_ErrorReportDialog):
     def __init__(self, parent, error):

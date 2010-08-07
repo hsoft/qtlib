@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from __future__ import unicode_literals
+
 
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QMessageBox, QDesktopServices
@@ -28,8 +28,8 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
     def _setupUi(self):
         self.setupUi(self)
         # Stuff that can't be setup in the Designer
-        appname = unicode(QCoreApplication.instance().applicationName())
-        prompt = unicode(self.promptLabel.text())
+        appname = str(QCoreApplication.instance().applicationName())
+        prompt = str(self.promptLabel.text())
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
     
@@ -39,8 +39,8 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
         QDesktopServices.openUrl(url)
     
     def submitClicked(self):
-        code = unicode(self.codeEdit.text())
-        email = unicode(self.emailEdit.text())
+        code = str(self.codeEdit.text())
+        email = str(self.emailEdit.text())
         title = "Registration"
         try:
             self.validate_func(code, email)
@@ -48,6 +48,6 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
             QMessageBox.information(self, title, msg)
             self.accept()
         except InvalidCodeError as e:
-            msg = unicode(e)
+            msg = str(e)
             QMessageBox.warning(self, title, msg)
     
