@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import QSettings, QVariant
+from PyQt4.QtCore import QSettings, QVariant, QRect
 
 from hsutil.misc import tryint
 
@@ -41,6 +41,10 @@ def py_to_variant(v):
         return QVariant(list(map(py_to_variant, v)))
     return QVariant(v)
 
+# About QRect conversion:
+# I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
+# to rely on it and stay with generic structures.
+
 class Preferences(object):
     def __init__(self):
         self.reset()
@@ -48,6 +52,13 @@ class Preferences(object):
     
     def _load_values(self, settings, get):
         pass
+    
+    def get_rect(self, name, default=None):
+        r = self.get_value(name, default)
+        if r is not None:
+            return QRect(*r)
+        else:
+            return None
     
     def get_value(self, name, default=None):
         if self._settings.contains(name):
@@ -60,7 +71,7 @@ class Preferences(object):
     
     def load(self):
         self.reset()
-        self._load_values(self._settings, self.get_value)
+        self._load_values(self._settings)
     
     def reset(self):
         pass
@@ -69,8 +80,13 @@ class Preferences(object):
         pass
     
     def save(self):
-        self._save_values(self._settings, self.set_value)
+        self._save_values(self._settings)
         self._settings.sync()
+    
+    def set_rect(self, name, r):
+        if isinstance(r, QRect):
+            rectAsList = [r.x(), r.y(), r.width(), r.height()]
+            self.set_value(name, rectAsList)
     
     def set_value(self, name, value):
         self._settings.setValue(name, py_to_variant(value))
