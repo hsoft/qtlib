@@ -92,9 +92,17 @@ class Table(QAbstractTableModel, ColumnBearer):
         return self._getFlags(row, column)
     
     def headerData(self, section, orientation, role):
-        if orientation == Qt.Horizontal and role == Qt.DisplayRole and section < len(self.COLUMNS):
-            return self.COLUMNS[section].title
-        return None
+        if orientation != Qt.Horizontal:
+            return None
+        if section >= len(self.COLUMNS):
+            return None
+        column = self.COLUMNS[section]
+        if role == Qt.DisplayRole:
+            return column.title
+        elif role == Qt.TextAlignmentRole:
+            return column.alignment
+        else:
+            return None
     
     def revert(self):
         self.model.cancel_edits()
