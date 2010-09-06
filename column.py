@@ -15,13 +15,16 @@ PAYEE_EDIT = 'payee_edit'
 ACCOUNT_EDIT = 'account_edit'
 
 class Column(object):
-    def __init__(self, attrname, title, defaultWidth, editor=None, alignment=Qt.AlignLeft):
+    def __init__(self, attrname, title, defaultWidth, editor=None, alignment=Qt.AlignLeft,
+            cantTruncate=False):
         self.index = None # Is set when the column list is read
         self.attrname = attrname
         self.title = title
         self.defaultWidth = defaultWidth
         self.editor = editor
         self.alignment = alignment
+        # This is to indicate, during printing, that a column can't have its data truncated.
+        self.cantTruncate = cantTruncate
     
 
 class ColumnBearer(object):
