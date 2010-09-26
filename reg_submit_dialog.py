@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-
+import platform
 
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import QDialog, QMessageBox, QDesktopServices
@@ -32,6 +32,9 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
         prompt = str(self.promptLabel.text())
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
+        # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
+        if platform.system() == 'Linux':
+            self.resize(self.width(), 180)
     
     #--- Events
     def purchaseClicked(self):
