@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>365</width>
-    <height>134</height>
+    <height>146</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Enter your registration code</string>
+   <string>Enter your registration key</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="promptLabel">
      <property name="text">
-      <string>Please enter your $appname registration code and registered e-mail (the e-mail you used for the purchase), then press &quot;Submit&quot;.</string>
+      <string>Please enter your $appname registration key and registered e-mail (the e-mail you used for your contribution), then press &quot;Submit&quot;.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -44,7 +44,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Registration code:</string>
+        <string>Registration key:</string>
        </property>
       </widget>
      </item>
@@ -66,9 +66,9 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="purchaseButton">
+      <widget class="QPushButton" name="contributeButton">
        <property name="text">
-        <string>Purchase</string>
+        <string>Contribute</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>

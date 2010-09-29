@@ -19,29 +19,29 @@ class RegDemoDialog(QDialog, Ui_RegDemoDialog):
         self._setupUi()
         
         self.connect(self.enterCodeButton, SIGNAL('clicked()'), self.enterCodeClicked)
-        self.connect(self.purchaseButton, SIGNAL('clicked()'), self.purchaseClicked)
+        self.connect(self.contributeButton, SIGNAL('clicked()'), self.contributeClicked)
     
     def _setupUi(self):
         self.setupUi(self)
         # Stuff that can't be setup in the Designer
         appname = QCoreApplication.instance().applicationName()
+        unpaid_hours = "%0.1f" % self.reg.app.unpaid_hours
         title = str(self.windowTitle())
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
-        title = str(self.titleLabel.text())
-        title = title.replace('$appname', appname)
-        self.titleLabel.setText(title)
-        desc = str(self.demoDescLabel.text())
+        desc = str(self.descLabel.text())
         desc = desc.replace('$appname', appname)
-        self.demoDescLabel.setText(desc)
-        self.demoLimitLabel.setText(self.reg.app.DEMO_LIMIT_DESC)
+        self.descLabel.setText(desc)
+        unpaid = str(self.unpaidHoursLabel.text())
+        unpaid = unpaid.replace('$unpaid', unpaid_hours)
+        self.unpaidHoursLabel.setText(unpaid)
     
     #--- Events
     def enterCodeClicked(self):
         if self.reg.ask_for_code():
             self.accept()
     
-    def purchaseClicked(self):
-        url = QUrl('http://www.hardcoded.net/purchase.htm')
+    def contributeClicked(self):
+        url = QUrl('http://open.hardcoded.net/contribute/')
         QDesktopServices.openUrl(url)
     

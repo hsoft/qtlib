@@ -23,7 +23,7 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
         self.validate_func = validate_func
         
         self.connect(self.submitButton, SIGNAL('clicked()'), self.submitClicked)
-        self.connect(self.purchaseButton, SIGNAL('clicked()'), self.purchaseClicked)
+        self.connect(self.contributeButton, SIGNAL('clicked()'), self.contributeClicked)
     
     def _setupUi(self):
         self.setupUi(self)
@@ -37,8 +37,8 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
             self.resize(self.width(), 180)
     
     #--- Events
-    def purchaseClicked(self):
-        url = QUrl('http://www.hardcoded.net/purchase.htm')
+    def contributeClicked(self):
+        url = QUrl('http://open.hardcoded.net/contribute/')
         QDesktopServices.openUrl(url)
     
     def submitClicked(self):
