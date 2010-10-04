@@ -9,13 +9,12 @@
 import platform
 
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
-from PyQt4.QtGui import QDialog, QMessageBox, QDesktopServices
+from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, QVBoxLayout,
+    QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy)
 
 from hscommon.reg import InvalidCodeError
 
-from .ui.reg_submit_dialog_ui import Ui_RegSubmitDialog
-
-class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
+class RegSubmitDialog(QDialog):
     def __init__(self, parent, validate_func):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         QDialog.__init__(self, parent, flags)
@@ -24,17 +23,68 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
         
         self.connect(self.submitButton, SIGNAL('clicked()'), self.submitClicked)
         self.connect(self.contributeButton, SIGNAL('clicked()'), self.contributeClicked)
+        self.cancelButton.clicked.connect(self.reject)
     
     def _setupUi(self):
-        self.setupUi(self)
-        # Stuff that can't be setup in the Designer
+        def tr(s):
+            return QApplication.translate("RegSubmitDialog", s, None, QApplication.UnicodeUTF8)
+        
+        self.setWindowTitle(tr("Enter your registration key"))
+        # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
+        dlg_height = 180 if platform.system() == 'Linux' else 146
+        self.resize(365, dlg_height)
+        self.verticalLayout = QVBoxLayout(self)
+        self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
-        prompt = str(self.promptLabel.text())
+        prompt = tr("Please enter your $appname registration key and registered e-mail (the e-mail you used for your contribution), then press \"Submit\".")
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
-        # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        if platform.system() == 'Linux':
-            self.resize(self.width(), 180)
+        self.promptLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.promptLabel.setWordWrap(True)
+        self.verticalLayout.addWidget(self.promptLabel)
+        self.formLayout = QFormLayout()
+        self.formLayout.setSizeConstraint(QLayout.SetNoConstraint)
+        self.formLayout.setFieldGrowthPolicy(QFormLayout.ExpandingFieldsGrow)
+        self.formLayout.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.formLayout.setFormAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_2 = QLabel(self)
+        self.label_2.setText(tr("Registration key:"))
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
+        self.label_3 = QLabel(self)
+        self.label_3.setText(tr("Registered e-mail:"))
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_3)
+        self.codeEdit = QLineEdit(self)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.codeEdit)
+        self.emailEdit = QLineEdit(self)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.emailEdit)
+        self.verticalLayout.addLayout(self.formLayout)
+        self.horizontalLayout = QHBoxLayout()
+        self.contributeButton = QPushButton(self)
+        self.contributeButton.setText(tr("Contribute"))
+        self.contributeButton.setAutoDefault(False)
+        self.horizontalLayout.addWidget(self.contributeButton)
+        spacerItem = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+        self.cancelButton = QPushButton(self)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.cancelButton.sizePolicy().hasHeightForWidth())
+        self.cancelButton.setSizePolicy(sizePolicy)
+        self.cancelButton.setText(tr("Cancel"))
+        self.cancelButton.setAutoDefault(False)
+        self.horizontalLayout.addWidget(self.cancelButton)
+        self.submitButton = QPushButton(self)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.submitButton.sizePolicy().hasHeightForWidth())
+        self.submitButton.setSizePolicy(sizePolicy)
+        self.submitButton.setText(tr("Submit"))
+        self.submitButton.setAutoDefault(False)
+        self.submitButton.setDefault(True)
+        self.horizontalLayout.addWidget(self.submitButton)
+        self.verticalLayout.addLayout(self.horizontalLayout)
     
     #--- Events
     def contributeClicked(self):
@@ -54,3 +104,11 @@ class RegSubmitDialog(QDialog, Ui_RegSubmitDialog):
             msg = str(e)
             QMessageBox.warning(self, title, msg)
     
+
+if __name__ == '__main__':
+    import sys
+    app = QApplication([])
+    validate = lambda *args: True
+    dialog = RegSubmitDialog(None, validate)
+    dialog.show()
+    sys.exit(app.exec_())

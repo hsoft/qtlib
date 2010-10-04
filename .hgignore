@@ -1,4 +1,4 @@
 syntax: glob
 
 *.pyc
-ui/*_ui.py
+.DS_Store
