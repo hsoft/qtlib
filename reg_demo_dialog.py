@@ -6,6 +6,8 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
+import sys
+
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
     QFont, QSpacerItem, QSizePolicy, QPushButton)
@@ -29,7 +31,9 @@ class RegDemoDialog(QDialog):
         title = tr("$appname is Fairware")
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
-        self.resize(397, 329)
+        # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
+        dlg_height = 329 if sys.platform == 'linux2' else 250
+        self.resize(397, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.titleLabel = QLabel(self)
         font = QFont()
@@ -88,7 +92,6 @@ This dialog doesn't show when there are no unpaid hours or when you have a valid
     
 
 if __name__ == '__main__':
-    import sys
     app = QApplication([])
     app.unpaid_hours = 42.4
     class FakeReg:
