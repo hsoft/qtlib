@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-import platform
+import sys
 
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, QVBoxLayout,
@@ -31,7 +31,7 @@ class RegSubmitDialog(QDialog):
         
         self.setWindowTitle(tr("Enter your registration key"))
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 180 if platform.system() == 'Linux' else 146
+        dlg_height = 180 if sys.platform == 'linux2' else 146
         self.resize(365, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
@@ -106,7 +106,6 @@ class RegSubmitDialog(QDialog):
     
 
 if __name__ == '__main__':
-    import sys
     app = QApplication([])
     validate = lambda *args: True
     dialog = RegSubmitDialog(None, validate)
