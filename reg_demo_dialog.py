@@ -10,7 +10,7 @@ import sys
 
 from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
-    QFont, QSpacerItem, QSizePolicy, QPushButton)
+    QFont, QSpacerItem, QSizePolicy, QPushButton, QCheckBox)
 
 class RegDemoDialog(QDialog):
     def __init__(self, parent, reg):
@@ -32,7 +32,7 @@ class RegDemoDialog(QDialog):
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 329 if sys.platform == 'linux2' else 250
+        dlg_height = 350 if sys.platform == 'linux2' else 270
         self.resize(397, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.titleLabel = QLabel(self)
@@ -62,6 +62,9 @@ This dialog doesn't show when there are no unpaid hours or when you have a valid
         unpaid = unpaid.replace('$unpaid', unpaid_hours)
         self.unpaidHoursLabel.setText(unpaid)
         self.verticalLayout.addWidget(self.unpaidHoursLabel)
+        self.dontContributeBox = QCheckBox(self)
+        self.dontContributeBox.setText("I don't want to contribute, stop bugging me")
+        self.verticalLayout.addWidget(self.dontContributeBox)
         spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QHBoxLayout()
