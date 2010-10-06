@@ -30,7 +30,7 @@ class RegDontContributeDialog(QDialog):
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         prompt = "You won't or you can't contribute? You must have your reasons. I'd like to know "\
-            "about them. You don't have enought money? My hours don't deserve to be compensated? "\
+            "about them. You don't have enough money? My hours don't deserve to be compensated? "\
             "Please, tell me. I promise you right here right now that anything reasonable will get "\
             "you a registration key."
         self.promptLabel.setText(prompt)
