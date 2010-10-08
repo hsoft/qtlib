@@ -9,7 +9,7 @@
 
 import sys
 
-from PyQt4.QtCore import Qt, QUrl
+from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QLabel,
     QPlainTextEdit, QDialogButtonBox)
 
@@ -48,8 +48,10 @@ class RegDontContributeDialog(QDialog):
     #--- Events
     def buttonClicked(self, button):
         if button is self.sendButton:
+            appname = QCoreApplication.instance().applicationName()
             text = self.msgEdit.toPlainText()
-            url = QUrl("mailto:hsoft@hardcoded.net?SUBJECT=I don't want to contribute&BODY=%s" % text)
+            subject = "I don't want to contribute to {0}".format(appname)
+            url = QUrl("mailto:hsoft@hardcoded.net?SUBJECT={0}&BODY={1}".format(subject, text))
             QDesktopServices.openUrl(url)
             self.accept()
     
