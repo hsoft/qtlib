@@ -8,6 +8,7 @@
 
 import traceback
 import sys
+import os
 
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QVBoxLayout, QHBoxLayout, QLabel,
@@ -21,6 +22,8 @@ class ErrorReportDialog(QDialog):
         name = QCoreApplication.applicationName()
         version = QCoreApplication.applicationVersion()
         errorText = "Application Name: {0}\nVersion: {1}\n\n{2}".format(name, version, error)
+        # Under windows, we end up with an error report without linesep if we don't mangle it
+        errorText = errorText.replace('\n', os.linesep)
         self.errorTextEdit.setPlainText(errorText)
         
         self.sendButton.clicked.connect(self.accept)
