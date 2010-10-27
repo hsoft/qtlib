@@ -49,9 +49,7 @@ class Table(QAbstractTableModel, ColumnBearer):
     def _getData(self, row, column, role):
         if role in (Qt.DisplayRole, Qt.EditRole):
             attrname = column.attrname
-            if attrname == 'from':
-                attrname = 'from_'
-            return getattr(row, attrname)
+            return row.get_cell_value(attrname)
         elif role == Qt.TextAlignmentRole:
             return column.alignment
         return None
