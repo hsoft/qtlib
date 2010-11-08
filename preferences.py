@@ -37,8 +37,10 @@ def variant_to_py(v):
     return value    
 
 def py_to_variant(v):
-    if isinstance(v, set): # QVariant doesn't automatically consider a set as a list for preferences
-        return QVariant(list(map(py_to_variant, v)))
+    if isinstance(v, (set, tuple)): # QVariant doesn't automatically consider a set/tuple as a list for preferences
+        v = list(v)
+    if isinstance(v, list):
+        return [py_to_variant(item) for item in v]
     return QVariant(v)
 
 # About QRect conversion:
