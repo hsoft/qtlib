@@ -8,7 +8,7 @@
 
 from PyQt4.QtCore import QSettings, QVariant, QRect
 
-from hsutil.misc import tryint
+from hscommon.util import tryint
 
 def variant_to_py(v):
     value = None
