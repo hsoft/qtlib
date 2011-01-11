@@ -64,6 +64,8 @@ This dialog doesn't show when there are no unpaid hours or when you have a valid
         self.verticalLayout.addWidget(self.unpaidHoursLabel)
         self.dontContributeBox = QCheckBox(self)
         self.dontContributeBox.setText("I don't want to contribute, stop bugging me")
+        if self.reg.app.is_first_run:
+            self.dontContributeBox.setVisible(False)
         self.verticalLayout.addWidget(self.dontContributeBox)
         spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
