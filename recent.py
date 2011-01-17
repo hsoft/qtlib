@@ -7,22 +7,24 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import pyqtSignal, QObject, QSettings
+from collections import namedtuple
+
+from PyQt4.QtCore import pyqtSignal, QObject
 from PyQt4.QtGui import QAction
 
 from hscommon.util import dedupe
-from .preferences import variant_to_py
+
+MenuEntry = namedtuple('MenuEntry', 'menu fixedItemCount')
 
 class Recent(QObject):
-    def __init__(self, app, menu, prefName, maxItemCount=10):
+    def __init__(self, app, prefName, maxItemCount=10):
         QObject.__init__(self)
         self._app = app
-        self._menu = menu
+        self._menuEntries = []
         self._prefName = prefName
         self._maxItemCount = maxItemCount
         self._items = []
         self._loadFromPrefs()
-        self._refreshMenu()
         
         self._app.willSavePrefs.connect(self._saveToPrefs)
     
@@ -35,22 +37,45 @@ class Recent(QObject):
     def _insertItem(self, item):
         self._items = dedupe([item] + self._items)[:self._maxItemCount]
     
-    def _refreshMenu(self):
-        menu = self._menu
-        menu.clear()
+    def _refreshMenu(self, menuEntry):
+        menu, fixedItemCount = menuEntry
+        for action in menu.actions()[fixedItemCount:]:
+            menu.removeAction(action)
         for item in self._items:
             action = QAction(item, menu)
             action.setData(item)
             action.triggered.connect(self.menuItemWasClicked)
             menu.addAction(action)
+        menu.addSeparator()
+        action = QAction("Clear List", menu)
+        action.triggered.connect(self.clear)
+        menu.addAction(action)
+    
+    def _refreshAllMenus(self):
+        for menuEntry in self._menuEntries:
+            self._refreshMenu(menuEntry)
     
     def _saveToPrefs(self):
         setattr(self._app.prefs, self._prefName, self._items)
     
     #--- Public
+    def addMenu(self, menu):
+        menuEntry = MenuEntry(menu, len(menu.actions()))
+        self._menuEntries.append(menuEntry)
+        self._refreshMenu(menuEntry)
+    
+    def clear(self):
+        self._items = []
+        self._refreshAllMenus()
+        self.itemsChanged.emit()
+    
     def insertItem(self, item):
         self._insertItem(str(item))
-        self._refreshMenu()
+        self._refreshAllMenus()
+        self.itemsChanged.emit()
+    
+    def isEmpty(self):
+        return not bool(self._items)
     
     #--- Event Handlers
     def menuItemWasClicked(self):
@@ -58,9 +83,10 @@ class Recent(QObject):
         if action is not None:
             item = action.data().toString()
             self.mustOpenItem.emit(item)
-            self._refreshMenu()
+            self._refreshAllMenus()
     
     #--- Signals
     mustOpenItem = pyqtSignal(str)
+    itemsChanged = pyqtSignal()
 
     
