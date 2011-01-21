@@ -12,6 +12,7 @@ from collections import namedtuple
 from PyQt4.QtCore import pyqtSignal, QObject
 from PyQt4.QtGui import QAction
 
+from hscommon.trans import tr
 from hscommon.util import dedupe
 
 MenuEntry = namedtuple('MenuEntry', 'menu fixedItemCount')
@@ -47,7 +48,7 @@ class Recent(QObject):
             action.triggered.connect(self.menuItemWasClicked)
             menu.addAction(action)
         menu.addSeparator()
-        action = QAction("Clear List", menu)
+        action = QAction(tr("Clear List"), menu)
         action.triggered.connect(self.clear)
         menu.addAction(action)
     
