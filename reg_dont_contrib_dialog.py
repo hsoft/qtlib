@@ -11,7 +11,10 @@ import sys
 
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QLabel,
-    QPlainTextEdit, QDialogButtonBox)
+    QPlainTextEdit, QDialogButtonBox, QFont)
+
+from hscommon.trans import tr as trbase, trmsg
+tr = lambda s: trbase(s, "RegDontContributeDialog")
 
 class RegDontContributeDialog(QDialog):
     def __init__(self, parent):
@@ -23,16 +26,16 @@ class RegDontContributeDialog(QDialog):
         self.buttonBox.clicked.connect(self.buttonClicked)
     
     def _setupUi(self):
-        def tr(s):
-            return QApplication.translate("RegDontContributeDialog", s, None, QApplication.UnicodeUTF8)
-        
         self.setWindowTitle(tr("Don't contribute"))
         self.verticalLayout = QVBoxLayout(self)
+        self.boldLabel = QLabel(tr("You indicated not wanting to (or not being able to) contribute."), self)
+        font = QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.boldLabel.setFont(font)
+        self.verticalLayout.addWidget(self.boldLabel)
         self.promptLabel = QLabel(self)
-        prompt = "You won't or you can't contribute? You must have your reasons. I'd like to know "\
-            "about them. You don't have enough money? My hours don't deserve to be compensated? "\
-            "Please, tell me. I promise you right here right now that anything reasonable will get "\
-            "you a registration key."
+        prompt = trmsg("FairwareDontContributeReasonsMsg")
         self.promptLabel.setText(prompt)
         self.promptLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.promptLabel.setWordWrap(True)
@@ -42,7 +45,7 @@ class RegDontContributeDialog(QDialog):
         self.buttonBox = QDialogButtonBox(self)
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel)
-        self.sendButton = self.buttonBox.addButton("Send", QDialogButtonBox.AcceptRole)
+        self.sendButton = self.buttonBox.addButton(tr("Send"), QDialogButtonBox.AcceptRole)
         self.verticalLayout.addWidget(self.buttonBox)
     
     #--- Events

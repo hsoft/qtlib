@@ -13,6 +13,8 @@ from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, Q
     QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy)
 
 from hscommon.reg import InvalidCodeError
+from hscommon.trans import tr as trbase, trmsg
+tr = lambda s: trbase(s, "RegSubmitDialog")
 
 class RegSubmitDialog(QDialog):
     def __init__(self, parent, validate_func):
@@ -26,9 +28,6 @@ class RegSubmitDialog(QDialog):
         self.cancelButton.clicked.connect(self.reject)
     
     def _setupUi(self):
-        def tr(s):
-            return QApplication.translate("RegSubmitDialog", s, None, QApplication.UnicodeUTF8)
-        
         self.setWindowTitle(tr("Enter your registration key"))
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
         dlg_height = 180 if sys.platform == 'linux2' else 146
@@ -36,7 +35,7 @@ class RegSubmitDialog(QDialog):
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
-        prompt = tr("Please enter your $appname registration key and registered e-mail (the e-mail you used for your contribution), then press \"Submit\".")
+        prompt = trmsg("FairwareTypeKeyMsg")
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
         self.promptLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
@@ -94,10 +93,10 @@ class RegSubmitDialog(QDialog):
     def submitClicked(self):
         code = str(self.codeEdit.text())
         email = str(self.emailEdit.text())
-        title = "Registration"
+        title = tr("Registration")
         try:
             self.validate_func(code, email)
-            msg = "This code is valid. Thanks!"
+            msg = tr("This code is valid. Thanks!")
             QMessageBox.information(self, title, msg)
             self.accept()
         except InvalidCodeError as e:

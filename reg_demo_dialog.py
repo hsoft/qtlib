@@ -12,6 +12,9 @@ from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
     QFont, QSpacerItem, QSizePolicy, QPushButton, QCheckBox)
 
+from hscommon.trans import tr as trbase, trmsg
+tr = lambda s: trbase(s, "RegDemoDialog")
+
 class RegDemoDialog(QDialog):
     def __init__(self, parent, reg):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
@@ -24,9 +27,6 @@ class RegDemoDialog(QDialog):
         self.tryButton.clicked.connect(self.accept)
     
     def _setupUi(self):
-        def tr(s):
-            return QApplication.translate("RegDemoDialog", s, None, QApplication.UnicodeUTF8)
-        
         appname = QCoreApplication.instance().applicationName()
         title = tr("$appname is Fairware")
         title = title.replace('$appname', appname)
@@ -43,11 +43,7 @@ class RegDemoDialog(QDialog):
         self.titleLabel.setText(tr("Please contribute"))
         self.verticalLayout.addWidget(self.titleLabel)
         self.descLabel = QLabel(self)        
-        desc = tr("""$appname is Fairware, which means "open source software developed with expectation of fair contributions from users". Hours invested in this software have been logged with the expectation that users will be fair enough to compensate them. The \"Unpaid hours\" figure you see below is the hours that have yet to be compensated for this project.
-
-If you like this application, please make a contribution that you consider fair. Thanks!
-
-This dialog doesn't show when there are no unpaid hours or when you have a valid contribution key.""")
+        desc = trmsg("FairwarePromptMsg")
         desc = desc.replace('$appname', appname)
         self.descLabel.setText(desc)
         self.descLabel.setWordWrap(True)
@@ -63,7 +59,7 @@ This dialog doesn't show when there are no unpaid hours or when you have a valid
         self.unpaidHoursLabel.setText(unpaid)
         self.verticalLayout.addWidget(self.unpaidHoursLabel)
         self.dontContributeBox = QCheckBox(self)
-        self.dontContributeBox.setText("I don't want to contribute, stop bugging me")
+        self.dontContributeBox.setText(tr("I will not contribute, stop reminding me"))
         if self.reg.app.is_first_run:
             self.dontContributeBox.setVisible(False)
         self.verticalLayout.addWidget(self.dontContributeBox)
