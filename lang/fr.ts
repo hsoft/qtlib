@@ -29,6 +29,10 @@
         <translation>Contribuer</translation>
     </message>
     <message>
+        <source>More Info</source>
+        <translation>Plus d'info</translation>
+    </message>
+    <message>
         <source>I will not contribute, stop reminding me</source>
         <translation>Je ne veux/peux pas contribuer. Ne plus me le rappeler.</translation>
     </message>

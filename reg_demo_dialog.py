@@ -8,7 +8,7 @@
 
 import sys
 
-from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication, QSize
+from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
     QFont, QSpacerItem, QSizePolicy, QPushButton, QCheckBox)
 
@@ -22,9 +22,10 @@ class RegDemoDialog(QDialog):
         self.reg = reg
         self._setupUi()
         
-        self.connect(self.enterCodeButton, SIGNAL('clicked()'), self.enterCodeClicked)
-        self.connect(self.contributeButton, SIGNAL('clicked()'), self.contributeClicked)
+        self.enterCodeButton.clicked.connect(self.enterCodeClicked)
+        self.contributeButton.clicked.connect(self.contributeClicked)
         self.tryButton.clicked.connect(self.accept)
+        self.moreInfoButton.clicked.connect(self.moreInfoClicked)
     
     def _setupUi(self):
         appname = QCoreApplication.instance().applicationName()
@@ -48,6 +49,7 @@ class RegDemoDialog(QDialog):
         self.descLabel.setText(desc)
         self.descLabel.setWordWrap(True)
         self.verticalLayout.addWidget(self.descLabel)
+        self.unpaidHLayout = QHBoxLayout()
         self.unpaidHoursLabel = QLabel(self)
         font = QFont()
         font.setWeight(75)
@@ -57,7 +59,13 @@ class RegDemoDialog(QDialog):
         unpaid = tr("Unpaid hours: $unpaid")
         unpaid = unpaid.replace('$unpaid', unpaid_hours)
         self.unpaidHoursLabel.setText(unpaid)
-        self.verticalLayout.addWidget(self.unpaidHoursLabel)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.unpaidHoursLabel.setSizePolicy(sizePolicy)
+        self.unpaidHLayout.addWidget(self.unpaidHoursLabel)
+        self.moreInfoButton = QPushButton(tr("More Info"), self)
+        # self.moreInfoButton.sizePolicy().setHorizontalPolicy(QSizePolicy.Maximum)
+        self.unpaidHLayout.addWidget(self.moreInfoButton)
+        self.verticalLayout.addLayout(self.unpaidHLayout)
         self.dontContributeBox = QCheckBox(self)
         self.dontContributeBox.setText(tr("I will not contribute, stop reminding me"))
         if self.reg.app.is_first_run:
@@ -91,9 +99,14 @@ class RegDemoDialog(QDialog):
         url = QUrl('http://open.hardcoded.net/contribute/')
         QDesktopServices.openUrl(url)
     
+    def moreInfoClicked(self):
+        url = QUrl('http://open.hardcoded.net/about/')
+        QDesktopServices.openUrl(url)
+    
 
 if __name__ == '__main__':
     app = QApplication([])
+    app.is_first_run = False
     app.unpaid_hours = 42.4
     class FakeReg:
         app = app
