@@ -10,7 +10,7 @@ import sys
 
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
-    QFont, QSpacerItem, QSizePolicy, QPushButton, QCheckBox)
+    QFont, QSpacerItem, QSizePolicy, QPushButton)
 
 from hscommon.trans import tr as trbase, trmsg
 tr = lambda s: trbase(s, "RegDemoDialog")
@@ -33,7 +33,7 @@ class RegDemoDialog(QDialog):
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 350 if sys.platform == 'linux2' else 270
+        dlg_height = 370 if sys.platform == 'linux2' else 290
         self.resize(397, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.titleLabel = QLabel(self)
@@ -66,11 +66,6 @@ class RegDemoDialog(QDialog):
         # self.moreInfoButton.sizePolicy().setHorizontalPolicy(QSizePolicy.Maximum)
         self.unpaidHLayout.addWidget(self.moreInfoButton)
         self.verticalLayout.addLayout(self.unpaidHLayout)
-        self.dontContributeBox = QCheckBox(self)
-        self.dontContributeBox.setText(tr("I will not contribute, stop reminding me"))
-        if self.reg.app.is_first_run:
-            self.dontContributeBox.setVisible(False)
-        self.verticalLayout.addWidget(self.dontContributeBox)
         spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QHBoxLayout()

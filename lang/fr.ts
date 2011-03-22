@@ -32,27 +32,6 @@
         <source>More Info</source>
         <translation>Plus d'info</translation>
     </message>
-    <message>
-        <source>I will not contribute, stop reminding me</source>
-        <translation>Je ne veux/peux pas contribuer. Ne plus me le rappeler.</translation>
-    </message>
-</context>
-
-<!-- ******** RegDontContributeDialog ******** -->
-<context>
-    <name>RegDontContributeDialog</name>
-    <message>
-        <source>Don't contribute</source>
-        <translation>Ne pas contribuer</translation>
-    </message>
-    <message>
-        <source>Send</source>
-        <translation>Envoyer</translation>
-    </message>
-    <message>
-        <source>You indicated not wanting to (or not being able to) contribute.</source>
-        <translation>Vous avez indiqué ne pas vouloir ou pouvoir contribuer.</translation>
-    </message>
 </context>
 
 <!-- ******** RegSubmitDialog ******** -->
@@ -101,15 +80,13 @@
 
 Si vous aimez cette application, veuillez faire une contribution qui vous semble juste. Merci!
 
+Si vous n'avez pas les moyens de contribuer, vous pouvez soit ignorer ce message soit envoyer un e-mail à support@hardcoded.net pour avoir une clé d'enregistrement.
+
 Cette fenêtre n'apparaît pas lorsque vous avez contribué ou qu'il n'y a aucune heure impayée.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
     <translation>Entrez la clé que vous avez reçue en contribuant à $appname, ainsi que le courriel utilisé pour la contribution.</translation>
-</message>
-<message>
-    <source>FairwareDontContributeReasonsMsg</source>
-    <translation>Vous ne voulez ou ne pouvez pas contribuer? Vous avez probablement des raisons valides, mais je crois moi aussi avoir des raisons valides pour vous demander de contribuer. J'aimerais bien connaitre vos raisons. Je promet une clé d'enregistrement pour toute raison valide.</translation>
 </message>
 </context>
 </TS>

@@ -32,27 +32,6 @@
         <source>More Info</source>
         <translation>Altre Informazioni</translation>
     </message>
-    <message>
-        <source>I will not contribute, stop reminding me</source>
-        <translation>Non contribuisco, non ricordarmelo più</translation>
-    </message>
-</context>
-
-<!-- ******** RegDontContributeDialog ******** -->
-<context>
-    <name>RegDontContributeDialog</name>
-    <message>
-        <source>Don't contribute</source>
-        <translation>Non contribuisco</translation>
-    </message>
-    <message>
-        <source>Send</source>
-        <translation>Invia</translation>
-    </message>
-    <message>
-        <source>You indicated not wanting to (or not being able to) contribute.</source>
-        <translation>Hai scelto di non voler (o non poter) contribuire.</translation>
-    </message>
 </context>
 
 <!-- ******** RegSubmitDialog ******** -->
@@ -97,19 +76,17 @@
 <name>message</name>
 <message>
     <source>FairwarePromptMsg</source>
-    <translation>$appname is Fairware, which means &quot;open source software developed with expectation of fair contributions from users&quot;. Hours have been invested in this software with the expectation that users will be fair enough to compensate them. The &quot;Unpaid hours&quot; figure you see below is the hours that have yet to be compensated for this project.
+    <translation>$appname è Fairware, che significa &quot;software libero sviluppato nella speranza di un contributo equo dagli utenti&quot;. Sono state spese molte ore in questo software nella speranza che gli utenti siano abbastanza equi nel ricompensarle. La voce &quot;Ore non pagate&quot; qui sotto sono le ore che devono ancora essere compensate per questo progetto.
     
-If you like this application, please make a contribution that you consider fair. Thanks!
-
-This dialog doesn't show when there are no unpaid hours or when you have a valid contribution key.</translation>
+Se vi piace questo programma, per favore contribuite per quanto considerate equo. Grazie!
+    
+If you cannot afford to contribute, you can either ignore this reminder or send an e-mail at support@hardcoded.net so I can give you a registration key.
+    
+Questa finestra non compare quando non ci sono ore non compensate o quando si possiede un codice di contribuente valido.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
     <translation>Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase.</translation>
-</message>
-<message>
-    <source>FairwareDontContributeReasonsMsg</source>
-    <translation>You won't or you can't contribute? I'm sure you have valid reasons, but I think I also have valid reasons for asking for contributions. Please, let me know what you think. I promise you right here right now that anything reasonable will get you a registration key.</translation>
 </message>
 </context>
 </TS>

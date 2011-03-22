@@ -10,9 +10,8 @@ from PyQt4.QtGui import QDialog
 
 from .reg_submit_dialog import RegSubmitDialog
 from .reg_demo_dialog import RegDemoDialog
-from .reg_dont_contrib_dialog import RegDontContributeDialog
 
-class Registration(object):
+class Registration:
     def __init__(self, app):
         self.app = app
     
@@ -29,7 +28,4 @@ class Registration(object):
     def show_nag(self):
         dialog = RegDemoDialog(None, self)
         dialog.exec_()
-        if dialog.dontContributeBox.isChecked():
-            dialog = RegDontContributeDialog(None)
-            dialog.exec_()
     

@@ -9,15 +9,13 @@
     
 If you like this application, please make a contribution that you consider fair. Thanks!
 
+If you cannot afford to contribute, you can either ignore this reminder or send an e-mail at support@hardcoded.net so I can send you a registration key.
+
 This dialog doesn't show when there are no unpaid hours or when you have a valid contribution key.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
     <translation>Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase.</translation>
-</message>
-<message>
-    <source>FairwareDontContributeReasonsMsg</source>
-    <translation>You won't or you can't contribute? I'm sure you have valid reasons, but I think I also have valid reasons for asking for contributions. Please, let me know what you think. I promise you right here right now that anything reasonable will get you a registration key.</translation>
 </message>
 </context>
 </TS>
