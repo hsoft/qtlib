@@ -33,7 +33,7 @@ class RegDemoDialog(QDialog):
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 370 if sys.platform == 'linux2' else 290
+        dlg_height = 430 if sys.platform == 'linux2' else 290
         self.resize(397, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.titleLabel = QLabel(self)
