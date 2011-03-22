@@ -9,7 +9,7 @@
     
 If you like this application, please make a contribution that you consider fair. Thanks!
 
-If you cannot afford to contribute, you can either ignore this reminder or send an e-mail at support@hardcoded.net so I can send you a registration key.
+If you cannot afford to contribute, you can either ignore this reminder or send an e-mail at support@hardcoded.net so I can give you a registration key.
 
 This dialog doesn't show when there are no unpaid hours or when you have a valid contribution key.</translation>
 </message>
