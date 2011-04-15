@@ -69,6 +69,14 @@
         <source>This code is valid. Thanks!</source>
         <translation>Ce code est valide, merci!</translation>
     </message>
+    <message>
+        <source>Tell Hardcoded Software which operating system I'm using.</source>
+        <translation>Divulger mon système d'exploitation à Hardcoded Software.</translation>
+    </message>
+    <message>
+        <source>(to have some contribution statistics based on OSes)</source>
+        <translation>(c'est pour faire des statistiques de contributions)</translation>
+    </message>
 </context>
 
 <!-- ******** Message ******** -->

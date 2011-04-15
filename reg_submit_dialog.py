@@ -8,9 +8,10 @@
 
 import sys
 
-from PyQt4.QtCore import SIGNAL, Qt, QUrl, QCoreApplication
+from PyQt4.QtCore import Qt, QUrl, QCoreApplication
 from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, QVBoxLayout,
-    QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy)
+    QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy,
+    QCheckBox)
 
 from hscommon.reg import InvalidCodeError
 from hscommon.trans import tr as trbase, trmsg
@@ -23,8 +24,8 @@ class RegSubmitDialog(QDialog):
         self._setupUi()
         self.validate_func = validate_func
         
-        self.connect(self.submitButton, SIGNAL('clicked()'), self.submitClicked)
-        self.connect(self.contributeButton, SIGNAL('clicked()'), self.contributeClicked)
+        self.submitButton.clicked.connect(self.submitClicked)
+        self.contributeButton.clicked.connect(self.contributeClicked)
         self.cancelButton.clicked.connect(self.reject)
     
     def _setupUi(self):
@@ -46,17 +47,25 @@ class RegSubmitDialog(QDialog):
         self.formLayout.setFieldGrowthPolicy(QFormLayout.ExpandingFieldsGrow)
         self.formLayout.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.formLayout.setFormAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.label_2 = QLabel(self)
-        self.label_2.setText(tr("Registration key:"))
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
-        self.label_3 = QLabel(self)
-        self.label_3.setText(tr("Registered e-mail:"))
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_3)
+        self.label2 = QLabel(self)
+        self.label2.setText(tr("Registration key:"))
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label2)
+        self.label3 = QLabel(self)
+        self.label3.setText(tr("Registered e-mail:"))
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label3)
         self.codeEdit = QLineEdit(self)
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.codeEdit)
         self.emailEdit = QLineEdit(self)
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.emailEdit)
         self.verticalLayout.addLayout(self.formLayout)
+        self.registerOSCheckBox = QCheckBox(self)
+        self.registerOSCheckBox.setText(tr("Tell Hardcoded Software which operating system I'm using."))
+        self.registerOSCheckBox.setChecked(True)
+        self.verticalLayout.addWidget(self.registerOSCheckBox)
+        self.label4 = QLabel(self)
+        self.label4.setText(tr("(to have some contribution statistics based on OSes)"))
+        self.label4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.verticalLayout.addWidget(self.label4)
         self.horizontalLayout = QHBoxLayout()
         self.contributeButton = QPushButton(self)
         self.contributeButton.setText(tr("Contribute"))

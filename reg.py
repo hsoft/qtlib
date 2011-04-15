@@ -21,7 +21,7 @@ class Registration:
         code = str(dialog.codeEdit.text())
         email = str(dialog.emailEdit.text())
         if result == QDialog.Accepted:
-            self.app.set_registration(code, email)
+            self.app.set_registration(code, email, dialog.registerOSCheckBox.isChecked())
             return True
         return False
     

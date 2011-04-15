@@ -69,6 +69,14 @@
         <source>This code is valid. Thanks!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tell Hardcoded Software which operating system I'm using.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(to have some contribution statistics based on OSes)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 
 <!-- ******** Message ******** -->
