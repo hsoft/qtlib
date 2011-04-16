@@ -64,7 +64,6 @@ class RegSubmitDialog(QDialog):
         self.verticalLayout.addWidget(self.registerOSCheckBox)
         self.label4 = QLabel(self)
         self.label4.setText(tr("(to have some contribution statistics based on OSes)"))
-        self.label4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.verticalLayout.addWidget(self.label4)
         self.horizontalLayout = QHBoxLayout()
         self.contributeButton = QPushButton(self)
