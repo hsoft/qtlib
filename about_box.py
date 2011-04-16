@@ -49,7 +49,7 @@ class AboutBox(QDialog):
         self.verticalLayout.addWidget(self.versionLabel)
         self.label_3 = QLabel(self)
         self.verticalLayout.addWidget(self.label_3)
-        self.label_3.setText(tr("Copyright Hardcoded Software 2010"))
+        self.label_3.setText(tr("Copyright Hardcoded Software 2011"))
         self.label = QLabel(self)
         font = QFont()
         font.setWeight(75)
