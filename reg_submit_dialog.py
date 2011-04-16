@@ -31,8 +31,10 @@ class RegSubmitDialog(QDialog):
     def _setupUi(self):
         self.setWindowTitle(tr("Enter your registration key"))
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 180 if sys.platform == 'linux2' else 146
-        self.resize(365, dlg_height)
+        if sys.platform == 'linux2':
+            self.resize(450, 210)
+        else:
+            self.resize(365, 146)
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
