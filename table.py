@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Created By: Virgil Dupras
 # Created On: 2009-11-01
 # Copyright 2011 Hardcoded Software (http://www.hardcoded.net)
@@ -7,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import SIGNAL, Qt, QAbstractTableModel, QModelIndex
+from PyQt4.QtCore import Qt, QAbstractTableModel, QModelIndex
 from PyQt4.QtGui import QItemSelectionModel, QItemSelection
 
 from .column import ColumnBearer
@@ -23,7 +22,7 @@ class Table(QAbstractTableModel, ColumnBearer):
         self.view = view
         self.view.setModel(self)
         
-        self.connect(self.view.selectionModel(), SIGNAL('selectionChanged(QItemSelection,QItemSelection)'), self.selectionChanged)
+        self.view.selectionModel().selectionChanged[(QItemSelection, QItemSelection)].connect(self.selectionChanged)
     
     def _updateModelSelection(self):
         # Takes the selection on the view's side and update the model with it.
@@ -42,7 +41,9 @@ class Table(QAbstractTableModel, ColumnBearer):
             newSelection.select(self.createIndex(index, 0), self.createIndex(index, columnCount-1))
         self.view.selectionModel().select(newSelection, QItemSelectionModel.ClearAndSelect)
         if len(newSelection.indexes()):
-            self.view.selectionModel().setCurrentIndex(newSelection.indexes()[0], QItemSelectionModel.Current)
+            currentIndex = newSelection.indexes()[0]
+            self.view.selectionModel().setCurrentIndex(currentIndex, QItemSelectionModel.Current)
+            self.view.scrollTo(currentIndex)
     
     #--- Data Model methods
     # Virtual
