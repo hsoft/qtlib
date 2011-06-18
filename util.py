@@ -6,9 +6,15 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtGui import QDesktopWidget
+from PyQt4.QtGui import QDesktopWidget, QSpacerItem, QSizePolicy
 
 def moveToScreenCenter(widget):
     frame = widget.frameGeometry()
     frame.moveCenter(QDesktopWidget().availableGeometry().center())
     widget.move(frame.topLeft())
+
+def verticalSpacer():
+    return QSpacerItem(1, 1, QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
+
+def horizontalSpacer():
+    return QSpacerItem(1, 1, QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
