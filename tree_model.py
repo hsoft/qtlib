@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Created By: Virgil Dupras
 # Created On: 2009-09-14
 # Copyright 2011 Hardcoded Software (http://www.hardcoded.net)
@@ -7,9 +6,9 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import Qt, QAbstractItemModel, QModelIndex
+from PyQt4.QtCore import QAbstractItemModel, QModelIndex
 
-class NodeContainer(object):
+class NodeContainer:
     def __init__(self):
         self._subnodes = None
         self._ref2node = {}
@@ -88,6 +87,16 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         # drop lasts. Override this to return a node of the correct type.
         return TreeNode(self, parent, row)
     
+    def _lastIndex(self):
+        """Index of the very last item in the tree.
+        """
+        currentIndex = QModelIndex()
+        rowCount = self.rowCount(currentIndex)
+        while rowCount > 0:
+            currentIndex = self.index(rowCount-1, 0, currentIndex)
+            rowCount = self.rowCount(currentIndex)
+        return currentIndex
+    
     #--- Overrides
     def index(self, row, column, parent):
         if not self.subnodes:
@@ -116,7 +125,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         self._dummyNodes = set()
         QAbstractItemModel.reset(self)
     
-    def rowCount(self, parent):
+    def rowCount(self, parent=QModelIndex()):
         node = parent.internalPointer() if parent.isValid() else self
         return len(node.subnodes)
     
@@ -139,4 +148,18 @@ class TreeModel(QAbstractItemModel, NodeContainer):
             reversedPath.append(index.row())
             index = index.parent()
         return list(reversed(reversedPath))
+    
+    def refreshData(self):
+        """Updates the data on all nodes, but without having to perform a full reset.
+        
+        A full reset on a tree makes us lose selection and expansion states. When all we ant to do
+        is to refresh the data on the nodes without adding or removing a node, a call on
+        dataChanged() is better. But of course, Qt makes our life complicated by asking us topLeft
+        and bottomRight indexes. This is a convenience method refreshing the whole tree.
+        """
+        columnCount = self.columnCount()
+        topLeft = self.index(0, 0, QModelIndex())
+        bottomLeft = self._lastIndex()
+        bottomRight = self.sibling(bottomLeft.row(), columnCount-1, bottomLeft)
+        self.dataChanged.emit(topLeft, bottomRight)
     
