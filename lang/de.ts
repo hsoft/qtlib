@@ -84,17 +84,17 @@
 <name>message</name>
 <message>
     <source>FairwarePromptMsg</source>
-    <translation>$appname ist Fairware, das bedeutet &quot;Open Source Software, entwickelt in der Hoffnung auf einen fairen Beitrag von den Benutzern&quot;. Stunden wurden in die Software investiert, mit der Erwartung der Nutzer möge fair genug sein die Entwickler zu kompensieren. Die &quot;Unbezahlte Stunden&quot; Abbildung zeigt die Anzahl der Stunden die noch nicht finanziert wurden.
+    <translation>$appname ist Fairware, das bedeutet &quot;Open Source Software, entwickelt in der Hoffnung auf einen fairen Beitrag von den Benutzern&quot;. Viel Zeit wurde in die Software investiert, mit der Erwartung der Nutzer möge fair genug sein die Entwickler für ihren Einsatz zu kompensieren. Die &quot;Unbezahlte Stunden&quot; Abbildung zeigt die Anzahl der Stunden die noch nicht bezahlt wurden.
 
 Wenn Sie diese Anwendung mögen, so spenden Sie bitte einen Ihrer Ansicht nach angemessenen Betrag. Danke!
 
-Wenn Sie es sich nicht leisten können zu spenden, können Sie diese Erinnerung entweder ignorieren oder mir eine Nachricht an hsoft@hardcoded.net schicken für einen Registrierungsschlüssel.
+Wenn Sie es sich nicht leisten können zu spenden, können Sie diese Erinnerung entweder ignorieren oder mir eine Anfrage an hsoft@hardcoded.net schicken, mit der Bitte für einen Registrierungsschlüssel.
 
-Dieser Dialog erscheint nicht, wenn es keine unbezahlten Stunden gibt oder Sie einen gülten Registrierungsschlüssel besitzen.</translation>
+Dieser Dialog erscheint nicht, wenn es keine unbezahlten Stunden gibt oder Sie einen gültigen Registrierungsschlüssel besitzen.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
-    <translation>Geben sie den empfangenen Schlüssel und die E-Mail-Adresse als Referenz für den Kauf an, wenn sie für $appname gespendet haben.</translation>
+    <translation>Geben Sie den empfangenen Schlüssel und die E-Mail-Adresse als Referenz für den Kauf an, wenn Sie für $appname gespendet haben.</translation>
 </message>
 </context>
 </TS>
