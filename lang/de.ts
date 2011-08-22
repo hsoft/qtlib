@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Enter Key</source>
-        <translation>Schlüssel eingeben</translation>
+        <translation>Registrieren</translation>
     </message>
     <message>
         <source>Contribute</source>
