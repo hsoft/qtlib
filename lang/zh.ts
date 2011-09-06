@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Registered e-mail:</source>
-        <translation>注册的电子邮箱:</translation>
+        <translation>电子邮箱:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -71,7 +71,7 @@
     </message>
     <message>
         <source>Tell Hardcoded Software which operating system I'm using.</source>
-        <translation>告诉Hardcoded Software您正在使用什么操作系统。</translation>
+        <translation>告诉Hardcoded Software您正在使用的操作系统。</translation>
     </message>
     <message>
         <source>(to have some contribution statistics based on OSes)</source>
@@ -94,7 +94,7 @@
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
-    <translation>当您捐助 $appname 后，请输入收到的注册密钥以及电子邮件,这将作为购买凭证。</translation>
+    <translation>当您捐助 $appname 后，请输入收到的注册密钥以及电子邮件，这将作为购买凭证。</translation>
 </message>
 </context>
 </TS>
