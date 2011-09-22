@@ -12,6 +12,7 @@ from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
     QFont, QSpacerItem, QSizePolicy, QPushButton)
 
+from hscommon.plat import ISLINUX
 from hscommon.trans import tr as trbase, trmsg
 tr = lambda s: trbase(s, "RegDemoDialog")
 
@@ -33,7 +34,7 @@ class RegDemoDialog(QDialog):
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 430 if sys.platform == 'linux2' else 290
+        dlg_height = 430 if ISLINUX else 290
         self.resize(397, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
         self.titleLabel = QLabel(self)

@@ -13,6 +13,7 @@ from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, Q
     QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy,
     QCheckBox)
 
+from hscommon.plat import ISLINUX
 from hscommon.reg import InvalidCodeError
 from hscommon.trans import tr as trbase, trmsg
 tr = lambda s: trbase(s, "RegSubmitDialog")
@@ -31,7 +32,7 @@ class RegSubmitDialog(QDialog):
     def _setupUi(self):
         self.setWindowTitle(tr("Enter your registration key"))
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        if sys.platform == 'linux2':
+        if ISLINUX:
             self.resize(450, 210)
         else:
             self.resize(365, 146)
