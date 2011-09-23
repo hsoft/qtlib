@@ -6,7 +6,8 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtGui import QDesktopWidget, QSpacerItem, QSizePolicy, QPixmap, QIcon, QAction
+from PyQt4.QtGui import (QDesktopWidget, QSpacerItem, QSizePolicy, QPixmap, QIcon, QAction,
+    QHBoxLayout)
 
 def moveToScreenCenter(widget):
     frame = widget.frameGeometry()
@@ -18,6 +19,15 @@ def verticalSpacer():
 
 def horizontalSpacer():
     return QSpacerItem(1, 1, QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+
+def horizontalWrap(widgets):
+    layout = QHBoxLayout()
+    for widget in widgets:
+        if widget is None:
+            layout.addItem(horizontalSpacer())
+        else:
+            layout.addWidget(widget)
+    return layout
 
 def createActions(actions, target):
     # actions = [(name, shortcut, icon, desc, func)]
