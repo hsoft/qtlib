@@ -32,6 +32,14 @@
         <source>More Info</source>
         <translation>Mehr Infos</translation>
     </message>
+    <message>
+        <source>Try</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 
 <!-- ******** RegSubmitDialog ******** -->
@@ -84,13 +92,21 @@
 <name>message</name>
 <message>
     <source>FairwarePromptMsg</source>
-    <translation>$appname ist Fairware, das bedeutet &quot;Open Source Software, entwickelt in der Hoffnung auf einen fairen Beitrag von den Benutzern&quot;. Viel Zeit wurde in die Software investiert, mit der Erwartung der Nutzer möge fair genug sein die Entwickler für ihren Einsatz zu kompensieren. Die &quot;Unbezahlte Stunden&quot; Abbildung zeigt die Anzahl der Stunden die noch nicht bezahlt wurden.
+    <translation>{name} ist Fairware, das bedeutet &quot;Open Source Software, entwickelt in der Hoffnung auf einen fairen Beitrag von den Benutzern&quot;. Viel Zeit wurde in die Software investiert, mit der Erwartung der Nutzer möge fair genug sein die Entwickler für ihren Einsatz zu kompensieren. Die &quot;Unbezahlte Stunden&quot; Abbildung zeigt die Anzahl der Stunden die noch nicht bezahlt wurden.
 
 Wenn Sie diese Anwendung mögen, so spenden Sie bitte einen Ihrer Ansicht nach angemessenen Betrag. Danke!
 
 Wenn Sie es sich nicht leisten können zu spenden, können Sie diese Erinnerung entweder ignorieren oder mir eine Anfrage an hsoft@hardcoded.net schicken, mit der Bitte für einen Registrierungsschlüssel.
 
 Dieser Dialog erscheint nicht, wenn es keine unbezahlten Stunden gibt oder Sie einen gültigen Registrierungsschlüssel besitzen.</translation>
+</message>
+<message>
+    <source>DemoPromptMsg</source>
+    <translation>{name} is Fairware, which means &quot;open source software developed with expectation of fair contributions from users&quot;. It's a very interesting concept, but one year of fairware has shown that most people just want to know how much it costs and not be bothered with theories about intellectual property.
+    
+So I won't bother you and will be very straightforward: You can try {name} for free but you have to buy it in order to use it without limitations. In demo mode, {name} {limitation}.
+
+So it's as simple as this. If you're curious about fairware, however, I encourage you to read more about it by clicking on the &quot;Fairware?&quot; button.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>

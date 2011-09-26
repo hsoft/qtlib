@@ -9,6 +9,7 @@
 from PyQt4.QtGui import QDialog
 
 from .reg_submit_dialog import RegSubmitDialog
+from .reg_fairware_dialog import RegFairwareDialog
 from .reg_demo_dialog import RegDemoDialog
 
 class Registration:
@@ -16,19 +17,14 @@ class Registration:
         self.app = app
     
     def ask_for_code(self):
-        dialog = RegSubmitDialog(None, self.app.validate_code)
-        result = dialog.exec_()
-        code = str(dialog.codeEdit.text())
-        email = str(dialog.emailEdit.text())
-        if result == QDialog.Accepted:
-            self.app.set_registration(code, email)
-            if dialog.registerOSCheckBox.isChecked():
-                self.app.register_os()
-            self.app.write_registration_to_defaults()
-            return True
-        return False
+        dialog = RegSubmitDialog(None, self)
+        return dialog.exec_() == QDialog.Accepted
     
-    def show_nag(self):
-        dialog = RegDemoDialog(None, self)
+    def show_fairware_nag(self, prompt):
+        dialog = RegFairwareDialog(None, self, prompt)
+        dialog.exec_()
+    
+    def show_demo_nag(self, prompt):
+        dialog = RegDemoDialog(None, self, prompt)
         dialog.exec_()
     

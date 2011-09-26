@@ -8,22 +8,20 @@
 
 import sys
 
-from PyQt4.QtCore import Qt, QUrl, QCoreApplication
-from PyQt4.QtGui import (QDialog, QMessageBox, QDesktopServices, QApplication, QVBoxLayout,
-    QHBoxLayout, QLabel, QFormLayout, QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy,
-    QCheckBox)
+from PyQt4.QtCore import Qt, QCoreApplication
+from PyQt4.QtGui import (QDialog, QApplication, QVBoxLayout, QHBoxLayout, QLabel, QFormLayout,
+    QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy, QCheckBox)
 
 from hscommon.plat import ISLINUX
-from hscommon.reg import InvalidCodeError
 from hscommon.trans import tr as trbase, trmsg
 tr = lambda s: trbase(s, "RegSubmitDialog")
 
 class RegSubmitDialog(QDialog):
-    def __init__(self, parent, validate_func):
+    def __init__(self, parent, reg):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         QDialog.__init__(self, parent, flags)
         self._setupUi()
-        self.validate_func = validate_func
+        self.reg = reg
         
         self.submitButton.clicked.connect(self.submitClicked)
         self.contributeButton.clicked.connect(self.contributeClicked)
@@ -98,21 +96,13 @@ class RegSubmitDialog(QDialog):
     
     #--- Events
     def contributeClicked(self):
-        url = QUrl('http://open.hardcoded.net/contribute/')
-        QDesktopServices.openUrl(url)
+        self.reg.app.contribute()
     
     def submitClicked(self):
-        code = str(self.codeEdit.text())
-        email = str(self.emailEdit.text())
-        title = tr("Registration")
-        try:
-            self.validate_func(code, email)
-            msg = tr("This code is valid. Thanks!")
-            QMessageBox.information(self, title, msg)
+        code = self.codeEdit.text()
+        email = self.emailEdit.text()
+        if self.reg.app.set_registration(code, email, self.registerOSCheckBox.isChecked()):
             self.accept()
-        except InvalidCodeError as e:
-            msg = str(e)
-            QMessageBox.warning(self, title, msg)
     
 
 if __name__ == '__main__':

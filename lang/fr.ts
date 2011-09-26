@@ -32,6 +32,14 @@
         <source>More Info</source>
         <translation>Plus d'info</translation>
     </message>
+    <message>
+        <source>Try</source>
+        <translation>Essayer</translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation>Acheter</translation>
+    </message>
 </context>
 
 <!-- ******** RegSubmitDialog ******** -->
@@ -84,13 +92,21 @@
 <name>message</name>
 <message>
     <source>FairwarePromptMsg</source>
-    <translation>$appname est Fairware, ce qui signifie &quot;open source développé avec des attentes de contributions justes de la part des utilisateurs&quot;. Les heures investies dans ce programme l'ont été avec l'attente que les utilisateurs seront assez honnêtes pour les compenser. Les &quot;Heures impayées&quot; que vous voyez ci-dessous sont le nombre d'heures qui n'ont pas encore été compensées.
+    <translation>{name} est Fairware, ce qui signifie &quot;open source développé avec des attentes de contributions justes de la part des utilisateurs&quot;. Les heures investies dans ce programme l'ont été avec l'attente que les utilisateurs seront assez honnêtes pour les compenser. Les &quot;Heures impayées&quot; que vous voyez ci-dessous sont le nombre d'heures qui n'ont pas encore été compensées.
 
 Si vous aimez cette application, veuillez faire une contribution qui vous semble juste. Merci!
 
 Si vous n'avez pas les moyens de contribuer, vous pouvez soit ignorer ce message soit envoyer un e-mail à support@hardcoded.net pour avoir une clé d'enregistrement.
 
 Cette fenêtre n'apparaît pas lorsque vous avez contribué ou qu'il n'y a aucune heure impayée.</translation>
+</message>
+<message>
+    <source>DemoPromptMsg</source>
+    <translation>{name} is Fairware, which means &quot;open source software developed with expectation of fair contributions from users&quot;. It's a very interesting concept, but one year of fairware has shown that most people just want to know how much it costs and not be bothered with theories about intellectual property.
+    
+So I won't bother you and will be very straightforward: You can try {name} for free but you have to buy it in order to use it without limitations. In demo mode, {name} {limitation}.
+
+So it's as simple as this. If you're curious about fairware, however, I encourage you to read more about it by clicking on the &quot;Fairware?&quot; button.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>

@@ -16,7 +16,7 @@ from hscommon.plat import ISLINUX
 from hscommon.trans import tr as trbase
 tr = lambda s: trbase(s, "RegDemoDialog")
 
-class RegDemoDialog(QDialog):
+class RegFairwareDialog(QDialog):
     def __init__(self, parent, reg, prompt):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         QDialog.__init__(self, parent, flags)
@@ -25,7 +25,7 @@ class RegDemoDialog(QDialog):
         self.descLabel.setText(prompt)
         
         self.enterCodeButton.clicked.connect(self.enterCodeClicked)
-        self.buyButton.clicked.connect(self.buyClicked)
+        self.contributeButton.clicked.connect(self.contributeClicked)
         self.tryButton.clicked.connect(self.accept)
         self.moreInfoButton.clicked.connect(self.moreInfoClicked)
     
@@ -48,25 +48,39 @@ class RegDemoDialog(QDialog):
         self.descLabel = QLabel(self)        
         self.descLabel.setWordWrap(True)
         self.verticalLayout.addWidget(self.descLabel)
+        self.unpaidHLayout = QHBoxLayout()
+        self.unpaidHoursLabel = QLabel(self)
+        font = QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.unpaidHoursLabel.setFont(font)
+        unpaid_hours = "%0.1f" % self.reg.app.unpaid_hours
+        unpaid = tr("Unpaid hours: $unpaid")
+        unpaid = unpaid.replace('$unpaid', unpaid_hours)
+        self.unpaidHoursLabel.setText(unpaid)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.unpaidHoursLabel.setSizePolicy(sizePolicy)
+        self.unpaidHLayout.addWidget(self.unpaidHoursLabel)
+        self.moreInfoButton = QPushButton(tr("More Info"), self)
+        self.unpaidHLayout.addWidget(self.moreInfoButton)
+        self.verticalLayout.addLayout(self.unpaidHLayout)
         spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QHBoxLayout()
         spacerItem1 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.tryButton = QPushButton(self)
-        self.tryButton.setText(tr("Try"))
+        self.tryButton.setText(tr("Continue"))
         self.tryButton.setMinimumSize(QSize(110, 0))
         self.horizontalLayout.addWidget(self.tryButton)
         self.enterCodeButton = QPushButton(self)
         self.enterCodeButton.setText(tr("Enter Key"))
         self.enterCodeButton.setMinimumSize(QSize(110, 0))
         self.horizontalLayout.addWidget(self.enterCodeButton)
-        self.buyButton = QPushButton(self)
-        self.buyButton.setText(tr("Buy"))
-        self.buyButton.setMinimumSize(QSize(110, 0))
-        self.horizontalLayout.addWidget(self.buyButton)
-        self.moreInfoButton = QPushButton(tr("Fairware?"), self)
-        self.horizontalLayout.addWidget(self.moreInfoButton)
+        self.contributeButton = QPushButton(self)
+        self.contributeButton.setText(tr("Contribute"))
+        self.contributeButton.setMinimumSize(QSize(110, 0))
+        self.horizontalLayout.addWidget(self.contributeButton)
         self.verticalLayout.addLayout(self.horizontalLayout)
     
     #--- Events
@@ -74,8 +88,8 @@ class RegDemoDialog(QDialog):
         if self.reg.ask_for_code():
             self.accept()
     
-    def buyClicked(self):
-        self.reg.app.buy()
+    def contributeClicked(self):
+        self.reg.app.contribute()
     
     def moreInfoClicked(self):
         self.reg.app.about_fairware()
@@ -86,6 +100,6 @@ if __name__ == '__main__':
     app.unpaid_hours = 42.4
     class FakeReg:
         app = app
-    dialog = RegDemoDialog(None, FakeReg(), "foo bar baz")
+    dialog = RegFairwareDialog(None, FakeReg(), "foo bar baz")
     dialog.show()
     sys.exit(app.exec_())

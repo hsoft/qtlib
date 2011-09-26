@@ -32,6 +32,14 @@
         <source>More Info</source>
         <translation>更多信息</translation>
     </message>
+    <message>
+        <source>Try</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 
 <!-- ******** RegSubmitDialog ******** -->
@@ -84,13 +92,21 @@
 <name>message</name>
 <message>
     <source>FairwarePromptMsg</source>
-    <translation>$appname 是一款捐助软件,也就是说 &quot;用户对研发开源软件所花费的时间进行符合用户意愿的捐助&quot;。用户可以根据研发人员花费在开发软件上的时间进行合理的补偿。用户在下面看到的 &quot;未支付的时间&quot; (Unpaid hours)表示需要对该软件进行补偿的时间。
+    <translation>{name} 是一款捐助软件,也就是说 &quot;用户对研发开源软件所花费的时间进行符合用户意愿的捐助&quot;。用户可以根据研发人员花费在开发软件上的时间进行合理的补偿。用户在下面看到的 &quot;未支付的时间&quot; (Unpaid hours)表示需要对该软件进行补偿的时间。
     
 如果您喜欢这款软件，我诚挚的希望您可以进行必要的捐助。谢谢！
 
 如果您无法承担捐助，您也可以忽略此提醒，或者发送电子邮件至 support@hardcoded.net ，我会发送给您一个注册密钥。
 
 当软件没有未支付的时间或您已使用一个有效的注册密钥，此对话框将不会再显示。</translation>
+</message>
+<message>
+    <source>DemoPromptMsg</source>
+    <translation>{name} is Fairware, which means &quot;open source software developed with expectation of fair contributions from users&quot;. It's a very interesting concept, but one year of fairware has shown that most people just want to know how much it costs and not be bothered with theories about intellectual property.
+    
+So I won't bother you and will be very straightforward: You can try {name} for free but you have to buy it in order to use it without limitations. In demo mode, {name} {limitation}.
+
+So it's as simple as this. If you're curious about fairware, however, I encourage you to read more about it by clicking on the &quot;Fairware?&quot; button.</translation>
 </message>
 <message>
     <source>FairwareTypeKeyMsg</source>
