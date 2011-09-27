@@ -8,7 +8,7 @@
 
 import sys
 
-from PyQt4.QtCore import Qt, QCoreApplication, QSize
+from PyQt4.QtCore import Qt, QCoreApplication
 from PyQt4.QtGui import (QDialog, QApplication, QVBoxLayout, QHBoxLayout, QLabel,
     QFont, QSpacerItem, QSizePolicy, QPushButton)
 
@@ -35,37 +35,25 @@ class RegDemoDialog(QDialog):
         title = title.replace('$appname', appname)
         self.setWindowTitle(title)
         # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        dlg_height = 430 if ISLINUX else 290
-        self.resize(397, dlg_height)
+        dlg_height = 430 if ISLINUX else 240
+        self.resize(400, dlg_height)
         self.verticalLayout = QVBoxLayout(self)
-        self.titleLabel = QLabel(self)
-        font = QFont()
-        font.setWeight(75)
-        font.setBold(True)
-        self.titleLabel.setFont(font)
-        self.titleLabel.setText(tr("Please contribute"))
-        self.verticalLayout.addWidget(self.titleLabel)
         self.descLabel = QLabel(self)        
         self.descLabel.setWordWrap(True)
         self.verticalLayout.addWidget(self.descLabel)
         spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QHBoxLayout()
-        spacerItem1 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
         self.tryButton = QPushButton(self)
         self.tryButton.setText(tr("Try"))
-        self.tryButton.setMinimumSize(QSize(110, 0))
         self.horizontalLayout.addWidget(self.tryButton)
         self.enterCodeButton = QPushButton(self)
         self.enterCodeButton.setText(tr("Enter Key"))
-        self.enterCodeButton.setMinimumSize(QSize(110, 0))
         self.horizontalLayout.addWidget(self.enterCodeButton)
         self.buyButton = QPushButton(self)
         self.buyButton.setText(tr("Buy"))
-        self.buyButton.setMinimumSize(QSize(110, 0))
         self.horizontalLayout.addWidget(self.buyButton)
-        self.moreInfoButton = QPushButton(tr("Fairware?"), self)
+        self.moreInfoButton = QPushButton(tr("Fairware?"))
         self.horizontalLayout.addWidget(self.moreInfoButton)
         self.verticalLayout.addLayout(self.horizontalLayout)
     
