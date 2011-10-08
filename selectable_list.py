@@ -12,6 +12,7 @@ from PyQt4.QtGui import QItemSelection
 class SelectableList(QAbstractListModel):
     def __init__(self, model, view):
         QAbstractListModel.__init__(self)
+        self._updating = False
         self.model = model
         self.model.view = self
         self.view = view
@@ -39,7 +40,9 @@ class SelectableList(QAbstractListModel):
     
     #--- model --> view
     def refresh(self):
+        self._updating = True
         self.reset()
+        self._updating = False
         self._restoreSelection()
     
     def update_selection(self):
@@ -57,11 +60,14 @@ class ComboboxModel(SelectableList):
             self.model.select(index)
     
     def _restoreSelection(self):
-        self.view.setCurrentIndex(self.model.selected_index)
+        index = self.model.selected_index
+        if index is not None:
+            self.view.setCurrentIndex(index)
     
     #--- Events
     def selectionChanged(self, index):
-        self._updateSelection()
+        if not self._updating:
+            self._updateSelection()
 
 class ListviewModel(SelectableList):
     def __init__(self, model, view):
@@ -79,5 +85,6 @@ class ListviewModel(SelectableList):
 
     #--- Events
     def selectionChanged(self, index):
-        self._updateSelection()
+        if not self._updating:
+            self._updateSelection()
     
