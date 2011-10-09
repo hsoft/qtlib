@@ -19,6 +19,7 @@ class Table(QAbstractTableModel, ColumnBearer):
         QAbstractTableModel.__init__(self)
         ColumnBearer.__init__(self, view.horizontalHeader())
         self.model = model
+        self.model.view = self
         self.view = view
         self.view.setModel(self)
         
