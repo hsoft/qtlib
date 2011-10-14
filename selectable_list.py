@@ -22,7 +22,8 @@ class SelectableList(QAbstractListModel):
     def data(self, index, role):
         if not index.isValid():
             return None
-        if role == Qt.DisplayRole:
+        # We need EditRole for QComboBoxes with setEditable(True)
+        if role in {Qt.DisplayRole, Qt.EditRole}:
             return self.model[index.row()]
         return None
     
