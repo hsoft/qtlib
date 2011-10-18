@@ -17,11 +17,11 @@ class Table(QAbstractTableModel, ColumnBearer):
     
     def __init__(self, model, view):
         QAbstractTableModel.__init__(self)
-        ColumnBearer.__init__(self, view.horizontalHeader())
         self.model = model
         self.model.view = self
         self.view = view
         self.view.setModel(self)
+        ColumnBearer.__init__(self, view.horizontalHeader())
         
         self.view.selectionModel().selectionChanged[(QItemSelection, QItemSelection)].connect(self.selectionChanged)
     

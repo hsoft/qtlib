@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Created By: Virgil Dupras
 # Created On: 2009-11-25
 # Copyright 2011 Hardcoded Software (http://www.hardcoded.net)
@@ -14,8 +13,8 @@ DESCRIPTION_EDIT = 'description_edit'
 PAYEE_EDIT = 'payee_edit'
 ACCOUNT_EDIT = 'account_edit'
 
-class Column(object):
-    def __init__(self, attrname, title, defaultWidth, editor=None, alignment=Qt.AlignLeft,
+class Column:
+    def __init__(self, attrname, defaultWidth, title=None, editor=None, alignment=Qt.AlignLeft,
             cantTruncate=False):
         self.index = None # Is set when the column list is read
         self.attrname = attrname
@@ -27,13 +26,15 @@ class Column(object):
         self.cantTruncate = cantTruncate
     
 
-class ColumnBearer(object):
+class ColumnBearer:
     COLUMNS = []
     
     def __init__(self, headerView):
         self._headerView = headerView
         for index, col in enumerate(self.COLUMNS):
             col.index = index
+            if not col.title: # go get it in the model
+                col.title = self.model.columns.column_display(col.attrname)
         # A map attrname:column is useful sometimes, so we create it here
         self.ATTR2COLUMN = dict((col.attrname, col) for col in self.COLUMNS)
         self._headerView.setDefaultAlignment(Qt.AlignLeft)
