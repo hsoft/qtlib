@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import QSettings, QVariant, QRect
+from PyQt4.QtCore import Qt, QSettings, QVariant, QRect
 
 from hscommon.util import tryint
 
@@ -47,7 +47,7 @@ def py_to_variant(v):
 # I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
 # to rely on it and stay with generic structures.
 
-class Preferences(object):
+class Preferences:
     def __init__(self):
         self.reset()
         self._settings = QSettings()
@@ -92,4 +92,22 @@ class Preferences(object):
     
     def set_value(self, name, value):
         self._settings.setValue(name, py_to_variant(value))
+    
+    def saveGeometry(self, name, widget):
+        # We save geometry under a 5-sized int array: first item is a flag for whether the widget
+        # is maximized and the other 4 are (x, y, w, h).
+        m = 1 if widget.isMaximized() else 0
+        r = widget.geometry()
+        rectAsList = [r.x(), r.y(), r.width(), r.height()]
+        self.set_value(name, [m] + rectAsList)
+    
+    def restoreGeometry(self, name, widget):
+        l = self.get_value(name)
+        if l and len(l) == 5:
+            m, x, y, w, h = l
+            if m:
+                widget.setWindowState(Qt.WindowMaximized)
+            else:
+                r = QRect(x, y, w, h)
+                widget.setGeometry(r)
     
