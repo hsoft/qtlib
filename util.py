@@ -14,11 +14,17 @@ def moveToScreenCenter(widget):
     frame.moveCenter(QDesktopWidget().availableGeometry().center())
     widget.move(frame.topLeft())
 
-def verticalSpacer():
-    return QSpacerItem(1, 1, QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
+def verticalSpacer(size=None):
+    if size:
+        return QSpacerItem(1, size, QSizePolicy.Fixed, QSizePolicy.Fixed)
+    else:
+        return QSpacerItem(1, 1, QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
 
-def horizontalSpacer():
-    return QSpacerItem(1, 1, QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+def horizontalSpacer(size=None):
+    if size:
+        return QSpacerItem(size, 1, QSizePolicy.Fixed, QSizePolicy.Fixed)
+    else:
+        return QSpacerItem(1, 1, QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
 
 def horizontalWrap(widgets):
     layout = QHBoxLayout()
