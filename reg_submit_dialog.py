@@ -13,8 +13,9 @@ from PyQt4.QtGui import (QDialog, QApplication, QVBoxLayout, QHBoxLayout, QLabel
     QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy, QCheckBox)
 
 from hscommon.plat import ISLINUX
-from hscommon.trans import tr as trbase, trmsg
-tr = lambda s: trbase(s, "RegSubmitDialog")
+from hscommon.trans import trget
+
+tr = trget('qtlib')
 
 class RegSubmitDialog(QDialog):
     def __init__(self, parent, reg):
@@ -37,7 +38,7 @@ class RegSubmitDialog(QDialog):
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
-        prompt = trmsg("FairwareTypeKeyMsg")
+        prompt = tr("FairwareTypeKeyMsg")
         prompt = prompt.replace('$appname', appname)
         self.promptLabel.setText(prompt)
         self.promptLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
