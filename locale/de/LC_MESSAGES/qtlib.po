@@ -1,0 +1,107 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+#: qtlib/about_box.py:53
+msgid "Copyright Hardcoded Software 2011"
+msgstr ""
+
+#: qtlib/about_box.py:61
+msgid "UNREGISTERED"
+msgstr ""
+
+#: qtlib/error_report_dialog.py:37
+msgid "Error Report"
+msgstr ""
+
+#: qtlib/error_report_dialog.py:41
+msgid ""
+"Something went wrong. Would you like to send the error report to Hardcoded "
+"Software?"
+msgstr ""
+
+#: qtlib/error_report_dialog.py:51
+msgid "Don't Send"
+msgstr ""
+
+#: qtlib/error_report_dialog.py:55
+msgid "Send"
+msgstr ""
+
+#: qtlib/recent.py:52
+msgid "Clear List"
+msgstr ""
+
+#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
+msgid "$appname is Fairware"
+msgstr "$appname ist Fairware"
+
+#: qtlib/reg_demo_dialog.py:49
+msgid "Try"
+msgstr "Spenden"
+
+#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
+msgid "Enter Key"
+msgstr "Registrieren"
+
+#: qtlib/reg_demo_dialog.py:55
+msgid "Buy"
+msgstr ""
+
+#: qtlib/reg_demo_dialog.py:57
+msgid "Fairware?"
+msgstr ""
+
+#: qtlib/reg_fairware_dialog.py:47
+msgid "Please contribute"
+msgstr "Bitte spenden"
+
+#: qtlib/reg_fairware_dialog.py:59
+msgid "Unpaid hours: $unpaid"
+msgstr "Unbezahlte Stunden: $unpaid"
+
+#: qtlib/reg_fairware_dialog.py:65
+msgid "More Info"
+msgstr "Mehr Infos"
+
+#: qtlib/reg_fairware_dialog.py:74
+msgid "Continue"
+msgstr "Fortfahren"
+
+#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
+msgid "Contribute"
+msgstr "Spenden"
+
+#: qtlib/reg_submit_dialog.py:32
+msgid "Enter your registration key"
+msgstr "Geben Sie ihren Schlüssel ein"
+
+#: qtlib/reg_submit_dialog.py:41
+msgid "FairwareTypeKeyMsg"
+msgstr ""
+"Geben Sie den empfangenen Schlüssel und die E-Mail-Adresse als Referenz für "
+"den Kauf an, wenn Sie für $appname gespendet haben."
+
+#: qtlib/reg_submit_dialog.py:53
+msgid "Registration key:"
+msgstr "Registrierungsschlüssel:"
+
+#: qtlib/reg_submit_dialog.py:56
+msgid "Registered e-mail:"
+msgstr "Registrierte E-Mail:"
+
+#: qtlib/reg_submit_dialog.py:64
+msgid "Tell Hardcoded Software which operating system I'm using."
+msgstr "Übermittle Hardcoded Software welches Betriebssystem ich benutze."
+
+#: qtlib/reg_submit_dialog.py:68
+msgid "(to have some contribution statistics based on OSes)"
+msgstr "(für Spendenstatistiken, basierend auf den Betriebssystemen)"
+
+#: qtlib/reg_submit_dialog.py:83
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: qtlib/reg_submit_dialog.py:92
+msgid "Submit"
+msgstr "Abschicken"
