@@ -76,7 +76,7 @@ msgid "Enter your registration key"
 msgstr "Entrez votre clé"
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "FairwareTypeKeyMsg"
+msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
 msgstr "Entrez la clé que vous avez reçue en contribuant à $appname, ainsi que le courriel utilisé pour la contribution."
 
 #: qtlib/reg_submit_dialog.py:53

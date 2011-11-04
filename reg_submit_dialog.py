@@ -38,8 +38,8 @@ class RegSubmitDialog(QDialog):
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
-        prompt = tr("FairwareTypeKeyMsg")
-        prompt = prompt.replace('$appname', appname)
+        prompt = tr("Type the key you received when you contributed to $appname, as well as the "
+            "e-mail used as a reference for the purchase.").replace('$appname', appname)
         self.promptLabel.setText(prompt)
         self.promptLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.promptLabel.setWordWrap(True)
