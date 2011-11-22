@@ -14,6 +14,10 @@ from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QVBoxLayout, QHBoxLayout, QLabel,
     QPlainTextEdit, QSpacerItem, QSizePolicy, QPushButton, QApplication)
 
+from hscommon.trans import trget
+
+tr = trget('qtlib')
+
 class ErrorReportDialog(QDialog):
     def __init__(self, parent, error):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
@@ -30,9 +34,6 @@ class ErrorReportDialog(QDialog):
         self.dontSendButton.clicked.connect(self.reject)
     
     def _setupUi(self):
-        def tr(s):
-            return QApplication.translate("ErrorReportDialog", s, None, QApplication.UnicodeUTF8)
-        
         self.setWindowTitle(tr("Error Report"))
         self.resize(553, 349)
         self.verticalLayout = QVBoxLayout(self)

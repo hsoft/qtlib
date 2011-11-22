@@ -10,6 +10,10 @@ from PyQt4.QtCore import Qt, QCoreApplication
 from PyQt4.QtGui import (QDialog, QDialogButtonBox, QPixmap, QSizePolicy, QHBoxLayout, QVBoxLayout,
     QLabel, QFont, QApplication)
 
+from hscommon.trans import trget
+
+tr = trget('qtlib')
+
 class AboutBox(QDialog):
     def __init__(self, parent, app):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.MSWindowsFixedSizeDialogHint
@@ -22,9 +26,6 @@ class AboutBox(QDialog):
         self.buttonBox.clicked.connect(self.buttonClicked)
     
     def _setupUi(self):
-        def tr(s):
-            return QApplication.translate("AboutBox", s, None, QApplication.UnicodeUTF8)
-        
         self.setWindowTitle("About {0}".format(QCoreApplication.instance().applicationName()))
         self.resize(400, 190)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)

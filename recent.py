@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Created By: Virgil Dupras
 # Created On: 2009-11-12
 # Copyright 2011 Hardcoded Software (http://www.hardcoded.net)
@@ -12,8 +11,10 @@ from collections import namedtuple
 from PyQt4.QtCore import pyqtSignal, QObject
 from PyQt4.QtGui import QAction
 
-from hscommon.trans import tr
+from hscommon.trans import trget
 from hscommon.util import dedupe
+
+tr = trget('qtlib')
 
 MenuEntry = namedtuple('MenuEntry', 'menu fixedItemCount')
 

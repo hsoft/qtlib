@@ -13,8 +13,9 @@ from PyQt4.QtGui import (QDialog, QApplication, QVBoxLayout, QHBoxLayout, QLabel
     QFont, QSpacerItem, QSizePolicy, QPushButton)
 
 from hscommon.plat import ISLINUX
-from hscommon.trans import tr as trbase
-tr = lambda s: trbase(s, "RegDemoDialog")
+from hscommon.trans import trget
+
+tr = trget('qtlib')
 
 class RegDemoDialog(QDialog):
     def __init__(self, parent, reg, prompt):
