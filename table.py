@@ -9,9 +9,9 @@
 from PyQt4.QtCore import Qt, QAbstractTableModel, QModelIndex
 from PyQt4.QtGui import QItemSelectionModel, QItemSelection
 
-from .column import ColumnBearer
+from .column import Columns
 
-class Table(QAbstractTableModel, ColumnBearer):
+class Table(QAbstractTableModel):
     # Flags you want when index.isValid() is False. In those cases, _getFlags() is never called.
     INVALID_INDEX_FLAGS = Qt.ItemIsEnabled
     
@@ -21,7 +21,8 @@ class Table(QAbstractTableModel, ColumnBearer):
         self.model.view = self
         self.view = view
         self.view.setModel(self)
-        ColumnBearer.__init__(self, view.horizontalHeader())
+        if hasattr(self.model, 'columns'):
+            self.columns = Columns(self.model.columns, self.COLUMNS, view.horizontalHeader())
         
         self.view.selectionModel().selectionChanged[(QItemSelection, QItemSelection)].connect(self.selectionChanged)
     
@@ -50,7 +51,7 @@ class Table(QAbstractTableModel, ColumnBearer):
     # Virtual
     def _getData(self, row, column, role):
         if role in (Qt.DisplayRole, Qt.EditRole):
-            attrname = column.attrname
+            attrname = column.name
             return row.get_cell_value(attrname)
         elif role == Qt.TextAlignmentRole:
             return column.alignment
@@ -59,7 +60,7 @@ class Table(QAbstractTableModel, ColumnBearer):
     # Virtual
     def _getFlags(self, row, column):
         flags = Qt.ItemIsEnabled | Qt.ItemIsSelectable
-        if row.can_edit_cell(column.attrname):
+        if row.can_edit_cell(column.name):
             flags |= Qt.ItemIsEditable
         return flags
     
@@ -67,7 +68,7 @@ class Table(QAbstractTableModel, ColumnBearer):
     def _setData(self, row, column, value, role):
         if role == Qt.EditRole:
             value = str(value.toString())
-            attrname = column.attrname
+            attrname = column.name
             if attrname == 'from':
                 attrname = 'from_'
             setattr(row, attrname, value)
@@ -75,30 +76,30 @@ class Table(QAbstractTableModel, ColumnBearer):
         return False
     
     def columnCount(self, index):
-        return len(self.COLUMNS)
+        return self.model.columns.columns_count()
     
     def data(self, index, role):
         if not index.isValid():
             return None
         row = self.model[index.row()]
-        column = self.COLUMNS[index.column()]
+        column = self.model.columns.column_by_index(index.column())
         return self._getData(row, column, role)
     
     def flags(self, index):
         if not index.isValid():
             return self.INVALID_INDEX_FLAGS
         row = self.model[index.row()]
-        column = self.COLUMNS[index.column()]
+        column = self.model.columns.column_by_index(index.column())
         return self._getFlags(row, column)
     
     def headerData(self, section, orientation, role):
         if orientation != Qt.Horizontal:
             return None
-        if section >= len(self.COLUMNS):
+        if section >= self.model.columns.columns_count():
             return None
-        column = self.COLUMNS[section]
+        column = self.model.columns.column_by_index(section)
         if role == Qt.DisplayRole:
-            return column.title
+            return column.display
         elif role == Qt.TextAlignmentRole:
             return column.alignment
         else:
@@ -116,12 +117,12 @@ class Table(QAbstractTableModel, ColumnBearer):
         if not index.isValid():
             return False
         row = self.model[index.row()]
-        column = self.COLUMNS[index.column()]
+        column = self.model.columns.column_by_index(index.column())
         return self._setData(row, column, value, role)
     
     def sort(self, section, order):
-        column = self.COLUMNS[section]
-        attrname = column.attrname
+        column = self.model.columns.column_by_index(section)
+        attrname = column.name
         self.model.sort_by(attrname, desc=order==Qt.DescendingOrder)
     
     def submit(self):

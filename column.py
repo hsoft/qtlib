@@ -8,17 +8,9 @@
 
 from PyQt4.QtCore import Qt
 
-DATE_EDIT = 'date_edit'
-DESCRIPTION_EDIT = 'description_edit'
-PAYEE_EDIT = 'payee_edit'
-ACCOUNT_EDIT = 'account_edit'
-
 class Column:
-    def __init__(self, attrname, defaultWidth, title=None, editor=None, alignment=Qt.AlignLeft,
-            cantTruncate=False):
-        self.index = None # Is set when the column list is read
+    def __init__(self, attrname, defaultWidth, editor=None, alignment=Qt.AlignLeft, cantTruncate=False):
         self.attrname = attrname
-        self.title = title
         self.defaultWidth = defaultWidth
         self.editor = editor
         self.alignment = alignment
@@ -26,28 +18,32 @@ class Column:
         self.cantTruncate = cantTruncate
     
 
-class ColumnBearer:
-    COLUMNS = []
-    
-    def __init__(self, headerView):
+class Columns:
+    def __init__(self, model, columns, headerView):
+        self.model = model
+        self.model.view = self
         self._headerView = headerView
-        for index, col in enumerate(self.COLUMNS):
-            col.index = index
-            if not col.title: # go get it in the model
-                col.title = self.model.columns.column_display(col.attrname)
-        # A map attrname:column is useful sometimes, so we create it here
-        self.ATTR2COLUMN = dict((col.attrname, col) for col in self.COLUMNS)
         self._headerView.setDefaultAlignment(Qt.AlignLeft)
+        self._headerView.sectionMoved.connect(self.headerSectionMoved)
+        self._headerView.sectionResized.connect(self.headerSectionResized)
+        
+        for col in columns:
+            modelcol = self.model.column_by_name(col.attrname)
+            modelcol.default_width = col.defaultWidth
+            modelcol.editor = col.editor
+            modelcol.alignment = col.alignment
+            modelcol.cantTruncate = col.cantTruncate
     
     #--- Public
     def setColumnsWidth(self, widths):
         #`widths` can be None. If it is, then default widths are set.
+        columns = self.model.column_list
         if not widths:
-            widths = [column.defaultWidth for column in self.COLUMNS]
-        for column, width in zip(self.COLUMNS, widths):
+            widths = [column.default_width for column in columns]
+        for column, width in zip(columns, widths):
             if width == 0: # column was hidden before.
-                width = column.defaultWidth
-            self._headerView.resizeSection(column.index, width)
+                width = column.default_width
+            self._headerView.resizeSection(column.logical_index, width)
     
     def setColumnsOrder(self, columnIndexes):
         if not columnIndexes:
@@ -57,15 +53,28 @@ class ColumnBearer:
             visualIndex = self._headerView.visualIndex(columnIndex)
             self._headerView.moveSection(visualIndex, destIndex)
     
-    def setHiddenColumns(self, hiddenColumns):
-        for column in self.COLUMNS:
-            isHidden = column.attrname in hiddenColumns
-            self._headerView.setSectionHidden(column.index, isHidden)
+    #--- Events
+    def headerSectionMoved(self, logicalIndex, oldVisualIndex, newVisualIndex):
+        attrname = self.model.column_by_index(logicalIndex).name
+        self.model.move_column(attrname, newVisualIndex)
     
-    def visibleRowAttrs(self):
-        """Returns a list of row attrs in visual order"""
-        h = self._headerView
-        visibleColumns = [column for column in self.COLUMNS if not h.isSectionHidden(column.index)]
-        orderedColumns = sorted(visibleColumns, key=lambda col: h.visualIndex(col.index))
-        return [column.attrname for column in orderedColumns]
+    def headerSectionResized(self, logicalIndex, oldSize, newSize):
+        attrname = self.model.column_by_index(logicalIndex).name
+        self.model.resize_column(attrname, newSize)
     
+    #--- model --> view
+    def restore_columns(self):
+        columns = self.model.ordered_columns
+        indexes = [col.logical_index for col in columns]
+        self.setColumnsOrder(indexes)
+        widths = [col.width for col in self.model.column_list]
+        if not any(widths):
+            widths = None
+        self.setColumnsWidth(widths)
+        for column in self.model.column_list:
+            visible = self.model.column_is_visible(column.name)
+            self._headerView.setSectionHidden(column.logical_index, not visible)
+    
+    def set_column_visible(self, colname, visible):
+        column = self.model.column_by_name(colname)
+        self._headerView.setSectionHidden(column.logical_index, not visible)
