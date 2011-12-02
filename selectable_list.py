@@ -7,7 +7,7 @@
 # http://www.hardcoded.net/licenses/bsd_license
 
 from PyQt4.QtCore import Qt, QAbstractListModel
-from PyQt4.QtGui import QItemSelection
+from PyQt4.QtGui import QItemSelection, QItemSelectionModel
 
 class SelectableList(QAbstractListModel):
     def __init__(self, model, view):
@@ -82,8 +82,15 @@ class ListviewModel(SelectableList):
         if newIndexes != self.model.selected_indexes:
             self.model.select(newIndexes)
     
-    # XXX Implement _restoreSelection() for dupeGuru (the only user so far of ListviewModel)
-
+    def _restoreSelection(self):
+        newSelection = QItemSelection()
+        for index in self.model.selected_indexes:
+            newSelection.select(self.createIndex(index, 0), self.createIndex(index, 0))
+        self.view.selectionModel().select(newSelection, QItemSelectionModel.ClearAndSelect)
+        if len(newSelection.indexes()):
+            currentIndex = newSelection.indexes()[0]
+            self.view.selectionModel().setCurrentIndex(currentIndex, QItemSelectionModel.Current)
+            self.view.scrollTo(currentIndex)
     #--- Events
     def selectionChanged(self, index):
         if not self._updating:
