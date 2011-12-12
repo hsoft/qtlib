@@ -1,105 +1,117 @@
-
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: Armenian\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hrant Ohanyan <hrantohanyan@mail.am>\n"
+"Language-Team: HaySoft <hrantohanyan@mail.am>\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Armenian\n"
+"X-Poedit-Country: ARMENIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: qtlib/about_box.py:53
 msgid "Copyright Hardcoded Software 2011"
-msgstr ""
+msgstr "Հեղ. իրավունքը Hardcoded Software 2011"
 
 #: qtlib/about_box.py:61
 msgid "UNREGISTERED"
-msgstr ""
+msgstr "ՉԳՐԱՆՑՎԱԾ"
 
 #: qtlib/error_report_dialog.py:37
 msgid "Error Report"
-msgstr ""
+msgstr "Սխալի զեկույցը"
 
 #: qtlib/error_report_dialog.py:41
 msgid "Something went wrong. Would you like to send the error report to Hardcoded Software?"
-msgstr ""
+msgstr "Ինչ-որ բան սխալ էր: Ուղարկե՞լ սխալի մասին զեկույց Hardcoded Software-ին:"
 
 #: qtlib/error_report_dialog.py:51
 msgid "Don't Send"
-msgstr ""
+msgstr "Չուղարկել"
 
 #: qtlib/error_report_dialog.py:55
 msgid "Send"
-msgstr ""
+msgstr "Ուղարկել"
 
 #: qtlib/recent.py:52
 msgid "Clear List"
-msgstr ""
+msgstr "Մաքրել ցանկը"
 
-#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
+#: qtlib/reg_demo_dialog.py:35
+#: qtlib/reg_fairware_dialog.py:35
 msgid "$appname is Fairware"
-msgstr ""
+msgstr "$appname-ը Fairware է"
 
 #: qtlib/reg_demo_dialog.py:49
 msgid "Try"
-msgstr ""
+msgstr "Փորձել"
 
-#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
+#: qtlib/reg_demo_dialog.py:52
+#: qtlib/reg_fairware_dialog.py:78
 msgid "Enter Key"
-msgstr ""
+msgstr "Գրել բանալին"
 
 #: qtlib/reg_demo_dialog.py:55
 msgid "Buy"
-msgstr ""
+msgstr "Գնել"
 
 #: qtlib/reg_demo_dialog.py:57
 msgid "Fairware?"
-msgstr ""
+msgstr "Fairware է՞"
 
 #: qtlib/reg_fairware_dialog.py:47
 msgid "Please contribute"
-msgstr ""
+msgstr "Խնդրում ենք մասնակցեք"
 
 #: qtlib/reg_fairware_dialog.py:59
 msgid "Unpaid hours: $unpaid"
-msgstr ""
+msgstr "Չվճարված ժամեր. $unpaid"
 
 #: qtlib/reg_fairware_dialog.py:65
 msgid "More Info"
-msgstr ""
+msgstr "Լր. ինֆո"
 
 #: qtlib/reg_fairware_dialog.py:74
 msgid "Continue"
-msgstr ""
+msgstr "Շարունակել"
 
-#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
+#: qtlib/reg_fairware_dialog.py:82
+#: qtlib/reg_submit_dialog.py:72
 msgid "Contribute"
-msgstr ""
+msgstr "Մասնակցել"
 
 #: qtlib/reg_submit_dialog.py:32
 msgid "Enter your registration key"
-msgstr ""
+msgstr "Գրեք գրանցման բանալին"
 
 #: qtlib/reg_submit_dialog.py:41
 msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
-msgstr ""
+msgstr "Մուտքագրեք այն բանալին, որը ստացել եք $appname-ին աջակցելիս, քանզի Ձեր էլ. հասցեն օգտագործվել է գնման ժամանակ:"
 
 #: qtlib/reg_submit_dialog.py:53
 msgid "Registration key:"
-msgstr ""
+msgstr "Գրանցման բանալին."
 
 #: qtlib/reg_submit_dialog.py:56
 msgid "Registered e-mail:"
-msgstr ""
+msgstr "Գրանցված էլ. հասցեն."
 
 #: qtlib/reg_submit_dialog.py:64
 msgid "Tell Hardcoded Software which operating system I'm using."
-msgstr ""
+msgstr "Ասացեք Hardcoded Software-ին, թե ինչ օպերացիոն համակարգ եք օգտագործում:"
 
 #: qtlib/reg_submit_dialog.py:68
 msgid "(to have some contribution statistics based on OSes)"
-msgstr ""
+msgstr "(ունենալու համար աջակցման վիճակագրությունը հիմնված OSes-ի վրա)"
 
 #: qtlib/reg_submit_dialog.py:83
 msgid "Cancel"
-msgstr ""
+msgstr "Չեղարկել"
 
 #: qtlib/reg_submit_dialog.py:92
 msgid "Submit"
-msgstr ""
+msgstr "Հաստատել"
 
