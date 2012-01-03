@@ -1,15 +1,16 @@
+# 
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: Armenian\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hrant Ohanyan <hrantohanyan@mail.am>\n"
 "Language-Team: HaySoft <hrantohanyan@mail.am>\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Armenian\n"
 "X-Poedit-Country: ARMENIA\n"
+"X-Poedit-Language: Armenian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: qtlib/about_box.py:53
@@ -25,8 +26,11 @@ msgid "Error Report"
 msgstr "Սխալի զեկույցը"
 
 #: qtlib/error_report_dialog.py:41
-msgid "Something went wrong. Would you like to send the error report to Hardcoded Software?"
-msgstr "Ինչ-որ բան սխալ էր: Ուղարկե՞լ սխալի մասին զեկույց Hardcoded Software-ին:"
+msgid ""
+"Something went wrong. Would you like to send the error report to Hardcoded "
+"Software?"
+msgstr ""
+"Ինչ-որ բան սխալ էր: Ուղարկե՞լ սխալի մասին զեկույց Hardcoded Software-ին:"
 
 #: qtlib/error_report_dialog.py:51
 msgid "Don't Send"
@@ -40,8 +44,7 @@ msgstr "Ուղարկել"
 msgid "Clear List"
 msgstr "Մաքրել ցանկը"
 
-#: qtlib/reg_demo_dialog.py:35
-#: qtlib/reg_fairware_dialog.py:35
+#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
 msgid "$appname is Fairware"
 msgstr "$appname-ը Fairware է"
 
@@ -49,8 +52,7 @@ msgstr "$appname-ը Fairware է"
 msgid "Try"
 msgstr "Փորձել"
 
-#: qtlib/reg_demo_dialog.py:52
-#: qtlib/reg_fairware_dialog.py:78
+#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
 msgid "Enter Key"
 msgstr "Գրել բանալին"
 
@@ -78,8 +80,7 @@ msgstr "Լր. ինֆո"
 msgid "Continue"
 msgstr "Շարունակել"
 
-#: qtlib/reg_fairware_dialog.py:82
-#: qtlib/reg_submit_dialog.py:72
+#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
 msgid "Contribute"
 msgstr "Մասնակցել"
 
@@ -88,8 +89,12 @@ msgid "Enter your registration key"
 msgstr "Գրեք գրանցման բանալին"
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
-msgstr "Մուտքագրեք այն բանալին, որը ստացել եք $appname-ին աջակցելիս, քանզի Ձեր էլ. հասցեն օգտագործվել է գնման ժամանակ:"
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr ""
+"Մուտքագրեք այն բանալին, որը ստացել եք $appname-ին աջակցելիս, քանզի Ձեր էլ. "
+"հասցեն օգտագործվել է գնման ժամանակ:"
 
 #: qtlib/reg_submit_dialog.py:53
 msgid "Registration key:"
@@ -101,7 +106,8 @@ msgstr "Գրանցված էլ. հասցեն."
 
 #: qtlib/reg_submit_dialog.py:64
 msgid "Tell Hardcoded Software which operating system I'm using."
-msgstr "Ասացեք Hardcoded Software-ին, թե ինչ օպերացիոն համակարգ եք օգտագործում:"
+msgstr ""
+"Ասացեք Hardcoded Software-ին, թե ինչ օպերացիոն համակարգ եք օգտագործում:"
 
 #: qtlib/reg_submit_dialog.py:68
 msgid "(to have some contribution statistics based on OSes)"
@@ -115,3 +121,34 @@ msgstr "Չեղարկել"
 msgid "Submit"
 msgstr "Հաստատել"
 
+#: qtlib/preferences.py:17
+msgid "English"
+msgstr "Անգլերեն"
+
+#: qtlib/preferences.py:18
+msgid "French"
+msgstr "Ֆրանսերեն"
+
+#: qtlib/preferences.py:19
+msgid "German"
+msgstr "Գերմաներեն"
+
+#: qtlib/preferences.py:20
+msgid "Chinese (Simplified)"
+msgstr "Չինարեն (Պարզեցված)"
+
+#: qtlib/preferences.py:21
+msgid "Czech"
+msgstr "Չեխերեն"
+
+#: qtlib/preferences.py:22
+msgid "Italian"
+msgstr "Իտալերեն"
+
+#: qtlib/preferences.py:23
+msgid "Armenian"
+msgstr ""
+
+#: qtlib/preferences.py:24
+msgid "Russian"
+msgstr ""

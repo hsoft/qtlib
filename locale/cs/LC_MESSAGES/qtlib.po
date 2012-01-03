@@ -77,8 +77,12 @@ msgid "Enter your registration key"
 msgstr ""
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
-msgstr "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
 
 #: qtlib/reg_submit_dialog.py:53
 msgid "Registration key:"
@@ -102,4 +106,36 @@ msgstr "Zrušit"
 
 #: qtlib/reg_submit_dialog.py:92
 msgid "Submit"
+msgstr ""
+
+#: qtlib/preferences.py:17
+msgid "English"
+msgstr ""
+
+#: qtlib/preferences.py:18
+msgid "French"
+msgstr ""
+
+#: qtlib/preferences.py:19
+msgid "German"
+msgstr ""
+
+#: qtlib/preferences.py:20
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: qtlib/preferences.py:21
+msgid "Czech"
+msgstr ""
+
+#: qtlib/preferences.py:22
+msgid "Italian"
+msgstr ""
+
+#: qtlib/preferences.py:23
+msgid "Armenian"
+msgstr ""
+
+#: qtlib/preferences.py:24
+msgid "Russian"
 msgstr ""

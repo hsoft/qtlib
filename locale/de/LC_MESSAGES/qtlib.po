@@ -77,7 +77,9 @@ msgid "Enter your registration key"
 msgstr "Geben Sie ihren Schlüssel ein"
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
 msgstr ""
 "Geben Sie den empfangenen Schlüssel und die E-Mail-Adresse als Referenz für "
 "den Kauf an, wenn Sie für $appname gespendet haben."
@@ -105,3 +107,35 @@ msgstr "Abbrechen"
 #: qtlib/reg_submit_dialog.py:92
 msgid "Submit"
 msgstr "Abschicken"
+
+#: qtlib/preferences.py:17
+msgid "English"
+msgstr "Englisch"
+
+#: qtlib/preferences.py:18
+msgid "French"
+msgstr "Französisch"
+
+#: qtlib/preferences.py:19
+msgid "German"
+msgstr "Deutsch"
+
+#: qtlib/preferences.py:20
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: qtlib/preferences.py:21
+msgid "Czech"
+msgstr ""
+
+#: qtlib/preferences.py:22
+msgid "Italian"
+msgstr ""
+
+#: qtlib/preferences.py:23
+msgid "Armenian"
+msgstr ""
+
+#: qtlib/preferences.py:24
+msgid "Russian"
+msgstr ""

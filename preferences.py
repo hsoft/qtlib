@@ -9,6 +9,20 @@
 from PyQt4.QtCore import Qt, QSettings, QVariant, QRect
 
 from hscommon.util import tryint
+from hscommon.trans import trget
+
+tr = trget('qtlib')
+
+LANGNAMES = {
+    'en': tr("English"),
+    'fr': tr("French"),
+    'de': tr("German"),
+    'zh_CN': tr("Chinese (Simplified)"),
+    'cs': tr("Czech"),
+    'it': tr("Italian"),
+    'hy': tr("Armenian"),
+    'ru': tr("Russian"),
+}
 
 def variant_to_py(v):
     value = None
