@@ -22,6 +22,7 @@ LANGNAMES = {
     'it': tr("Italian"),
     'hy': tr("Armenian"),
     'ru': tr("Russian"),
+    'uk': tr("Ukrainian"),
 }
 
 def variant_to_py(v):
