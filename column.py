@@ -24,15 +24,17 @@ class Columns:
         self.model.view = self
         self._headerView = headerView
         self._headerView.setDefaultAlignment(Qt.AlignLeft)
-        self._headerView.sectionMoved.connect(self.headerSectionMoved)
-        self._headerView.sectionResized.connect(self.headerSectionResized)
-        
         for col in columns:
             modelcol = self.model.column_by_name(col.attrname)
             modelcol.default_width = col.defaultWidth
             modelcol.editor = col.editor
             modelcol.alignment = col.alignment
             modelcol.cantTruncate = col.cantTruncate
+        # We need to call this for at least having default widths in cases where restore_columns()
+        # is never called.
+        self.setColumnsWidth(None)
+        self._headerView.sectionMoved.connect(self.headerSectionMoved)
+        self._headerView.sectionResized.connect(self.headerSectionResized)
     
     #--- Public
     def setColumnsWidth(self, widths):
