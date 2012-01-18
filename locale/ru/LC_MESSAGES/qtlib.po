@@ -150,3 +150,11 @@ msgstr ""
 #: qtlib/preferences.py:24
 msgid "Russian"
 msgstr ""
+
+#: qtlib/preferences.py:25
+msgid "Ukrainian"
+msgstr ""
+
+#: qtlib/preferences.py:26
+msgid "Dutch"
+msgstr ""

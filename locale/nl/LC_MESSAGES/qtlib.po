@@ -108,15 +108,15 @@ msgstr "Doorgeven"
 
 #: qtlib/preferences.py:17
 msgid "English"
-msgstr ""
+msgstr "Engels"
 
 #: qtlib/preferences.py:18
 msgid "French"
-msgstr ""
+msgstr "Frans"
 
 #: qtlib/preferences.py:19
 msgid "German"
-msgstr ""
+msgstr "Duits"
 
 #: qtlib/preferences.py:20
 msgid "Chinese (Simplified)"
@@ -124,11 +124,11 @@ msgstr ""
 
 #: qtlib/preferences.py:21
 msgid "Czech"
-msgstr ""
+msgstr "Tsjechisch"
 
 #: qtlib/preferences.py:22
 msgid "Italian"
-msgstr ""
+msgstr "Italiaans"
 
 #: qtlib/preferences.py:23
 msgid "Armenian"
@@ -136,4 +136,12 @@ msgstr ""
 
 #: qtlib/preferences.py:24
 msgid "Russian"
+msgstr ""
+
+#: qtlib/preferences.py:25
+msgid "Ukrainian"
+msgstr ""
+
+#: qtlib/preferences.py:26
+msgid "Dutch"
 msgstr ""

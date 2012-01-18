@@ -139,3 +139,11 @@ msgstr "Arménien"
 #: qtlib/preferences.py:24
 msgid "Russian"
 msgstr "Russe"
+
+#: qtlib/preferences.py:25
+msgid "Ukrainian"
+msgstr "Ukrainien"
+
+#: qtlib/preferences.py:26
+msgid "Dutch"
+msgstr "Néerlandais"
