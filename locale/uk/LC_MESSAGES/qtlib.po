@@ -13,8 +13,8 @@ msgstr ""
 "X-Poedit-Language: Ukrainian\n"
 
 #: qtlib/about_box.py:53
-msgid "Copyright Hardcoded Software 2011"
-msgstr "Авторське право Hardcoded Software 2011"
+msgid "Copyright Hardcoded Software 2012"
+msgstr "Авторське право Hardcoded Software 2012"
 
 #: qtlib/about_box.py:61
 msgid "UNREGISTERED"

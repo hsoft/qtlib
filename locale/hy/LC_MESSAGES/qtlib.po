@@ -14,8 +14,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: qtlib/about_box.py:53
-msgid "Copyright Hardcoded Software 2011"
-msgstr "Հեղ. իրավունքը Hardcoded Software 2011"
+msgid "Copyright Hardcoded Software 2012"
+msgstr "Հեղ. իրավունքը Hardcoded Software 2012"
 
 #: qtlib/about_box.py:61
 msgid "UNREGISTERED"
