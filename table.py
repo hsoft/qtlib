@@ -18,8 +18,8 @@ class Table(QAbstractTableModel):
     def __init__(self, model, view):
         QAbstractTableModel.__init__(self)
         self.model = model
-        self.model.view = self
         self.view = view
+        self.model.view = self
         self.view.setModel(self)
         if hasattr(self.model, 'columns'):
             self.columns = Columns(self.model.columns, self.COLUMNS, view.horizontalHeader())
