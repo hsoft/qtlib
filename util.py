@@ -52,9 +52,7 @@ def createActions(actions, target):
 def setAccelKeys(menu):
     actions = menu.actions()
     titles = [a.text() for a in actions]
-    print(repr(titles))
     available_characters = {c.lower() for s in titles for c in s if c.isalpha()}
-    print(available_characters)
     for action in actions:
         text = action.text()
         c = first(c for c in text if c.lower() in available_characters)
@@ -63,5 +61,4 @@ def setAccelKeys(menu):
         i = text.index(c)
         newtext = text[:i] + '&' + text[i:]
         available_characters.remove(c.lower())
-        print(text, newtext)
         action.setText(newtext)
