@@ -6,6 +6,8 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
+from hscommon.util import first
+
 from PyQt4.QtGui import (QDesktopWidget, QSpacerItem, QSizePolicy, QPixmap, QIcon, QAction,
     QHBoxLayout)
 
@@ -46,3 +48,20 @@ def createActions(actions, target):
         action.setText(desc)
         action.triggered.connect(func)
         setattr(target, name, action)
+
+def setAccelKeys(menu):
+    actions = menu.actions()
+    titles = [a.text() for a in actions]
+    print(repr(titles))
+    available_characters = {c.lower() for s in titles for c in s if c.isalpha()}
+    print(available_characters)
+    for action in actions:
+        text = action.text()
+        c = first(c for c in text if c.lower() in available_characters)
+        if c is None:
+            continue
+        i = text.index(c)
+        newtext = text[:i] + '&' + text[i:]
+        available_characters.remove(c.lower())
+        print(text, newtext)
+        action.setText(newtext)
