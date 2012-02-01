@@ -20,11 +20,11 @@ msgstr "Авторське право Hardcoded Software 2012"
 msgid "UNREGISTERED"
 msgstr "НЕЗАРЕЄСТРОВАНИЙ"
 
-#: qtlib/error_report_dialog.py:37
+#: qtlib/error_report_dialog.py:38
 msgid "Error Report"
 msgstr "повідомлення про помилки"
 
-#: qtlib/error_report_dialog.py:41
+#: qtlib/error_report_dialog.py:42
 msgid ""
 "Something went wrong. Would you like to send the error report to Hardcoded "
 "Software?"
@@ -32,11 +32,11 @@ msgstr ""
 "Щось пішло не так. Хочете відправити звіт про помилку в Hardcoded програмне "
 "забезпечення?"
 
-#: qtlib/error_report_dialog.py:51
+#: qtlib/error_report_dialog.py:56
 msgid "Don't Send"
 msgstr "Не відправляти"
 
-#: qtlib/error_report_dialog.py:55
+#: qtlib/error_report_dialog.py:60
 msgid "Send"
 msgstr "Надіслати"
 
@@ -158,4 +158,10 @@ msgstr ""
 
 #: qtlib/preferences.py:26
 msgid "Dutch"
+msgstr ""
+
+#: qtlib/error_report_dialog.py:48
+msgid ""
+"Although the application should continue to run after this error, it may be "
+"in an instable state, so it is recommended that you restart the application."
 msgstr ""

@@ -12,9 +12,10 @@ import os
 
 from PyQt4.QtCore import Qt, QUrl, QCoreApplication, QSize
 from PyQt4.QtGui import (QDialog, QDesktopServices, QVBoxLayout, QHBoxLayout, QLabel,
-    QPlainTextEdit, QSpacerItem, QSizePolicy, QPushButton, QApplication)
+    QPlainTextEdit, QPushButton, QApplication)
 
 from hscommon.trans import trget
+from .util import horizontalSpacer
 
 tr = trget('qtlib')
 
@@ -44,9 +45,13 @@ class ErrorReportDialog(QDialog):
         self.errorTextEdit = QPlainTextEdit(self)
         self.errorTextEdit.setReadOnly(True)
         self.verticalLayout.addWidget(self.errorTextEdit)
+        msg = tr("Although the application should continue to run after this error, it may be in an "
+            "instable state, so it is recommended that you restart the application.")
+        self.label2 = QLabel(msg)
+        self.label2.setWordWrap(True)
+        self.verticalLayout.addWidget(self.label2)
         self.horizontalLayout = QHBoxLayout()
-        spacerItem = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem)
+        self.horizontalLayout.addItem(horizontalSpacer())
         self.dontSendButton = QPushButton(self)
         self.dontSendButton.setText(tr("Don\'t Send"))
         self.dontSendButton.setMinimumSize(QSize(110, 0))
