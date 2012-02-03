@@ -23,12 +23,19 @@ class Columns:
         self.model = model
         self._headerView = headerView
         self._headerView.setDefaultAlignment(Qt.AlignLeft)
-        for col in columns:
-            modelcol = self.model.column_by_name(col.attrname)
+        def setspecs(col, modelcol):
             modelcol.default_width = col.defaultWidth
             modelcol.editor = col.editor
             modelcol.alignment = col.alignment
             modelcol.cantTruncate = col.cantTruncate
+        if columns:
+            for col in columns:
+                modelcol = self.model.column_by_name(col.attrname)
+                setspecs(col, modelcol)
+        else:
+            col = Column('', 100)
+            for modelcol in self.model.column_list:
+                setspecs(col, modelcol)
         self.model.view = self
         self._headerView.sectionMoved.connect(self.headerSectionMoved)
         self._headerView.sectionResized.connect(self.headerSectionResized)

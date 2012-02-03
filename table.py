@@ -14,6 +14,7 @@ from .column import Columns
 class Table(QAbstractTableModel):
     # Flags you want when index.isValid() is False. In those cases, _getFlags() is never called.
     INVALID_INDEX_FLAGS = Qt.ItemIsEnabled
+    COLUMNS = []
     
     def __init__(self, model, view):
         QAbstractTableModel.__init__(self)
