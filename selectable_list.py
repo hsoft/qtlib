@@ -13,10 +13,10 @@ class SelectableList(QAbstractListModel):
     def __init__(self, model, view):
         QAbstractListModel.__init__(self)
         self._updating = False
-        self.model = model
-        self.model.view = self
         self.view = view
+        self.model = model
         self.view.setModel(self)
+        self.model.view = self
     
     #--- Override
     def data(self, index, role):
