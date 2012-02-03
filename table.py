@@ -148,3 +148,5 @@ class Table(QAbstractTableModel):
     def stop_editing(self):
         self.view.setFocus() # enough to stop editing
     
+    def update_selection(self):
+        self._updateViewSelection()
