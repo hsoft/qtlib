@@ -147,3 +147,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
+#: qtlib/search_edit.py:41
+msgid "Search..."
+msgstr ""
+
