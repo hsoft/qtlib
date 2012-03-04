@@ -29,10 +29,15 @@ def horizontalSpacer(size=None):
         return QSpacerItem(1, 1, QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
 
 def horizontalWrap(widgets):
+    """Wrap all widgets in `widgets` in a horizontal layout.
+    
+    If, instead of placing a widget in your list, you place an int or None, an horizontal spacer
+    with the width corresponding to the int will be placed (0 or None means an expanding spacer).
+    """
     layout = QHBoxLayout()
     for widget in widgets:
-        if widget is None:
-            layout.addItem(horizontalSpacer())
+        if widget is None or isinstance(widget, int):
+            layout.addItem(horizontalSpacer(size=widget))
         else:
             layout.addWidget(widget)
     return layout
