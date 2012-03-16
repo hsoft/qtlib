@@ -68,7 +68,6 @@ class Table(QAbstractTableModel):
     # Virtual
     def _setData(self, row, column, value, role):
         if role == Qt.EditRole:
-            value = str(value.toString())
             attrname = column.name
             if attrname == 'from':
                 attrname = 'from_'

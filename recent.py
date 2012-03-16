@@ -83,7 +83,7 @@ class Recent(QObject):
     def menuItemWasClicked(self):
         action = self.sender()
         if action is not None:
-            item = action.data().toString()
+            item = action.data()
             self.mustOpenItem.emit(item)
             self._refreshAllMenus()
     

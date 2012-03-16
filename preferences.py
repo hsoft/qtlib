@@ -6,9 +6,8 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import Qt, QSettings, QVariant, QRect
+from PyQt4.QtCore import Qt, QSettings, QRect
 
-from hscommon.util import tryint
 from hscommon.trans import trget
 
 tr = trget('qtlib')
@@ -25,39 +24,6 @@ LANGNAMES = {
     'uk': tr("Ukrainian"),
     'nl': tr('Dutch'),
 }
-
-def variant_to_py(v):
-    value = None
-    ok = False
-    t = v.type()
-    if t == QVariant.String:
-        value = str(v.toString())
-        ok = True # anyway
-        # might be bool or int, try them
-        if v == 'true':
-            value = True
-        elif value == 'false':
-            value = False
-        else:
-            value = tryint(value, value)
-    elif t == QVariant.Int:
-        value, ok = v.toInt()
-    elif t == QVariant.Bool:
-        value, ok = v.toBool(), True
-    elif t in (QVariant.List, QVariant.StringList):
-        value, ok = list(map(variant_to_py, v.toList())), True
-    elif t == QVariant.Map:
-        value, ok = dict((str(key), variant_to_py(value)) for key, value in list(v.toMap().items())), True
-    if not ok:
-        raise TypeError("Can't convert {0} of type {1}".format(repr(v), v.type()))
-    return value    
-
-def py_to_variant(v):
-    if isinstance(v, (set, tuple)): # QVariant doesn't automatically consider a set/tuple as a list for preferences
-        v = list(v)
-    if isinstance(v, list):
-        return [py_to_variant(item) for item in v]
-    return QVariant(v)
 
 # About QRect conversion:
 # I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
@@ -80,10 +46,7 @@ class Preferences:
     
     def get_value(self, name, default=None):
         if self._settings.contains(name):
-            try:
-                return variant_to_py(self._settings.value(name))
-            except TypeError:
-                return default
+            return self._settings.value(name)
         else:
             return default
     
@@ -107,7 +70,7 @@ class Preferences:
             self.set_value(name, rectAsList)
     
     def set_value(self, name, value):
-        self._settings.setValue(name, py_to_variant(value))
+        self._settings.setValue(name, value)
     
     def saveGeometry(self, name, widget):
         # We save geometry under a 5-sized int array: first item is a flag for whether the widget
