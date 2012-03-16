@@ -25,6 +25,16 @@ LANGNAMES = {
     'nl': tr('Dutch'),
 }
 
+def normalize_for_serialization(v):
+    # QSettings doesn't consider set/tuple as "native" typs for serialization, so if we don't
+    # change them into a list, we get a weird serialized QVariant value which isn't a very
+    # "portable" value.
+    if isinstance(v, (set, tuple)):
+        v = list(v)
+    if isinstance(v, list):
+        v = [normalize_for_serialization(item) for item in v]
+    return v
+
 # About QRect conversion:
 # I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
 # to rely on it and stay with generic structures.
@@ -70,7 +80,7 @@ class Preferences:
             self.set_value(name, rectAsList)
     
     def set_value(self, name, value):
-        self._settings.setValue(name, value)
+        self._settings.setValue(name, normalize_for_serialization(value))
     
     def saveGeometry(self, name, widget):
         # We save geometry under a 5-sized int array: first item is a flag for whether the widget
