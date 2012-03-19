@@ -9,6 +9,7 @@
 from PyQt4.QtCore import Qt, QSettings, QRect
 
 from hscommon.trans import trget
+from hscommon.util import tryint
 
 tr = trget('qtlib')
 
@@ -35,6 +36,21 @@ def normalize_for_serialization(v):
         v = [normalize_for_serialization(item) for item in v]
     return v
 
+def adjust_after_deserialization(v):
+    # In some cases, when reading from prefs, we end up with strings that are supposed to be
+    # bool or int. Convert these.
+    if isinstance(v, list):
+        return [adjust_after_deserialization(sub) for sub in v]
+    if isinstance(v, str):
+        # might be bool or int, try them
+        if v == 'true':
+            return True
+        elif v == 'false':
+            return False
+        else:
+            return tryint(v, v)
+    return v
+
 # About QRect conversion:
 # I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
 # to rely on it and stay with generic structures.
@@ -56,7 +72,7 @@ class Preferences:
     
     def get_value(self, name, default=None):
         if self._settings.contains(name):
-            return self._settings.value(name)
+            return adjust_after_deserialization(self._settings.value(name))
         else:
             return default
     
