@@ -33,7 +33,8 @@ class Recent(QObject):
     #--- Private
     def _loadFromPrefs(self):
         items = getattr(self._app.prefs, self._prefName)
-        assert isinstance(items, list)
+        if not isinstance(items, list):
+            items = []
         self._items = items
     
     def _insertItem(self, item):
