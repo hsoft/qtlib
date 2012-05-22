@@ -6,7 +6,7 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import Qt, QSettings, QRect
+from PyQt4.QtCore import Qt, QSettings, QRect, QPyNullVariant
 
 from hscommon.trans import trget
 from hscommon.util import tryint
@@ -49,6 +49,8 @@ def adjust_after_deserialization(v):
             return False
         else:
             return tryint(v, v)
+    if isinstance(v, QPyNullVariant):
+        return None
     return v
 
 # About QRect conversion:
