@@ -10,7 +10,9 @@ class TextField:
         self.model = model
         self.view = view
         self.model.view = self
-        self.view.editingFinished.connect(self.editingFinished)
+        # Make TextField also work for QLabel, which doesn't allow editing
+        if hasattr(self.view, 'editingFinished'):
+            self.view.editingFinished.connect(self.editingFinished)
     
     def editingFinished(self):
         self.model.text = self.view.text()
