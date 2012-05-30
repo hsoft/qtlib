@@ -28,7 +28,7 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: qtlib/recent.py:52
+#: qtlib/recent.py:53
 msgid "Clear List"
 msgstr "Vider la liste"
 

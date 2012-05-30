@@ -39,7 +39,7 @@ msgstr "Не отправлять"
 msgid "Send"
 msgstr "Отправить"
 
-#: qtlib/recent.py:52
+#: qtlib/recent.py:53
 msgid "Clear List"
 msgstr "Очистить список"
 

@@ -71,7 +71,7 @@ msgstr ""
 msgid "Dutch"
 msgstr ""
 
-#: qtlib/recent.py:52
+#: qtlib/recent.py:53
 msgid "Clear List"
 msgstr ""
 

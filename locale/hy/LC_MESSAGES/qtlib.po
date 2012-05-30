@@ -40,7 +40,7 @@ msgstr "Չուղարկել"
 msgid "Send"
 msgstr "Ուղարկել"
 
-#: qtlib/recent.py:52
+#: qtlib/recent.py:53
 msgid "Clear List"
 msgstr "Մաքրել ցանկը"
 

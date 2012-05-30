@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ukrainian\n"
@@ -25,8 +25,11 @@ msgid "Error Report"
 msgstr "Повідомлення про помилки"
 
 #: qtlib/error_report_dialog.py:42
-msgid "Something went wrong. Would you like to send the error report to Hardcoded Software?"
-msgstr "Щось пішло не так. Хочете відправити звіт про помилку до Hardcoded Software?"
+msgid ""
+"Something went wrong. Would you like to send the error report to Hardcoded "
+"Software?"
+msgstr ""
+"Щось пішло не так. Хочете відправити звіт про помилку до Hardcoded Software?"
 
 #: qtlib/error_report_dialog.py:56
 msgid "Don't Send"
@@ -36,12 +39,11 @@ msgstr "Не відправляти"
 msgid "Send"
 msgstr "Надіслати"
 
-#: qtlib/recent.py:52
+#: qtlib/recent.py:53
 msgid "Clear List"
 msgstr "Очистити список"
 
-#: qtlib/reg_demo_dialog.py:35
-#: qtlib/reg_fairware_dialog.py:35
+#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
 msgid "$appname is Fairware"
 msgstr "$appname є Fairware"
 
@@ -49,8 +51,7 @@ msgstr "$appname є Fairware"
 msgid "Try"
 msgstr "Спробувати"
 
-#: qtlib/reg_demo_dialog.py:52
-#: qtlib/reg_fairware_dialog.py:78
+#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
 msgid "Enter Key"
 msgstr "Введіть Ваш ключ"
 
@@ -78,8 +79,7 @@ msgstr "Детальніше"
 msgid "Continue"
 msgstr "Продовжити"
 
-#: qtlib/reg_fairware_dialog.py:82
-#: qtlib/reg_submit_dialog.py:72
+#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
 msgid "Contribute"
 msgstr "Зробити внесок"
 
@@ -88,8 +88,12 @@ msgid "Enter your registration key"
 msgstr "Введіть Ваш реєстраційний ключ"
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
-msgstr "Введіть ключ, який Ви отримали зробивши внесок за $appname, а також адресу електронної пошти, яка була вказана під час покупки."
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr ""
+"Введіть ключ, який Ви отримали зробивши внесок за $appname, а також адресу "
+"електронної пошти, яка була вказана під час покупки."
 
 #: qtlib/reg_submit_dialog.py:53
 msgid "Registration key:"
@@ -156,10 +160,13 @@ msgid "Dutch"
 msgstr ""
 
 #: qtlib/error_report_dialog.py:48
-msgid "Although the application should continue to run after this error, it may be in an instable state, so it is recommended that you restart the application."
-msgstr "Хоча програма має продовжувати роботу після цієї помилки, вона може перебувати у нестабільному стані, тож рекомендується перезапустити програму."
+msgid ""
+"Although the application should continue to run after this error, it may be "
+"in an instable state, so it is recommended that you restart the application."
+msgstr ""
+"Хоча програма має продовжувати роботу після цієї помилки, вона може "
+"перебувати у нестабільному стані, тож рекомендується перезапустити програму."
 
 #: qtlib/search_edit.py:41
 msgid "Search..."
 msgstr "Шукати..."
-
