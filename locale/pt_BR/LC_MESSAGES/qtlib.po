@@ -138,7 +138,7 @@ msgstr "Dizer à Hardcoded Software qual sistema operacional eu uso."
 
 #: qtlib/reg_submit_dialog.py:68
 msgid "(to have some contribution statistics based on OSes)"
-msgstr "(para que haja estatísticas de contribuição baseadas em sistemas operacionais)"
+msgstr "(somente para fins estatísticos)"
 
 #: qtlib/reg_submit_dialog.py:83
 msgid "Cancel"
