@@ -170,3 +170,7 @@ msgstr ""
 #: qtlib/search_edit.py:41
 msgid "Search..."
 msgstr "Шукати..."
+
+#: qtlib/preferences.py:27
+msgid "Brazilian"
+msgstr ""

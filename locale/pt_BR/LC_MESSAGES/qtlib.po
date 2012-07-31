@@ -1,7 +1,6 @@
-
+# 
 msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 #: qtlib/about_box.py:53
 msgid "Copyright Hardcoded Software 2012"
@@ -16,12 +15,18 @@ msgid "Error Report"
 msgstr "Relatório de Erro"
 
 #: qtlib/error_report_dialog.py:42
-msgid "Something went wrong. Would you like to send the error report to Hardcoded Software?"
-msgstr "Algo deu errado. Deseja enviar o relatório de erro à Hardcoded Software?"
+msgid ""
+"Something went wrong. Would you like to send the error report to Hardcoded "
+"Software?"
+msgstr ""
+"Algo deu errado. Deseja enviar o relatório de erro à Hardcoded Software?"
 
 #: qtlib/error_report_dialog.py:48
-msgid "Although the application should continue to run after this error, it may be in an instable state, so it is recommended that you restart the application."
-msgstr "Embora o aplicativo continue a funcionar após este erro, ele pode estar "
+msgid ""
+"Although the application should continue to run after this error, it may be "
+"in an instable state, so it is recommended that you restart the application."
+msgstr ""
+"Embora o aplicativo continue a funcionar após este erro, ele pode estar "
 "instável. É recomendável reiniciá-lo."
 
 #: qtlib/error_report_dialog.py:56
@@ -121,8 +126,12 @@ msgid "Enter your registration key"
 msgstr "Entre sua chave de registro"
 
 #: qtlib/reg_submit_dialog.py:41
-msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
-msgstr ""Digite a chave que você recebeu ao contribuir com o $appname, assim como o e-mail usado para a compra."
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr ""
+"Digite a chave que você recebeu ao contribuir com o $appname, assim como o "
+"e-mail usado para a compra."
 
 #: qtlib/reg_submit_dialog.py:53
 msgid "Registration key:"
@@ -152,3 +161,6 @@ msgstr "Enviar"
 msgid "Search..."
 msgstr "Buscar…"
 
+#: qtlib/preferences.py:27
+msgid "Brazilian"
+msgstr ""

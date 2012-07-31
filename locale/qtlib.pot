@@ -71,6 +71,10 @@ msgstr ""
 msgid "Dutch"
 msgstr ""
 
+#: qtlib/preferences.py:27
+msgid "Brazilian"
+msgstr ""
+
 #: qtlib/recent.py:53
 msgid "Clear List"
 msgstr ""
