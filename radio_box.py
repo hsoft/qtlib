@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# Created By: Virgil Dupras
 # Created On: 2010-06-02
 # Copyright 2012 Hardcoded Software (http://www.hardcoded.net)
 # 
@@ -10,16 +8,26 @@
 from PyQt4.QtCore import pyqtSignal
 from PyQt4.QtGui import QWidget, QHBoxLayout, QRadioButton
 
+from .util import horizontalSpacer
+
 class RadioBox(QWidget):
-    def __init__(self, parent):
+    def __init__(self, parent=None, items=None, spread=True):
+        # If spread is False, insert a spacer in the layout so that the items don't use all the
+        # space they're given but rather align left.
+        if items is None:
+            items = []
         QWidget.__init__(self, parent)
         self._buttons = []
-        self._labels = []
+        self._labels = items
         self._selected_index = 0
+        self._spacer = horizontalSpacer() if not spread else None
         self._layout = QHBoxLayout(self)
+        self._update_buttons()
     
     #--- Private
     def _update_buttons(self):
+        if self._spacer is not None:
+            self._layout.removeItem(self._spacer)
         to_remove = self._buttons[len(self._labels):]
         for button in to_remove:
             self._layout.removeWidget(button)
@@ -31,6 +39,8 @@ class RadioBox(QWidget):
             self._buttons.append(button)
             self._layout.addWidget(button)
             button.toggled.connect(self.buttonToggled)
+        if self._spacer is not None:
+            self._layout.addItem(self._spacer)
         if not self._buttons:
             return
         for button, label in zip(self._buttons, self._labels):
