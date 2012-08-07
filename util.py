@@ -6,10 +6,16 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
+import sys
+import io
+import os.path as op
+import os
+import logging
+
 from hscommon.util import first
 
 from PyQt4.QtGui import (QDesktopWidget, QSpacerItem, QSizePolicy, QPixmap, QIcon, QAction,
-    QHBoxLayout)
+    QHBoxLayout, QDesktopServices)
 
 def moveToScreenCenter(widget):
     frame = widget.frameGeometry()
@@ -67,3 +73,26 @@ def setAccelKeys(menu):
         newtext = text[:i] + '&' + text[i:]
         available_characters.remove(c.lower())
         action.setText(newtext)
+
+def getAppData():
+    return str(QDesktopServices.storageLocation(QDesktopServices.DataLocation))
+
+class SysWrapper(io.IOBase):
+    def write(self, s):
+        if s.strip(): # don't log empty stuff
+            logging.warning(s)
+
+def setupQtLogging():
+    # Under Qt, we log in "debug.log" in appdata. Moreover, when under cx_freeze, we have a
+    # problem because sys.stdout and sys.stderr are None, so we need to replace them with a
+    # wrapper that logs with the logging module.
+    appdata = getAppData()
+    if not op.exists(appdata):
+        os.makedirs(appdata)
+    # For basicConfig() to work, we have to be sure that no logging has taken place before this call.
+    logging.basicConfig(filename=op.join(appdata, 'debug.log'), level=logging.WARNING,
+        format='%(asctime)s - %(levelname)s - %(message)s')
+    if sys.stderr is None: # happens under a cx_freeze environment
+        sys.stderr = SysWrapper()
+    if sys.stdout is None:
+        sys.stdout = SysWrapper()
