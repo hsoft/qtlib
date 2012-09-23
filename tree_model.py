@@ -6,6 +6,8 @@
 # which should be included with this package. The terms are also available at 
 # http://www.hardcoded.net/licenses/bsd_license
 
+import logging
+
 from PyQt4.QtCore import QAbstractItemModel, QModelIndex
 
 class NodeContainer:
@@ -72,6 +74,10 @@ class RefNode(TreeNode):
         return list(self.ref)
     
 
+# We use a specific TreeNode subclass to easily spot dummy nodes, especially in exception tracebacks.
+class DummyNode(TreeNode):
+    pass
+
 class TreeModel(QAbstractItemModel, NodeContainer):
     def __init__(self):
         QAbstractItemModel.__init__(self)
@@ -85,7 +91,7 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         # being queried. Rather than going through complicated row removal crap, it's simpler to
         # just have rows with empty data replacing removed rows for the millisecond that the drag &
         # drop lasts. Override this to return a node of the correct type.
-        return TreeNode(self, parent, row)
+        return DummyNode(self, parent, row)
     
     def _lastIndex(self):
         """Index of the very last item in the tree.
@@ -105,6 +111,8 @@ class TreeModel(QAbstractItemModel, NodeContainer):
         try:
             return self.createIndex(row, column, node.subnodes[row])
         except IndexError:
+            logging.debug("Wrong tree index called (%r, %r, %r). Returning DummyNode",
+                row, column, node)
             parentNode = parent.internalPointer() if parent.isValid() else None
             dummy = self._createDummyNode(parentNode, row)
             self._dummyNodes.add(dummy)
