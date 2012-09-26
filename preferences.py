@@ -75,7 +75,13 @@ class Preferences:
     
     def get_value(self, name, default=None):
         if self._settings.contains(name):
-            return adjust_after_deserialization(self._settings.value(name))
+            result = adjust_after_deserialization(self._settings.value(name))
+            if result is not None:
+                return result
+            else:
+                # If result is None, but still present in self._settings, it usually means a value
+                # like "@Invalid".
+                return default
         else:
             return default
     
