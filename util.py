@@ -96,3 +96,8 @@ def setupQtLogging(level=logging.WARNING):
         sys.stderr = SysWrapper()
     if sys.stdout is None:
         sys.stdout = SysWrapper()
+
+def escapeamp(s):
+    # Returns `s` with escaped ampersand (& --> &&). QAction text needs to have & escaped because
+    # that character is used to define "accel keys".
+    return s.replace('&', '&&')
