@@ -26,7 +26,7 @@ class AboutBox(QDialog):
         self.buttonBox.clicked.connect(self.buttonClicked)
     
     def _setupUi(self):
-        self.setWindowTitle("About {0}".format(QCoreApplication.instance().applicationName()))
+        self.setWindowTitle(tr("About {}").format(QCoreApplication.instance().applicationName()))
         self.resize(400, 190)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -46,7 +46,7 @@ class AboutBox(QDialog):
         self.nameLabel.setText(QCoreApplication.instance().applicationName())
         self.verticalLayout.addWidget(self.nameLabel)
         self.versionLabel = QLabel(self)
-        self.versionLabel.setText('Version {0}'.format(QCoreApplication.instance().applicationVersion()))
+        self.versionLabel.setText(tr("Version {}").format(QCoreApplication.instance().applicationVersion()))
         self.verticalLayout.addWidget(self.versionLabel)
         self.label_3 = QLabel(self)
         self.verticalLayout.addWidget(self.label_3)
@@ -63,7 +63,7 @@ class AboutBox(QDialog):
         self.buttonBox = QDialogButtonBox(self)
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Ok)
-        self.registerButton = self.buttonBox.addButton("Register", QDialogButtonBox.ActionRole)
+        self.registerButton = self.buttonBox.addButton(tr("Register"), QDialogButtonBox.ActionRole)
         self.verticalLayout.addWidget(self.buttonBox)
         self.horizontalLayout.addLayout(self.verticalLayout)
     
