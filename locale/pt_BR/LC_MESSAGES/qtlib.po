@@ -164,3 +164,19 @@ msgstr "Buscar…"
 #: qtlib/preferences.py:27
 msgid "Brazilian"
 msgstr ""
+
+#: qtlib/about_box.py:29
+msgid "About {}"
+msgstr ""
+
+#: qtlib/about_box.py:49
+msgid "Version {}"
+msgstr ""
+
+#: qtlib/about_box.py:66
+msgid "Register"
+msgstr ""
+
+#: qtlib/preferences.py:28
+msgid "Spanish"
+msgstr ""
