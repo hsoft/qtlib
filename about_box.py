@@ -15,15 +15,17 @@ from hscommon.trans import trget
 tr = trget('qtlib')
 
 class AboutBox(QDialog):
-    def __init__(self, parent, app):
+    def __init__(self, parent, app, withreg=True):
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.MSWindowsFixedSizeDialogHint
         QDialog.__init__(self, parent, flags)
         self.app = app
+        self.withreg = withreg
         self._setupUi()
         
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
-        self.buttonBox.clicked.connect(self.buttonClicked)
+        if self.withreg:
+            self.buttonBox.clicked.connect(self.buttonClicked)
     
     def _setupUi(self):
         self.setWindowTitle(tr("About {}").format(QCoreApplication.instance().applicationName()))
@@ -58,12 +60,14 @@ class AboutBox(QDialog):
         self.label.setFont(font)
         self.verticalLayout.addWidget(self.label)
         self.registeredEmailLabel = QLabel(self)
-        self.registeredEmailLabel.setText(tr("UNREGISTERED"))
+        if self.withreg:
+            self.registeredEmailLabel.setText(tr("UNREGISTERED"))
         self.verticalLayout.addWidget(self.registeredEmailLabel)
         self.buttonBox = QDialogButtonBox(self)
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Ok)
-        self.registerButton = self.buttonBox.addButton(tr("Register"), QDialogButtonBox.ActionRole)
+        if self.withreg:
+            self.registerButton = self.buttonBox.addButton(tr("Register"), QDialogButtonBox.ActionRole)
         self.verticalLayout.addWidget(self.buttonBox)
         self.horizontalLayout.addLayout(self.verticalLayout)
     
