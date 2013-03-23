@@ -1,9 +1,10 @@
 # 
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: utf-8\n"
 
 #: qtlib/about_box.py:53
-msgid "Copyright Hardcoded Software 2012"
+msgid "Copyright Hardcoded Software 2013"
 msgstr ""
 
 #: qtlib/about_box.py:61
