@@ -10,9 +10,8 @@ import sys
 
 from PyQt4.QtCore import Qt, QCoreApplication
 from PyQt4.QtGui import (QDialog, QApplication, QVBoxLayout, QHBoxLayout, QLabel, QFormLayout,
-    QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy, QCheckBox)
+    QLayout, QLineEdit, QPushButton, QSpacerItem, QSizePolicy)
 
-from hscommon.plat import ISLINUX
 from hscommon.trans import trget
 
 tr = trget('qtlib')
@@ -30,11 +29,7 @@ class RegSubmitDialog(QDialog):
     
     def _setupUi(self):
         self.setWindowTitle(tr("Enter your registration key"))
-        # Workaround for bug at http://bugreports.qt.nokia.com/browse/QTBUG-8212
-        if ISLINUX:
-            self.resize(450, 210)
-        else:
-            self.resize(365, 146)
+        self.resize(365, 126)
         self.verticalLayout = QVBoxLayout(self)
         self.promptLabel = QLabel(self)
         appname = str(QCoreApplication.instance().applicationName())
@@ -60,13 +55,6 @@ class RegSubmitDialog(QDialog):
         self.emailEdit = QLineEdit(self)
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.emailEdit)
         self.verticalLayout.addLayout(self.formLayout)
-        self.registerOSCheckBox = QCheckBox(self)
-        self.registerOSCheckBox.setText(tr("Tell Hardcoded Software which operating system I'm using."))
-        self.registerOSCheckBox.setChecked(True)
-        self.verticalLayout.addWidget(self.registerOSCheckBox)
-        self.label4 = QLabel(self)
-        self.label4.setText(tr("(to have some contribution statistics based on OSes)"))
-        self.verticalLayout.addWidget(self.label4)
         self.horizontalLayout = QHBoxLayout()
         self.contributeButton = QPushButton(self)
         self.contributeButton.setText(tr("Contribute"))
@@ -102,7 +90,7 @@ class RegSubmitDialog(QDialog):
     def submitClicked(self):
         code = self.codeEdit.text()
         email = self.emailEdit.text()
-        if self.reg.app.set_registration(code, email, self.registerOSCheckBox.isChecked()):
+        if self.reg.app.set_registration(code, email, False):
             self.accept()
     
 
