@@ -1,14 +1,33 @@
 # 
+# Translators:
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"Project-Id-Version: hscommon\n"
+"PO-Revision-Date: 2013-04-28 18:31+0000\n"
+"Last-Translator: hsoft <hsoft@hardcoded.net>\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: qtlib/about_box.py:53
+#: qtlib/about_box.py:31
+msgid "About {}"
+msgstr ""
+
+#: qtlib/about_box.py:51
+msgid "Version {}"
+msgstr ""
+
+#: qtlib/about_box.py:55
 msgid "Copyright Hardcoded Software 2013"
 msgstr ""
 
-#: qtlib/about_box.py:61
+#: qtlib/about_box.py:64
 msgid "UNREGISTERED"
+msgstr ""
+
+#: qtlib/about_box.py:70
+msgid "Register"
 msgstr ""
 
 #: qtlib/error_report_dialog.py:38
@@ -21,6 +40,12 @@ msgid ""
 "Software?"
 msgstr ""
 
+#: qtlib/error_report_dialog.py:48
+msgid ""
+"Although the application should continue to run after this error, it may be "
+"in an instable state, so it is recommended that you restart the application."
+msgstr ""
+
 #: qtlib/error_report_dialog.py:56
 msgid "Don't Send"
 msgstr ""
@@ -28,86 +53,6 @@ msgstr ""
 #: qtlib/error_report_dialog.py:60
 msgid "Send"
 msgstr ""
-
-#: qtlib/recent.py:53
-msgid "Clear List"
-msgstr "Vider la liste"
-
-#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
-msgid "$appname is Fairware"
-msgstr "$appname est Fairware"
-
-#: qtlib/reg_demo_dialog.py:49
-msgid "Try"
-msgstr "Essayer"
-
-#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
-msgid "Enter Key"
-msgstr "Enregistrer"
-
-#: qtlib/reg_demo_dialog.py:55
-msgid "Buy"
-msgstr "Acheter"
-
-#: qtlib/reg_demo_dialog.py:57
-msgid "Fairware?"
-msgstr ""
-
-#: qtlib/reg_fairware_dialog.py:47
-msgid "Please contribute"
-msgstr "Contribuez s.v.p."
-
-#: qtlib/reg_fairware_dialog.py:59
-msgid "Unpaid hours: $unpaid"
-msgstr "Heures impayées: $unpaid"
-
-#: qtlib/reg_fairware_dialog.py:65
-msgid "More Info"
-msgstr "Plus d'info"
-
-#: qtlib/reg_fairware_dialog.py:74
-msgid "Continue"
-msgstr "Continuer"
-
-#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
-msgid "Contribute"
-msgstr "Contribuer"
-
-#: qtlib/reg_submit_dialog.py:32
-msgid "Enter your registration key"
-msgstr "Entrez votre clé"
-
-#: qtlib/reg_submit_dialog.py:41
-msgid ""
-"Type the key you received when you contributed to $appname, as well as the "
-"e-mail used as a reference for the purchase."
-msgstr ""
-"Entrez la clé que vous avez reçue en contribuant à $appname, ainsi que le "
-"courriel utilisé pour la contribution."
-
-#: qtlib/reg_submit_dialog.py:53
-msgid "Registration key:"
-msgstr "Clé d'enregistrement:"
-
-#: qtlib/reg_submit_dialog.py:56
-msgid "Registered e-mail:"
-msgstr "Courriel référence:"
-
-#: qtlib/reg_submit_dialog.py:64
-msgid "Tell Hardcoded Software which operating system I'm using."
-msgstr "Divulger mon système d'exploitation à Hardcoded Software."
-
-#: qtlib/reg_submit_dialog.py:68
-msgid "(to have some contribution statistics based on OSes)"
-msgstr "(c'est pour faire des statistiques de contributions)"
-
-#: qtlib/reg_submit_dialog.py:83
-msgid "Cancel"
-msgstr "Annuler"
-
-#: qtlib/reg_submit_dialog.py:92
-msgid "Submit"
-msgstr "Soumettre"
 
 #: qtlib/preferences.py:17
 msgid "English"
@@ -149,32 +94,68 @@ msgstr "Ukrainien"
 msgid "Dutch"
 msgstr "Néerlandais"
 
-#: qtlib/error_report_dialog.py:48
-msgid ""
-"Although the application should continue to run after this error, it may be "
-"in an instable state, so it is recommended that you restart the application."
-msgstr ""
-
-#: qtlib/search_edit.py:41
-msgid "Search..."
-msgstr "Recherche..."
-
 #: qtlib/preferences.py:27
 msgid "Brazilian"
-msgstr ""
-
-#: qtlib/about_box.py:29
-msgid "About {}"
-msgstr ""
-
-#: qtlib/about_box.py:49
-msgid "Version {}"
-msgstr ""
-
-#: qtlib/about_box.py:66
-msgid "Register"
 msgstr ""
 
 #: qtlib/preferences.py:28
 msgid "Spanish"
 msgstr ""
+
+#: qtlib/recent.py:53
+msgid "Clear List"
+msgstr "Vider la liste"
+
+#: qtlib/reg_demo_dialog.py:35
+msgid "$appname is Fairware"
+msgstr "$appname est Fairware"
+
+#: qtlib/reg_demo_dialog.py:49
+msgid "Try"
+msgstr "Essayer"
+
+#: qtlib/reg_demo_dialog.py:52
+msgid "Enter Key"
+msgstr "Enregistrer"
+
+#: qtlib/reg_demo_dialog.py:55
+msgid "Buy"
+msgstr "Acheter"
+
+#: qtlib/reg_demo_dialog.py:57
+msgid "Fairware?"
+msgstr ""
+
+#: qtlib/reg_submit_dialog.py:31
+msgid "Enter your registration key"
+msgstr "Entrez votre clé"
+
+#: qtlib/reg_submit_dialog.py:36
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr "Entrez la clé que vous avez reçue en contribuant à $appname, ainsi que le courriel utilisé pour la contribution."
+
+#: qtlib/reg_submit_dialog.py:48
+msgid "Registration key:"
+msgstr "Clé d'enregistrement:"
+
+#: qtlib/reg_submit_dialog.py:51
+msgid "Registered e-mail:"
+msgstr "Courriel référence:"
+
+#: qtlib/reg_submit_dialog.py:60
+msgid "Contribute"
+msgstr "Contribuer"
+
+#: qtlib/reg_submit_dialog.py:71
+msgid "Cancel"
+msgstr "Annuler"
+
+#: qtlib/reg_submit_dialog.py:80
+msgid "Submit"
+msgstr "Soumettre"
+
+#: qtlib/search_edit.py:41
+msgid "Search..."
+msgstr "Recherche..."

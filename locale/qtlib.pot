@@ -4,23 +4,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 
-#: qtlib/about_box.py:29
+#: qtlib/about_box.py:31
 msgid "About {}"
 msgstr ""
 
-#: qtlib/about_box.py:49
+#: qtlib/about_box.py:51
 msgid "Version {}"
 msgstr ""
 
-#: qtlib/about_box.py:53
+#: qtlib/about_box.py:55
 msgid "Copyright Hardcoded Software 2013"
 msgstr ""
 
-#: qtlib/about_box.py:61
+#: qtlib/about_box.py:64
 msgid "UNREGISTERED"
 msgstr ""
 
-#: qtlib/about_box.py:66
+#: qtlib/about_box.py:70
 msgid "Register"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Clear List"
 msgstr ""
 
-#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
+#: qtlib/reg_demo_dialog.py:35
 msgid "$appname is Fairware"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Try"
 msgstr ""
 
-#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
+#: qtlib/reg_demo_dialog.py:52
 msgid "Enter Key"
 msgstr ""
 
@@ -116,55 +116,31 @@ msgstr ""
 msgid "Fairware?"
 msgstr ""
 
-#: qtlib/reg_fairware_dialog.py:47
-msgid "Please contribute"
-msgstr ""
-
-#: qtlib/reg_fairware_dialog.py:59
-msgid "Unpaid hours: $unpaid"
-msgstr ""
-
-#: qtlib/reg_fairware_dialog.py:65
-msgid "More Info"
-msgstr ""
-
-#: qtlib/reg_fairware_dialog.py:74
-msgid "Continue"
-msgstr ""
-
-#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
-msgid "Contribute"
-msgstr ""
-
-#: qtlib/reg_submit_dialog.py:32
+#: qtlib/reg_submit_dialog.py:31
 msgid "Enter your registration key"
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:41
+#: qtlib/reg_submit_dialog.py:36
 msgid "Type the key you received when you contributed to $appname, as well as the e-mail used as a reference for the purchase."
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:53
+#: qtlib/reg_submit_dialog.py:48
 msgid "Registration key:"
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:56
+#: qtlib/reg_submit_dialog.py:51
 msgid "Registered e-mail:"
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:64
-msgid "Tell Hardcoded Software which operating system I'm using."
+#: qtlib/reg_submit_dialog.py:60
+msgid "Contribute"
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:68
-msgid "(to have some contribution statistics based on OSes)"
-msgstr ""
-
-#: qtlib/reg_submit_dialog.py:83
+#: qtlib/reg_submit_dialog.py:71
 msgid "Cancel"
 msgstr ""
 
-#: qtlib/reg_submit_dialog.py:92
+#: qtlib/reg_submit_dialog.py:80
 msgid "Submit"
 msgstr ""
 

@@ -1,130 +1,58 @@
 # 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: dupeGuru\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: Kyrill Detinov <lazy.kent@opensuse.org>\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
+"Project-Id-Version: hscommon\n"
+"PO-Revision-Date: 2013-04-28 18:31+0000\n"
+"Last-Translator: hsoft <hsoft@hardcoded.net>\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Poedit-Country: RUSSIAN FEDERATION\n"
-"X-Poedit-Language: Russian\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: qtlib/reg_demo_dialog.py:35 qtlib/reg_fairware_dialog.py:35
-msgid "$appname is Fairware"
-msgstr "$appname является Fairware"
+#: qtlib/about_box.py:31
+msgid "About {}"
+msgstr ""
 
-#: qtlib/reg_submit_dialog.py:68
-msgid "(to have some contribution statistics based on OSes)"
-msgstr "(чтобы иметь определённую статистику, основанную на ОС)"
+#: qtlib/about_box.py:51
+msgid "Version {}"
+msgstr ""
 
-#: qtlib/reg_demo_dialog.py:55
-msgid "Buy"
-msgstr "Купить"
-
-#: qtlib/reg_submit_dialog.py:83
-msgid "Cancel"
-msgstr "Отменить"
-
-#: qtlib/recent.py:53
-msgid "Clear List"
-msgstr "Очистить список"
-
-#: qtlib/reg_fairware_dialog.py:74
-msgid "Continue"
-msgstr "Продолжить"
-
-#: qtlib/reg_fairware_dialog.py:82 qtlib/reg_submit_dialog.py:72
-msgid "Contribute"
-msgstr "Поддержите"
-
-#: qtlib/about_box.py:53
+#: qtlib/about_box.py:55
 msgid "Copyright Hardcoded Software 2013"
 msgstr "Copyright Hardcoded Software 2013"
 
-#: qtlib/error_report_dialog.py:56
-msgid "Don't Send"
-msgstr "Не отправлять"
+#: qtlib/about_box.py:64
+msgid "UNREGISTERED"
+msgstr "НЕЗАРЕГИСТРИРОВАННАЯ"
 
-#: qtlib/reg_demo_dialog.py:52 qtlib/reg_fairware_dialog.py:78
-msgid "Enter Key"
-msgstr "Ввод ключа"
-
-#: qtlib/reg_submit_dialog.py:32
-msgid "Enter your registration key"
-msgstr "Введите ваш регистрационный ключ"
+#: qtlib/about_box.py:70
+msgid "Register"
+msgstr ""
 
 #: qtlib/error_report_dialog.py:38
 msgid "Error Report"
 msgstr "Сообщение об ошибке"
 
-#: qtlib/reg_demo_dialog.py:57
-msgid "Fairware?"
-msgstr "Fairware?"
-
-#: qtlib/reg_fairware_dialog.py:65
-msgid "More Info"
-msgstr "Подробнее"
-
-#: qtlib/reg_fairware_dialog.py:47
-msgid "Please contribute"
-msgstr "Пожалуйста, поддержите"
-
-#: qtlib/reg_submit_dialog.py:56
-msgid "Registered e-mail:"
-msgstr "Зарегистрированный e-mail:"
-
-#: qtlib/reg_submit_dialog.py:53
-msgid "Registration key:"
-msgstr "Регистрационный ключ:"
-
-#: qtlib/error_report_dialog.py:60
-msgid "Send"
-msgstr "Отправить"
-
 #: qtlib/error_report_dialog.py:42
 msgid ""
 "Something went wrong. Would you like to send the error report to Hardcoded "
 "Software?"
-msgstr ""
-"Что-то пошло не так. Хотите отправить отчёт об ошибке в Hardcoded Software?"
-
-#: qtlib/reg_submit_dialog.py:92
-msgid "Submit"
-msgstr "Подтвердить"
-
-#: qtlib/reg_submit_dialog.py:64
-msgid "Tell Hardcoded Software which operating system I'm using."
-msgstr "Сообщить Hardcoded Software свою операционную систему."
-
-#: qtlib/reg_demo_dialog.py:49
-msgid "Try"
-msgstr "Попробовать"
-
-#: qtlib/reg_submit_dialog.py:41
-msgid ""
-"Type the key you received when you contributed to $appname, as well as the "
-"e-mail used as a reference for the purchase."
-msgstr ""
-"Введите ключ, который вы получили при вкладе в $appname, а также адрес "
-"электронной почты использованный для покупки."
-
-#: qtlib/about_box.py:61
-msgid "UNREGISTERED"
-msgstr "НЕЗАРЕГИСТРИРОВАННАЯ"
-
-#: qtlib/reg_fairware_dialog.py:59
-msgid "Unpaid hours: $unpaid"
-msgstr "Неоплаченные часы: $unpaid"
+msgstr "Что-то пошло не так. Хотите отправить отчёт об ошибке в Hardcoded Software?"
 
 #: qtlib/error_report_dialog.py:48
 msgid ""
 "Although the application should continue to run after this error, it may be "
 "in an instable state, so it is recommended that you restart the application."
 msgstr ""
+
+#: qtlib/error_report_dialog.py:56
+msgid "Don't Send"
+msgstr "Не отправлять"
+
+#: qtlib/error_report_dialog.py:60
+msgid "Send"
+msgstr "Отправить"
 
 #: qtlib/preferences.py:17
 msgid "English"
@@ -170,22 +98,64 @@ msgstr ""
 msgid "Brazilian"
 msgstr ""
 
-#: qtlib/search_edit.py:41
-msgid "Search..."
-msgstr ""
-
-#: qtlib/about_box.py:29
-msgid "About {}"
-msgstr ""
-
-#: qtlib/about_box.py:49
-msgid "Version {}"
-msgstr ""
-
-#: qtlib/about_box.py:66
-msgid "Register"
-msgstr ""
-
 #: qtlib/preferences.py:28
 msgid "Spanish"
+msgstr ""
+
+#: qtlib/recent.py:53
+msgid "Clear List"
+msgstr "Очистить список"
+
+#: qtlib/reg_demo_dialog.py:35
+msgid "$appname is Fairware"
+msgstr "$appname является Fairware"
+
+#: qtlib/reg_demo_dialog.py:49
+msgid "Try"
+msgstr "Попробовать"
+
+#: qtlib/reg_demo_dialog.py:52
+msgid "Enter Key"
+msgstr "Ввод ключа"
+
+#: qtlib/reg_demo_dialog.py:55
+msgid "Buy"
+msgstr "Купить"
+
+#: qtlib/reg_demo_dialog.py:57
+msgid "Fairware?"
+msgstr "Fairware?"
+
+#: qtlib/reg_submit_dialog.py:31
+msgid "Enter your registration key"
+msgstr "Введите ваш регистрационный ключ"
+
+#: qtlib/reg_submit_dialog.py:36
+msgid ""
+"Type the key you received when you contributed to $appname, as well as the "
+"e-mail used as a reference for the purchase."
+msgstr "Введите ключ, который вы получили при вкладе в $appname, а также адрес электронной почты использованный для покупки."
+
+#: qtlib/reg_submit_dialog.py:48
+msgid "Registration key:"
+msgstr "Регистрационный ключ:"
+
+#: qtlib/reg_submit_dialog.py:51
+msgid "Registered e-mail:"
+msgstr "Зарегистрированный e-mail:"
+
+#: qtlib/reg_submit_dialog.py:60
+msgid "Contribute"
+msgstr "Поддержите"
+
+#: qtlib/reg_submit_dialog.py:71
+msgid "Cancel"
+msgstr "Отменить"
+
+#: qtlib/reg_submit_dialog.py:80
+msgid "Submit"
+msgstr "Подтвердить"
+
+#: qtlib/search_edit.py:41
+msgid "Search..."
 msgstr ""
