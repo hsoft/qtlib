@@ -1,5 +1,4 @@
-syntax: glob
-
+__pycache__
 *.pyc
 *.mo
 .DS_Store
