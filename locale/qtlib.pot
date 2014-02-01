@@ -13,7 +13,7 @@ msgid "Version {}"
 msgstr ""
 
 #: qtlib/about_box.py:55
-msgid "Copyright Hardcoded Software 2013"
+msgid "Copyright Hardcoded Software 2014"
 msgstr ""
 
 #: qtlib/about_box.py:64
@@ -90,6 +90,10 @@ msgstr ""
 
 #: qtlib/preferences.py:28
 msgid "Spanish"
+msgstr ""
+
+#: qtlib/preferences.py:29
+msgid "Vietnamese"
 msgstr ""
 
 #: qtlib/recent.py:53

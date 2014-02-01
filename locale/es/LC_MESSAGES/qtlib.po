@@ -17,10 +17,6 @@ msgstr "Acerca de {}"
 msgid "Version {}"
 msgstr "Versión {}"
 
-#: qtlib/about_box.py:55
-msgid "Copyright Hardcoded Software 2013"
-msgstr "Copyright Hardcoded Software 2013"
-
 #: qtlib/about_box.py:64
 msgid "UNREGISTERED"
 msgstr "SIN REGISTRAR"
@@ -164,3 +160,11 @@ msgstr "Enviar"
 #: qtlib/search_edit.py:41
 msgid "Search..."
 msgstr "Búsqueda..."
+
+#: qtlib/about_box.py:55
+msgid "Copyright Hardcoded Software 2014"
+msgstr ""
+
+#: qtlib/preferences.py:29
+msgid "Vietnamese"
+msgstr ""

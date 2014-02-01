@@ -17,10 +17,6 @@ msgstr ""
 msgid "Version {}"
 msgstr ""
 
-#: qtlib/about_box.py:55
-msgid "Copyright Hardcoded Software 2013"
-msgstr "Авторське право Hardcoded Software 2013"
-
 #: qtlib/about_box.py:64
 msgid "UNREGISTERED"
 msgstr "НЕЗАРЕЄСТРОВАНИЙ"
@@ -163,3 +159,11 @@ msgstr "Надіслати"
 #: qtlib/search_edit.py:41
 msgid "Search..."
 msgstr "Шукати..."
+
+#: qtlib/about_box.py:55
+msgid "Copyright Hardcoded Software 2014"
+msgstr "Авторське право Hardcoded Software 2014"
+
+#: qtlib/preferences.py:29
+msgid "Vietnamese"
+msgstr ""
