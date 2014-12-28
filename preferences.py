@@ -1,12 +1,12 @@
 # Created By: Virgil Dupras
 # Created On: 2009-05-03
 # Copyright 2014 Hardcoded Software (http://www.hardcoded.net)
-# 
-# This software is licensed under the "BSD" License as described in the "LICENSE" file, 
-# which should be included with this package. The terms are also available at 
+#
+# This software is licensed under the "BSD" License as described in the "LICENSE" file,
+# which should be included with this package. The terms are also available at
 # http://www.hardcoded.net/licenses/bsd_license
 
-from PyQt4.QtCore import Qt, QSettings, QRect, QPyNullVariant
+from PyQt4.QtCore import Qt, QObject, QSettings, QRect, QPyNullVariant, pyqtSignal
 
 from hscommon.trans import trget
 from hscommon.util import tryint
@@ -60,21 +60,24 @@ def adjust_after_deserialization(v):
 # I think Qt supports putting basic structures like QRect directly in QSettings, but I prefer not
 # to rely on it and stay with generic structures.
 
-class Preferences:
+class Preferences(QObject):
+    prefsChanged = pyqtSignal()
+
     def __init__(self):
+        QObject.__init__(self)
         self.reset()
         self._settings = QSettings()
-    
+
     def _load_values(self, settings, get):
         pass
-    
+
     def get_rect(self, name, default=None):
         r = self.get_value(name, default)
         if r is not None:
             return QRect(*r)
         else:
             return None
-    
+
     def get_value(self, name, default=None):
         if self._settings.contains(name):
             result = adjust_after_deserialization(self._settings.value(name))
@@ -86,29 +89,29 @@ class Preferences:
                 return default
         else:
             return default
-    
+
     def load(self):
         self.reset()
         self._load_values(self._settings)
-    
+
     def reset(self):
         pass
-    
+
     def _save_values(self, settings, set_):
         pass
-    
+
     def save(self):
         self._save_values(self._settings)
         self._settings.sync()
-    
+
     def set_rect(self, name, r):
         if isinstance(r, QRect):
             rectAsList = [r.x(), r.y(), r.width(), r.height()]
             self.set_value(name, rectAsList)
-    
+
     def set_value(self, name, value):
         self._settings.setValue(name, normalize_for_serialization(value))
-    
+
     def saveGeometry(self, name, widget):
         # We save geometry under a 5-sized int array: first item is a flag for whether the widget
         # is maximized and the other 4 are (x, y, w, h).
@@ -116,7 +119,7 @@ class Preferences:
         r = widget.geometry()
         rectAsList = [r.x(), r.y(), r.width(), r.height()]
         self.set_value(name, [m] + rectAsList)
-    
+
     def restoreGeometry(self, name, widget):
         l = self.get_value(name)
         if l and len(l) == 5:
@@ -126,4 +129,4 @@ class Preferences:
             else:
                 r = QRect(x, y, w, h)
                 widget.setGeometry(r)
-    
+
