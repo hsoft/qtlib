@@ -1,15 +1,16 @@
 # Created By: Virgil Dupras
 # Created On: 2009-11-01
-# Copyright 2014 Hardcoded Software (http://www.hardcoded.net)
+# Copyright 2015 Hardcoded Software (http://www.hardcoded.net)
 # 
-# This software is licensed under the "BSD" License as described in the "LICENSE" file, 
+# This software is licensed under the "GPLv3" License as described in the "LICENSE" file, 
 # which should be included with this package. The terms are also available at 
-# http://www.hardcoded.net/licenses/bsd_license
+# http://www.gnu.org/licenses/gpl-3.0.html
 
 from PyQt4.QtCore import Qt, QAbstractTableModel, QModelIndex
 from PyQt4.QtGui import QItemSelectionModel, QItemSelection
 
 from .column import Columns
+
 
 class Table(QAbstractTableModel):
     # Flags you want when index.isValid() is False. In those cases, _getFlags() is never called.
@@ -22,6 +23,7 @@ class Table(QAbstractTableModel):
         self.view = view
         self.view.setModel(self)
         self.model.view = self
+
         if hasattr(self.model, 'columns'):
             self.columns = Columns(self.model.columns, self.COLUMNS, view.horizontalHeader())
         
@@ -51,6 +53,7 @@ class Table(QAbstractTableModel):
     #--- Data Model methods
     # Virtual
     def _getData(self, row, column, role):
+
         if role in (Qt.DisplayRole, Qt.EditRole):
             attrname = column.name
             return row.get_cell_value(attrname)
