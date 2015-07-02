@@ -13,21 +13,22 @@ from hscommon.util import tryint
 
 tr = trget('qtlib')
 
-LANGNAMES = {
-    'en': tr("English"),
-    'fr': tr("French"),
-    'de': tr("German"),
-    'zh_CN': tr("Chinese (Simplified)"),
-    'cs': tr("Czech"),
-    'it': tr("Italian"),
-    'hy': tr("Armenian"),
-    'ru': tr("Russian"),
-    'uk': tr("Ukrainian"),
-    'nl': tr('Dutch'),
-    'pt_BR': tr("Brazilian"),
-    'es': tr("Spanish"),
-    'vi': tr("Vietnamese"),
-}
+def get_langnames():
+    return {
+        'en': tr("English"),
+        'fr': tr("French"),
+        'de': tr("German"),
+        'zh_CN': tr("Chinese (Simplified)"),
+        'cs': tr("Czech"),
+        'it': tr("Italian"),
+        'hy': tr("Armenian"),
+        'ru': tr("Russian"),
+        'uk': tr("Ukrainian"),
+        'nl': tr('Dutch'),
+        'pt_BR': tr("Brazilian"),
+        'es': tr("Spanish"),
+        'vi': tr("Vietnamese"),
+    }
 
 def normalize_for_serialization(v):
     # QSettings doesn't consider set/tuple as "native" typs for serialization, so if we don't
