@@ -1,9 +1,9 @@
 # Created By: Virgil Dupras
 # Created On: 2009-05-09
 # Copyright 2015 Hardcoded Software (http://www.hardcoded.net)
-# 
-# This software is licensed under the "GPLv3" License as described in the "LICENSE" file, 
-# which should be included with this package. The terms are also available at 
+#
+# This software is licensed under the "GPLv3" License as described in the "LICENSE" file,
+# which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/gpl-3.0.html
 
 from PyQt5.QtCore import Qt, QCoreApplication
@@ -21,10 +21,10 @@ class AboutBox(QDialog):
         super().__init__(parent, flags, **kwargs)
         self.app = app
         self._setupUi()
-        
+
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
-    
+
     def _setupUi(self):
         self.setWindowTitle(tr("About {}").format(QCoreApplication.instance().applicationName()))
         self.resize(400, 190)
@@ -50,7 +50,7 @@ class AboutBox(QDialog):
         self.verticalLayout.addWidget(self.versionLabel)
         self.label_3 = QLabel(self)
         self.verticalLayout.addWidget(self.label_3)
-        self.label_3.setText(tr("Copyright Hardcoded Software 2014"))
+        self.label_3.setText(tr("Licensed under GPLv3"))
         self.label = QLabel(self)
         font = QFont()
         font.setWeight(75)
@@ -62,7 +62,7 @@ class AboutBox(QDialog):
         self.buttonBox.setStandardButtons(QDialogButtonBox.Ok)
         self.verticalLayout.addWidget(self.buttonBox)
         self.horizontalLayout.addLayout(self.verticalLayout)
-    
+
 
 if __name__ == '__main__':
     import sys
