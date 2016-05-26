@@ -9,40 +9,45 @@
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import QProgressDialog
 
-class ProgressWindow(QProgressDialog):
-    def __init__(self, parent, model, **kwargs):
-        flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
-        super().__init__('', "Cancel", 0, 100, parent, flags, **kwargs)
+class ProgressWindow:
+    def __init__(self, parent, model):
+        self._window = None
+        self.parent = parent
         self.model = model
         model.view = self
         # We don't have access to QProgressDialog's labels directly, so we se the model label's view
         # to self and we'll refresh them together.
         self.model.jobdesc_textfield.view = self
         self.model.progressdesc_textfield.view = self
-        self.setModal(True)
-        self.setAutoReset(False)
-        self.setAutoClose(False)
-        self._timer = QTimer(self)
-        self._timer.timeout.connect(self.model.pulse)
-    
+
     # --- Callbacks
     def refresh(self): # Labels
-        self.setWindowTitle(self.model.jobdesc_textfield.text)
-        self.setLabelText(self.model.progressdesc_textfield.text)
-    
+        if self._window is not None:
+            self._window.setWindowTitle(self.model.jobdesc_textfield.text)
+            self._window.setLabelText(self.model.progressdesc_textfield.text)
+
     def set_progress(self, last_progress):
-        self.setValue(last_progress)
-    
+        if self._window is not None:
+            self._window.setValue(last_progress)
+
     def show(self):
-        self.reset()
-        super().show()
-        self.canceled.connect(self.model.cancel)
+        flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
+        self._window = QProgressDialog('', "Cancel", 0, 100, self.parent, flags)
+        self._window.setModal(True)
+        self._window.setAutoReset(False)
+        self._window.setAutoClose(False)
+        self._timer = QTimer(self._window)
+        self._timer.timeout.connect(self.model.pulse)
+        self._window.show()
+        self._window.canceled.connect(self.model.cancel)
         self._timer.start(500)
-    
+
     def close(self):
         self._timer.stop()
         # For some weird reason, canceled() signal is sent upon close, whether the user canceled
         # or not. If we don't want a false cancellation, we have to disconnect it.
-        self.canceled.disconnect()
-        super().close()
-    
+        self._window.canceled.disconnect()
+        self._window.close()
+        self._window = None
+        del self._timer
+
