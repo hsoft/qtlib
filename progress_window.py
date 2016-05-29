@@ -1,9 +1,7 @@
-# Created By: Virgil Dupras
-# Created On: 2013-07-01
-# Copyright 2015 Hardcoded Software (http://www.hardcoded.net)
-# 
-# This software is licensed under the "GPLv3" License as described in the "LICENSE" file, 
-# which should be included with this package. The terms are also available at 
+# Copyright 2016 Hardcoded Software (http://www.hardcoded.net)
+#
+# This software is licensed under the "GPLv3" License as described in the "LICENSE" file,
+# which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/gpl-3.0.html
 
 from PyQt5.QtCore import Qt, QTimer
@@ -31,6 +29,7 @@ class ProgressWindow:
             self._window.setValue(last_progress)
 
     def show(self):
+        print('show')
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         self._window = QProgressDialog('', "Cancel", 0, 100, self.parent, flags)
         self._window.setModal(True)
@@ -43,11 +42,13 @@ class ProgressWindow:
         self._timer.start(500)
 
     def close(self):
+        print('close')
         self._timer.stop()
+        del self._timer
         # For some weird reason, canceled() signal is sent upon close, whether the user canceled
         # or not. If we don't want a false cancellation, we have to disconnect it.
         self._window.canceled.disconnect()
         self._window.close()
+        self._window.setParent(None)
         self._window = None
-        del self._timer
 
