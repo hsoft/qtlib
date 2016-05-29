@@ -29,7 +29,6 @@ class ProgressWindow:
             self._window.setValue(last_progress)
 
     def show(self):
-        print('show')
         flags = Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
         self._window = QProgressDialog('', "Cancel", 0, 100, self.parent, flags)
         self._window.setModal(True)
@@ -42,7 +41,6 @@ class ProgressWindow:
         self._timer.start(500)
 
     def close(self):
-        print('close')
         self._timer.stop()
         del self._timer
         # For some weird reason, canceled() signal is sent upon close, whether the user canceled
