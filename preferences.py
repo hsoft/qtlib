@@ -18,6 +18,7 @@ def get_langnames():
         'en': tr("English"),
         'fr': tr("French"),
         'de': tr("German"),
+        'el': tr("Greek"),
         'zh_CN': tr("Chinese (Simplified)"),
         'cs': tr("Czech"),
         'it': tr("Italian"),
