@@ -77,15 +77,11 @@ msgstr "Ισπανικά"
 msgid "Clear List"
 msgstr "Εκκαθάριση λίστας"
 
-#: qtlib/search_edit.py:41
+#: qtlib/search_edit.py:77
 msgid "Search..."
 msgstr "Αναζήτηση..."
 
-#: qtlib/about_box.py:53
-msgid "Copyright Hardcoded Software 2014"
-msgstr ""
-
-#: qtlib/preferences.py:29
+#: qtlib/preferences.py:33
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
@@ -100,8 +96,7 @@ msgid ""
 "Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application."
 msgstr ""
 "Οι αναφορές σφαλμάτων θα πρέπει να αναφέρονται ως θέματα προς επίλυση στο Github. Μπορείτε να αντιγράψετε την ακολουθία σφάλματος παραπάνω και να την επικολλήσετε σε ένα νέο θέμα (Καλό θα ήταν να εκτελέσετε μια αναζήτηση για να βεβαιωθείτε ότι το θέμα δεν υπάρχει ήδη). Αυτό που συνήθως βοηθά πραγματικά είναι αν προσθέσετε μια περιγραφή του πώς πήρατε το σφάλμα. Ευχαριστώ!\n"
-"Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application."
-"Παρά το γεγονός ότι η εφαρμογή θα συνεχίσει να εκτελείται μετά από αυτό το σφάλμα, μπορεί να είναι σε μια ασταθή κατάσταση, γι 'αυτό συνιστάται να κάνετε επανεκκίνηση της εφαρμογής."
+"Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application.Παρά το γεγονός ότι η εφαρμογή θα συνεχίσει να εκτελείται μετά από αυτό το σφάλμα, μπορεί να είναι σε μια ασταθή κατάσταση, γι 'αυτό συνιστάται να κάνετε επανεκκίνηση της εφαρμογής."
 
 #: qtlib/error_report_dialog.py:64
 msgid "Close"
@@ -110,3 +105,18 @@ msgstr "Κλείσιμο"
 #: qtlib/error_report_dialog.py:68
 msgid "Go to Github"
 msgstr "Επίσκεψη Github"
+
+#: qtlib/about_box.py:53
+msgid "Licensed under GPLv3"
+msgstr ""
+
+#: qtlib/preferences.py:26
+msgid "Korean"
+msgstr ""
+
+#: qtlib/preferences.py:30
+msgid "Polish"
+msgstr ""
+
+#~ msgid "Copyright Hardcoded Software 2014"
+#~ msgstr ""

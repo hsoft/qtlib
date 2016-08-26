@@ -21,51 +21,51 @@ msgstr "Versión {}"
 msgid "Error Report"
 msgstr "Informe de error"
 
-#: qtlib/preferences.py:17
+#: qtlib/preferences.py:18
 msgid "English"
 msgstr "Inglés"
 
-#: qtlib/preferences.py:18
+#: qtlib/preferences.py:19
 msgid "French"
 msgstr "Francés"
 
-#: qtlib/preferences.py:19
+#: qtlib/preferences.py:20
 msgid "German"
 msgstr "Alemán"
 
-#: qtlib/preferences.py:20
+#: qtlib/preferences.py:22
 msgid "Chinese (Simplified)"
 msgstr "Chino (simplificado)"
 
-#: qtlib/preferences.py:21
+#: qtlib/preferences.py:23
 msgid "Czech"
 msgstr "Checo"
 
-#: qtlib/preferences.py:22
+#: qtlib/preferences.py:24
 msgid "Italian"
 msgstr "Italiano"
 
-#: qtlib/preferences.py:23
+#: qtlib/preferences.py:25
 msgid "Armenian"
 msgstr "Armenio"
 
-#: qtlib/preferences.py:24
+#: qtlib/preferences.py:27
 msgid "Russian"
 msgstr "Ruso"
 
-#: qtlib/preferences.py:25
+#: qtlib/preferences.py:28
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: qtlib/preferences.py:26
+#: qtlib/preferences.py:29
 msgid "Dutch"
 msgstr "Holandés"
 
-#: qtlib/preferences.py:27
+#: qtlib/preferences.py:31
 msgid "Brazilian"
 msgstr "Brasileño"
 
-#: qtlib/preferences.py:28
+#: qtlib/preferences.py:32
 msgid "Spanish"
 msgstr "Español"
 
@@ -73,15 +73,11 @@ msgstr "Español"
 msgid "Clear List"
 msgstr "Limpiar lista"
 
-#: qtlib/search_edit.py:41
+#: qtlib/search_edit.py:77
 msgid "Search..."
 msgstr "Búsqueda..."
 
-#: qtlib/about_box.py:53
-msgid "Copyright Hardcoded Software 2014"
-msgstr ""
-
-#: qtlib/preferences.py:29
+#: qtlib/preferences.py:33
 msgid "Vietnamese"
 msgstr ""
 
@@ -103,3 +99,22 @@ msgstr ""
 #: qtlib/error_report_dialog.py:68
 msgid "Go to Github"
 msgstr ""
+
+#: qtlib/about_box.py:53
+msgid "Licensed under GPLv3"
+msgstr ""
+
+#: qtlib/preferences.py:21
+msgid "Greek"
+msgstr ""
+
+#: qtlib/preferences.py:26
+msgid "Korean"
+msgstr ""
+
+#: qtlib/preferences.py:30
+msgid "Polish"
+msgstr ""
+
+#~ msgid "Copyright Hardcoded Software 2014"
+#~ msgstr ""
