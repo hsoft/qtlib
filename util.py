@@ -83,7 +83,7 @@ class SysWrapper(io.IOBase):
         if s.strip(): # don't log empty stuff
             logging.warning(s)
 
-def setupQtLogging(level=logging.WARNING):
+def setupQtLogging(level=logging.WARNING, log_to_stdout=False):
     # Under Qt, we log in "debug.log" in appdata. Moreover, when under cx_freeze, we have a
     # problem because sys.stdout and sys.stderr are None, so we need to replace them with a
     # wrapper that logs with the logging module.
@@ -91,8 +91,11 @@ def setupQtLogging(level=logging.WARNING):
     if not op.exists(appdata):
         os.makedirs(appdata)
     # For basicConfig() to work, we have to be sure that no logging has taken place before this call.
-    logging.basicConfig(filename=op.join(appdata, 'debug.log'), level=level,
-        format='%(asctime)s - %(levelname)s - %(message)s')
+    filename = op.join(appdata, 'debug.log') if not log_to_stdout else None
+    logging.basicConfig(
+        filename=filename, level=level,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
     if sys.stderr is None: # happens under a cx_freeze environment
         sys.stderr = SysWrapper()
     if sys.stdout is None:
