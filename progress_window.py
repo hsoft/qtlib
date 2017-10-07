@@ -41,12 +41,15 @@ class ProgressWindow:
         self._timer.start(500)
 
     def close(self):
-        self._timer.stop()
-        del self._timer
-        # For some weird reason, canceled() signal is sent upon close, whether the user canceled
-        # or not. If we don't want a false cancellation, we have to disconnect it.
-        self._window.canceled.disconnect()
-        self._window.close()
-        self._window.setParent(None)
-        self._window = None
+        # it seems it is possible for close to be called without a corresponding
+        # show, only perform a close if there is a window to close
+        if self._window is not None:
+            self._timer.stop()
+            del self._timer
+            # For some weird reason, canceled() signal is sent upon close, whether the user canceled
+            # or not. If we don't want a false cancellation, we have to disconnect it.
+            self._window.canceled.disconnect()
+            self._window.close()
+            self._window.setParent(None)
+            self._window = None
 
