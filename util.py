@@ -90,12 +90,14 @@ def setupQtLogging(level=logging.WARNING, log_to_stdout=False):
     appdata = getAppData()
     if not op.exists(appdata):
         os.makedirs(appdata)
-    # For basicConfig() to work, we have to be sure that no logging has taken place before this call.
+    # Setup logging    
+    # Have to use full configuration over basicConfig as FileHandler encoding was not being set.
     filename = op.join(appdata, 'debug.log') if not log_to_stdout else None
-    logging.basicConfig(
-        filename=filename, level=level,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
+    log = logging.getLogger()
+    handler = logging.FileHandler(filename, 'a', 'utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    log.addHandler(handler)
     if sys.stderr is None: # happens under a cx_freeze environment
         sys.stderr = SysWrapper()
     if sys.stdout is None:
