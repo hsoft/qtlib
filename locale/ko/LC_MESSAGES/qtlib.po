@@ -5,9 +5,9 @@ msgstr ""
 "PO-Revision-Date: 2015-07-20 16:42+0000\n"
 "Last-Translator: Virgil Dupras <hsoft@hardcoded.net>\n"
 "Language-Team: Korean (http://www.transifex.com/p/hscommon/language/ko/)\n"
+"Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: qtlib/about_box.py:29
@@ -16,6 +16,10 @@ msgstr ""
 
 #: qtlib/about_box.py:49
 msgid "Version {}"
+msgstr ""
+
+#: qtlib/about_box.py:53
+msgid "Licensed under GPLv3"
 msgstr ""
 
 #: qtlib/error_report_dialog.py:39
@@ -57,6 +61,10 @@ msgstr ""
 msgid "German"
 msgstr ""
 
+#: qtlib/preferences.py:21
+msgid "Greek"
+msgstr ""
+
 #: qtlib/preferences.py:22
 msgid "Chinese (Simplified)"
 msgstr ""
@@ -73,6 +81,10 @@ msgstr ""
 msgid "Armenian"
 msgstr ""
 
+#: qtlib/preferences.py:26
+msgid "Korean"
+msgstr ""
+
 #: qtlib/preferences.py:27
 msgid "Russian"
 msgstr ""
@@ -83,6 +95,10 @@ msgstr ""
 
 #: qtlib/preferences.py:29
 msgid "Dutch"
+msgstr ""
+
+#: qtlib/preferences.py:30
+msgid "Polish"
 msgstr ""
 
 #: qtlib/preferences.py:31
@@ -103,20 +119,4 @@ msgstr ""
 
 #: qtlib/search_edit.py:77
 msgid "Search..."
-msgstr ""
-
-#: qtlib/about_box.py:53
-msgid "Licensed under GPLv3"
-msgstr ""
-
-#: qtlib/preferences.py:21
-msgid "Greek"
-msgstr ""
-
-#: qtlib/preferences.py:26
-msgid "Korean"
-msgstr ""
-
-#: qtlib/preferences.py:30
-msgid "Polish"
 msgstr ""

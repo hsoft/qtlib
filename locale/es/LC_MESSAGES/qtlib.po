@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: hscommon\n"
 "PO-Revision-Date: 2013-04-28 18:31+0000\n"
 "Last-Translator: hsoft <hsoft@hardcoded.net>\n"
+"Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: qtlib/about_box.py:29
@@ -17,69 +17,13 @@ msgstr "Acerca de {}"
 msgid "Version {}"
 msgstr "Versión {}"
 
+#: qtlib/about_box.py:53
+msgid "Licensed under GPLv3"
+msgstr ""
+
 #: qtlib/error_report_dialog.py:39
 msgid "Error Report"
 msgstr "Informe de error"
-
-#: qtlib/preferences.py:18
-msgid "English"
-msgstr "Inglés"
-
-#: qtlib/preferences.py:19
-msgid "French"
-msgstr "Francés"
-
-#: qtlib/preferences.py:20
-msgid "German"
-msgstr "Alemán"
-
-#: qtlib/preferences.py:22
-msgid "Chinese (Simplified)"
-msgstr "Chino (simplificado)"
-
-#: qtlib/preferences.py:23
-msgid "Czech"
-msgstr "Checo"
-
-#: qtlib/preferences.py:24
-msgid "Italian"
-msgstr "Italiano"
-
-#: qtlib/preferences.py:25
-msgid "Armenian"
-msgstr "Armenio"
-
-#: qtlib/preferences.py:27
-msgid "Russian"
-msgstr "Ruso"
-
-#: qtlib/preferences.py:28
-msgid "Ukrainian"
-msgstr "Ucraniano"
-
-#: qtlib/preferences.py:29
-msgid "Dutch"
-msgstr "Holandés"
-
-#: qtlib/preferences.py:31
-msgid "Brazilian"
-msgstr "Brasileño"
-
-#: qtlib/preferences.py:32
-msgid "Spanish"
-msgstr "Español"
-
-#: qtlib/recent.py:53
-msgid "Clear List"
-msgstr "Limpiar lista"
-
-#: qtlib/search_edit.py:77
-msgid "Search..."
-msgstr "Búsqueda..."
-
-#: qtlib/preferences.py:33
-msgid "Vietnamese"
-msgstr ""
 
 #: qtlib/error_report_dialog.py:43
 msgid "Something went wrong. How about reporting the error?"
@@ -104,18 +48,74 @@ msgstr ""
 msgid "Go to Github"
 msgstr ""
 
-#: qtlib/about_box.py:53
-msgid "Licensed under GPLv3"
-msgstr ""
+#: qtlib/preferences.py:18
+msgid "English"
+msgstr "Inglés"
+
+#: qtlib/preferences.py:19
+msgid "French"
+msgstr "Francés"
+
+#: qtlib/preferences.py:20
+msgid "German"
+msgstr "Alemán"
 
 #: qtlib/preferences.py:21
 msgid "Greek"
 msgstr ""
 
+#: qtlib/preferences.py:22
+msgid "Chinese (Simplified)"
+msgstr "Chino (simplificado)"
+
+#: qtlib/preferences.py:23
+msgid "Czech"
+msgstr "Checo"
+
+#: qtlib/preferences.py:24
+msgid "Italian"
+msgstr "Italiano"
+
+#: qtlib/preferences.py:25
+msgid "Armenian"
+msgstr "Armenio"
+
 #: qtlib/preferences.py:26
 msgid "Korean"
 msgstr ""
 
+#: qtlib/preferences.py:27
+msgid "Russian"
+msgstr "Ruso"
+
+#: qtlib/preferences.py:28
+msgid "Ukrainian"
+msgstr "Ucraniano"
+
+#: qtlib/preferences.py:29
+msgid "Dutch"
+msgstr "Holandés"
+
 #: qtlib/preferences.py:30
 msgid "Polish"
 msgstr ""
+
+#: qtlib/preferences.py:31
+msgid "Brazilian"
+msgstr "Brasileño"
+
+#: qtlib/preferences.py:32
+msgid "Spanish"
+msgstr "Español"
+
+#: qtlib/preferences.py:33
+msgid "Vietnamese"
+msgstr ""
+
+#: qtlib/recent.py:53
+msgid "Clear List"
+msgstr "Limpiar lista"
+
+#: qtlib/search_edit.py:77
+msgid "Search..."
+msgstr "Búsqueda..."
