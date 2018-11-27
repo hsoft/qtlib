@@ -1,4 +1,4 @@
-# 
+#
 # Translators:
 # Victor Figueiredo <contact@brlingo.com>, 2013-2014
 msgid ""
@@ -6,7 +6,8 @@ msgstr ""
 "Project-Id-Version: hscommon\n"
 "PO-Revision-Date: 2014-04-30 18:58+0000\n"
 "Last-Translator: Victor Figueiredo <contact@brlingo.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/hsoft/hscommon/language/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/hsoft/hscommon/"
+"language/pt_BR/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 "Language: pt_BR\n"
@@ -34,10 +35,21 @@ msgstr "Algo deu errado. Deseja relatar o erro?"
 
 #: qtlib/error_report_dialog.py:49
 msgid ""
-"Error reports should be reported as Github issues. You can copy the error traceback above and paste it in a new issue (bonus point if you run a search to make sure the issue doesn't already exist). What usually really helps is if you add a description of how you got the error. Thanks!\n"
+"Error reports should be reported as Github issues. You can copy the error "
+"traceback above and paste it in a new issue (bonus point if you run a search "
+"to make sure the issue doesn't already exist). What usually really helps is "
+"if you add a description of how you got the error. Thanks!\n"
 "\n"
-"Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application."
-msgstr "Os erros devem ser relatados como problemas no Github. Copie o código de rastreamento acima e cole-o em um problema novo (pontos bônus caso você busque o erro, certificando-se de que ele ainda não exista). O que mais ajuda é adicionar uma descrição de como o erro ocorreu. Obrigado!\n\nEmbora o aplicativo continue a funcionar após esse erro, ele pode estar “instável”. É recomendável reiniciá-lo."
+"Although the application should continue to run after this error, it may be "
+"in an unstable state, so it is recommended that you restart the application."
+msgstr ""
+"Os erros devem ser relatados como problemas no Github. Copie o código de "
+"rastreamento acima e cole-o em um problema novo (pontos bônus caso você "
+"busque o erro, certificando-se de que ele ainda não exista). O que mais "
+"ajuda é adicionar uma descrição de como o erro ocorreu. Obrigado!\n"
+"\n"
+"Embora o aplicativo continue a funcionar após esse erro, ele pode estar "
+"“instável”. É recomendável reiniciá-lo."
 
 #: qtlib/error_report_dialog.py:64
 msgid "Close"

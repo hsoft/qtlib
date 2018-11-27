@@ -7,7 +7,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 "Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: qtlib/about_box.py:29
 msgid "About {}"
@@ -87,9 +88,13 @@ msgstr ""
 
 #: qtlib/error_report_dialog.py:49
 msgid ""
-"Error reports should be reported as Github issues. You can copy the error traceback above and paste it in a new issue (bonus point if you run a search to make sure the issue doesn't already exist). What usually really helps is if you add a description of how you got the error. Thanks!\n"
+"Error reports should be reported as Github issues. You can copy the error "
+"traceback above and paste it in a new issue (bonus point if you run a search "
+"to make sure the issue doesn't already exist). What usually really helps is "
+"if you add a description of how you got the error. Thanks!\n"
 "\n"
-"Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application."
+"Although the application should continue to run after this error, it may be "
+"in an unstable state, so it is recommended that you restart the application."
 msgstr ""
 
 #: qtlib/error_report_dialog.py:64

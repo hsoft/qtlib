@@ -4,7 +4,8 @@ msgstr ""
 "Project-Id-Version: hscommon\n"
 "PO-Revision-Date: 2013-07-05 11:23+0000\n"
 "Last-Translator: hsoft <hsoft@hardcoded.net>\n"
-"Language-Team: Vietnamese (http://www.transifex.com/projects/p/hscommon/language/vi/)\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/hscommon/"
+"language/vi/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 "Language: vi\n"
@@ -88,9 +89,13 @@ msgstr ""
 
 #: qtlib/error_report_dialog.py:49
 msgid ""
-"Error reports should be reported as Github issues. You can copy the error traceback above and paste it in a new issue (bonus point if you run a search to make sure the issue doesn't already exist). What usually really helps is if you add a description of how you got the error. Thanks!\n"
+"Error reports should be reported as Github issues. You can copy the error "
+"traceback above and paste it in a new issue (bonus point if you run a search "
+"to make sure the issue doesn't already exist). What usually really helps is "
+"if you add a description of how you got the error. Thanks!\n"
 "\n"
-"Although the application should continue to run after this error, it may be in an unstable state, so it is recommended that you restart the application."
+"Although the application should continue to run after this error, it may be "
+"in an unstable state, so it is recommended that you restart the application."
 msgstr ""
 
 #: qtlib/error_report_dialog.py:64
@@ -116,6 +121,3 @@ msgstr ""
 #: qtlib/preferences.py:30
 msgid "Polish"
 msgstr ""
-
-#~ msgid "Copyright Hardcoded Software 2014"
-#~ msgstr ""
